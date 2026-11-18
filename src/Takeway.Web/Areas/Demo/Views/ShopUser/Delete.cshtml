@@ -1,0 +1,15 @@
+﻿
+
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Admin.ShopUserViewModel
+@{
+    ViewBag.Title = "Delete User";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+
+<h2>Delete</h2>
+<p>
+    @Html.ActionLink("Back", "List")
+</p>
+<div class="row">
+    @ViewBag.ErrorMessage
+</div>

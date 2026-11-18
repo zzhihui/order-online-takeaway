@@ -1,0 +1,62 @@
+﻿body {
+    background: white;
+    font-size: 12pt;
+}
+
+.container {
+    width: 300px;
+}
+
+
+.col-xs-3 {
+    width: 90px;
+    float: left;
+}
+
+#printButton {
+    display: none;
+}
+
+#Header, #Footer {
+    display: none !important;
+}
+
+@page {
+    size: auto; /* auto is the current printer page size */
+    margin: 0mm; /* this affects the margin in the printer settings */
+}
+
+.center {
+    text-align: center;
+}
+
+.footer {
+    display: none;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.right {
+    text-align: right;
+   
+}
+
+
+.dothr {
+  border:none;
+  border-top:1px dotted #f00;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+  
+}

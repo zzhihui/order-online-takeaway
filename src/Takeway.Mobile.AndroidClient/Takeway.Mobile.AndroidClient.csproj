@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC31F65E-B84C-4042-873F-17A81CD7B972}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeway.Mobile.AndroidClient</RootNamespace>
+    <AssemblyName>Takeway.Mobile.AndroidClient</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>..\Exlib\client.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>indasoft.ie</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>takeawayclient</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>indasoft.ie</AndroidSigningKeyPass>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CoreLib|AnyCPU'">
+    <OutputPath>bin\CoreLib\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Chance.MvvmCross.Plugins.UserInteraction.Droid">
+      <HintPath>..\packages\Chance.MvvmCross.Plugins.UserInteraction.1.1.2\lib\MonoAndroid\Chance.MvvmCross.Plugins.UserInteraction.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.CrossCore.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Binding.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.DownloadCache.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.DownloadCache.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.DownloadCache.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Email">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Email.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Email.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Email.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Email.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Email.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.File.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Sqlite.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Sqlite.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Sqlite.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Visibility">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Visibility.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Visibility.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.WebBrowser.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\Exlib\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\Exlib\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Chance.MvvmCross.Plugins.UserInteraction">
+      <HintPath>..\packages\Chance.MvvmCross.Plugins.UserInteraction.1.1.2\lib\MonoAndroid\Chance.MvvmCross.Plugins.UserInteraction.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>..\packages\MvvmCross.PortableSupport.3.1.1\lib\MonoAndroid\System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows">
+      <HintPath>..\packages\MvvmCross.PortableSupport.3.1.1\lib\MonoAndroid\System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization">
+      <HintPath>..\packages\MvvmCross.PortableSupport.3.1.1\lib\MonoAndroid\System.Xml.Serialization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\EmailPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\UserInteractionPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\WebBrowserPluginBootstrap.cs" />
+    <Compile Include="Controls\BindableWebView.cs" />
+    <Compile Include="DebugTrace.cs" />
+    <Compile Include="Error\ErrorDisplayer.cs" />
+    <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TakeawayNotificationReceiver.cs" />
+    <Compile Include="Services\TakeawayService.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="SplashScreen.cs" />
+    <Compile Include="Utils\ImageHelper.cs" />
+    <Compile Include="Views\AboutUsView.cs" />
+    <Compile Include="Views\BasketView.cs" />
+    <Compile Include="Views\BindableProgress.cs" />
+    <Compile Include="Views\CategoryItemSubItemView.cs" />
+    <Compile Include="Views\CategoryItemView.cs" />
+    <Compile Include="Views\DeliveryAreaView.cs" />
+    <Compile Include="Views\HelpView.cs" />
+    <Compile Include="Views\HomeView.cs" />
+    <Compile Include="Views\MainView.cs" />
+    <Compile Include="Views\PaymentView.cs" />
+    <Compile Include="Views\SettingView.cs" />
+    <Compile Include="Views\SubmitOrderView.cs" />
+    <Compile Include="Views\ViewBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
+    <AndroidResource Include="Resources\Layout\Home.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Basket.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\CategoryItemSubItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\CategoryItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Help.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Main.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SubmitOrder.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\main_menu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ShopNewslistview.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\MenuItemCategoryListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\CategoryItemsListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BasketItemsListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ItemSpinner.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ItemSpinnerDropdown.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\RecentOrderlistview.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Aboutus.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Setting.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\_HeadMessageControl.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\DeliveryArea.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Payment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\Values\SplashStyle.xml" />
+    <AndroidResource Include="Resources\Values\MvxBindingAttributes.xml" />
+    <AndroidResource Include="Resources\Drawable\splash.png" />
+    <AndroidResource Include="Resources\Drawable\apptheme_activated_background_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_btn_check_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_btn_default_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_btn_radio_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_btn_toggle_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_edit_text_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_fastscroll_thumb_holo.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_item_background_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_list_selector_background_transition_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_list_selector_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_progress_horizontal_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_progress_indeterminate_horizontal_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_ratingbar_full_empty_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_ratingbar_full_filled_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_ratingbar_full_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_ratingbar_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_ratingbar_small_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_scrubber_control_selector_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_scrubber_progress_horizontal_holo_light.xml" />
+    <AndroidResource Include="Resources\Drawable\apptheme_spinner_background_holo_light.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_check_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_default_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_default_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_default_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_default_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_default_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_radio_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_rating_star_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_rating_star_off_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_rating_star_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_rating_star_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_rating_star_on_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_rating_star_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_off_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_off_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_off_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_off_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_off_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_on_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_on_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_on_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_on_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_btn_toggle_on_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_fastscroll_thumb_default_holo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_fastscroll_thumb_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_list_activated_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_list_focused_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_list_longpressed_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_list_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_list_selector_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progress_bg_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progress_primary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progress_secondary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo3.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo4.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo5.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo6.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo7.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_progressbar_indeterminate_holo8.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_rate_star_big_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_rate_star_big_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_rate_star_big_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_rate_star_small_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_rate_star_small_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_rate_star_small_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_control_disabled_holo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_control_focused_holo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_control_normal_holo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_control_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_primary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_secondary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_scrubber_track_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_spinner_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_spinner_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_spinner_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_spinner_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_text_select_handle_left.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_text_select_handle_middle.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_text_select_handle_right.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_textfield_activated_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_textfield_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_textfield_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_textfield_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\apptheme_textfield_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_basket.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_call.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_chat.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_more.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_person.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sms.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_check_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_default_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_default_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_default_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_default_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_default_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_radio_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_rating_star_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_rating_star_off_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_rating_star_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_rating_star_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_rating_star_on_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_rating_star_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_off_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_off_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_off_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_off_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_off_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_on_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_on_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_on_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_on_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_btn_toggle_on_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_fastscroll_thumb_default_holo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_fastscroll_thumb_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_list_activated_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_list_focused_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_list_longpressed_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_list_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_list_selector_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progress_bg_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progress_primary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progress_secondary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo1.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo2.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo3.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo4.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo5.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo6.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo7.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_progressbar_indeterminate_holo8.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_rate_star_big_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_rate_star_big_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_rate_star_big_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_rate_star_small_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_rate_star_small_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_rate_star_small_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_control_disabled_holo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_control_focused_holo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_control_normal_holo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_control_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_primary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_secondary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_scrubber_track_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_spinner_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_spinner_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_spinner_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_spinner_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_text_select_handle_left.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_text_select_handle_middle.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_text_select_handle_right.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_textfield_activated_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_textfield_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_textfield_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_textfield_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\apptheme_textfield_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_basket.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_call.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_chat.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_more.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_person.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sms.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_check_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_default_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_default_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_default_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_default_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_default_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_radio_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_rating_star_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_rating_star_off_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_rating_star_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_rating_star_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_rating_star_on_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_rating_star_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_off_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_off_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_off_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_off_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_off_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_on_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_on_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_on_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_on_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_btn_toggle_on_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_fastscroll_thumb_default_holo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_fastscroll_thumb_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_list_activated_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_list_focused_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_list_longpressed_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_list_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_list_selector_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progress_bg_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progress_primary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progress_secondary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo3.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo4.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo5.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo6.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo7.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_progressbar_indeterminate_holo8.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_rate_star_big_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_rate_star_big_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_rate_star_big_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_rate_star_small_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_rate_star_small_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_rate_star_small_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_control_disabled_holo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_control_focused_holo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_control_normal_holo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_control_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_primary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_secondary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_scrubber_track_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_spinner_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_spinner_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_spinner_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_spinner_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_text_select_handle_left.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_text_select_handle_middle.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_text_select_handle_right.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_textfield_activated_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_textfield_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_textfield_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_textfield_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\apptheme_textfield_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_basket.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_call.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_chat.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_more.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_person.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sms.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_check_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_default_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_default_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_default_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_default_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_default_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_off_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_on_disabled_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_radio_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_rating_star_off_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_rating_star_off_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_rating_star_off_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_rating_star_on_focused_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_rating_star_on_normal_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_rating_star_on_pressed_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_off_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_off_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_off_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_off_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_off_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_on_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_on_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_on_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_on_normal_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_btn_toggle_on_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_fastscroll_thumb_default_holo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_fastscroll_thumb_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_list_activated_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_list_focused_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_list_longpressed_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_list_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_list_selector_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progress_bg_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progress_primary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progress_secondary_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo3.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo4.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo5.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo6.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo7.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_progressbar_indeterminate_holo8.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_rate_star_big_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_rate_star_big_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_rate_star_big_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_rate_star_small_half_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_rate_star_small_off_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_rate_star_small_on_holo_light.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_control_disabled_holo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_control_focused_holo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_control_normal_holo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_control_pressed_holo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_primary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_secondary_holo.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_scrubber_track_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_spinner_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_spinner_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_spinner_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_spinner_pressed_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_text_select_handle_left.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_text_select_handle_middle.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_text_select_handle_right.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_textfield_activated_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_textfield_default_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_textfield_disabled_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_textfield_disabled_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\apptheme_textfield_focused_holo_light.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_basket.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_call.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_chat.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_more.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_person.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sms.png" />
+    <AndroidResource Include="Resources\Values\colors_apptheme.xml" />
+    <AndroidResource Include="Resources\Values\styles_apptheme.xml" />
+    <AndroidResource Include="Resources\Values\themes_apptheme.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values-hdpi\styles.xml" />
+    <AndroidResource Include="Resources\values-mdpi\styles.xml" />
+    <AndroidResource Include="Resources\values-v11\styles_apptheme.xml" />
+    <AndroidResource Include="Resources\values-v11\themes_apptheme.xml" />
+    <AndroidResource Include="Resources\values-v9\themes_apptheme.xml" />
+    <AndroidResource Include="Resources\values-xhdpi\styles.xml" />
+    <AndroidResource Include="Resources\values-xxhdpi\styles.xml" />
+    <AndroidResource Include="Resources\Drawable\ic_basket.png" />
+    <AndroidResource Include="Resources\Drawable\ic_call.png" />
+    <AndroidResource Include="Resources\Drawable\ic_chat.png" />
+    <AndroidResource Include="Resources\Drawable\ic_help.png" />
+    <AndroidResource Include="Resources\Drawable\ic_more.png" />
+    <AndroidResource Include="Resources\Drawable\ic_person.png" />
+    <AndroidResource Include="Resources\Drawable\ic_settings.png" />
+    <AndroidResource Include="Resources\Drawable\ic_sms.png" />
+    <AndroidResource Include="Resources\Drawable\ic_shop_logo.png" />
+    <AndroidResource Include="Resources\Drawable\ic_closed.png" />
+    <AndroidResource Include="Resources\Drawable\ic_open.png" />
+    <AndroidResource Include="Resources\Drawable\ic_intro_step1.png" />
+    <AndroidResource Include="Resources\Drawable\ic_intro_step2.png" />
+    <AndroidResource Include="Resources\Drawable\ic_intro_step3.png" />
+    <AndroidResource Include="Resources\Drawable\QR.png" />
+    <AndroidResource Include="Resources\Drawable\add.png" />
+    <AndroidResource Include="Resources\Drawable\food.png" />
+    <AndroidResource Include="Resources\Drawable\foodcategory.png" />
+    <AndroidResource Include="Resources\Drawable\remove.png" />
+    <AndroidResource Include="Resources\Drawable\ic_home.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_home.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_home.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_home.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_home.png" />
+    <AndroidResource Include="Resources\Drawable\logotext.png" />
+    <AndroidResource Include="Resources\Drawable\Icon_notification.png" />
+    <AndroidResource Include="Resources\Drawable\ic_about.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_about.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_about.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_about.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_about.png" />
+    <AndroidResource Include="Resources\Drawable\IndaSoftIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout-hdpi\" />
+    <Folder Include="Resources\layout-mdpi\" />
+    <Folder Include="Resources\layout-xhdpi\" />
+    <Folder Include="Resources\layout-xxhdpi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Takeaway.Service.Contract\Takeaway.Service.Contract.csproj">
+      <Project>{3E991F3B-B614-44F4-9D53-439A06D12EC9}</Project>
+      <Name>Takeaway.Service.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeway.Mobile.Core\Takeway.Mobile.Core.csproj">
+      <Project>{ea4f8653-62a4-4793-9e3b-6167bd6dca48}</Project>
+      <Name>Takeway.Mobile.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

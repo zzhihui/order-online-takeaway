@@ -1,0 +1,73 @@
+﻿@using Takeway.Web.Application.Extension
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="@Html.Content("Style.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*TODO:Localisation*@
+                @Html.ActionLink("Demo", "Index", "Admin",null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*TODO:Localisation*@
+                    <li>@Html.ActionLink("Report", "Index", "Report")</li>
+                    <li>@Html.ActionLink("Manage Shop User", "Index", "ShopUser")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Manage Food <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Manage Category", "Index", "Category")</li>
+                            <li>@Html.ActionLink("Manage Dish", "Index", "MenuItem")</li>
+                            <li>@Html.ActionLink("Manage Selection", "Index", "SubItem")</li>
+                            <li>@Html.ActionLink("Manage Extra", "Index", "OptionItem")</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Manage Options <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Manage Delivery Costs", "Index", "DeliveryCost")</li>
+                            <li>@Html.ActionLink("Manage Shop News", "Index", "ShopNews")</li>
+                            <li>@Html.ActionLink("Manage Settings", "Index", "ServerSetting")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Online DashBoard", "Index", "OnlineDash")</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div id="spinner" style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001; opacity: .8; filter: alpha(opacity=70);display:none">
+            <p style="position: absolute; top: 30%; left: 45%; color: White;">
+                loading...<img src="@Url.Content("~/Content/loading.gif")" style="width:100px; height:100px;">
+            </p>
+        </div>
+        @RenderBody()
+        <hr />
+        <footer>
+            @Html.Partial(Html.Shared("_Footer.cshtml"))
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

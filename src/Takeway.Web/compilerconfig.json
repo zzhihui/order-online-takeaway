@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Areas/J2D1/Content/Client/js/jquery.easing.es5.js",
+    "inputFile": "Areas/J2D1/Content/Client/js/jquery.easing.js"
+  },
+  {
+    "outputFile": "Areas/J2D1/Content/Client/js/jquery.parallax-1.1.3.es5.js",
+    "inputFile": "Areas/J2D1/Content/Client/js/jquery.parallax-1.1.3.js"
+  }
+]

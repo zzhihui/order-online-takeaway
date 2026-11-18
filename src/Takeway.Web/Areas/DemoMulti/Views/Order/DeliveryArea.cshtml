@@ -1,0 +1,57 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Order.DeliveryAreaViewModel
+@{
+    Layout = @Html.Shared("_Layout.cshtml");
+}
+
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <h2>Delivery Area</h2>
+            <div class="row">
+                <table class="table text-left">
+                    <thead>
+                        <tr>
+                            <th>Area:</th>
+                            <th>Min Order:</th>
+                            <th>Delivery Cost:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var entry in Model.DeliveryAreas)
+            {
+                            <tr>
+                                <td>@entry.Area</td>
+                                <td>
+                                    @if (entry.MinOrder == null)
+                                    {
+                                        @Html.Raw("No minimum")
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(entry.MinOrder.ToPriceStringIe())
+                                    }
+                                </td>
+                                <td>
+                                    @if (entry.DeliveryCost == null)
+                                    {
+                                        @Html.Raw("Free")
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(entry.DeliveryCost.ToPriceStringIe())
+                                    }
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</header>

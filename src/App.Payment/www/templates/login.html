@@ -1,0 +1,21 @@
+﻿<ion-view view-title="Login">
+    <ion-content class="padding">
+        <form name="submitOrderForm" novalidate="">
+            <!--Orde summary-->
+            <div class="item item-divider">Administrator Login</div>
+            
+            <!--Password-->
+            <label class="item item-input" ng-class="{ 'has-errors' : submitOrderForm.password.$invalid, 'no-errors' : submitOrderForm.password.$valid}">
+                <input type="password" name="password" placeholder="Password" required ng-model="vm.password" ng-minlength="3" maxlength="50">
+            </label>
+            <div class="item item-divider item-text-wrap">
+                <h2 style="color: red">{{error}}</h2>
+            </div>
+            <button class="button button-block button-assertive" ng-click="loginUser()" ng-disabled="!submitOrderForm.$valid">
+                Login
+            </button>
+
+           
+        </form>
+    </ion-content>
+</ion-view>

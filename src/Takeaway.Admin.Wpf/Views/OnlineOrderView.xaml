@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Takeaway.Admin.Wpf.Views.OnlineOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Takeaway.Admin.Wpf.Views"
+     
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:OrderIdConverter x:Key="OrderIdConverter" />
+        <converters:PriceConverter x:Key="PriceConverter" />
+        <converters:PaymentRefConverter x:Key="PaymentRefConverter" />
+        <converters:DateTimeConverter x:Key="DateTimeConverter" />
+        <converters:ColorIntConverter x:Key="ColorIntConverter" />
+
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Vertical">
+                    <Setter Property="Width" Value="30"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Button" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="ButtonSpecial" TargetType="Button">
+            <Setter Property="Background" Value="DarkOrange" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+        <Style x:Key="LabelLarge" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+    </UserControl.Resources>
+    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" BusyContent="Please Wait...." >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="200*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <views:_ErrorMessage  Grid.Row="0"/>
+            <views:_OrderListControl Grid.Row="3"   Grid.Column="0"/>
+            <views:_SearchOrderControl  Grid.Row="0"   Grid.Column="0"  Grid.RowSpan="2"/>
+            <views:_DriverOrderCalculator  Grid.Row="0"  Grid.Column="1" Grid.RowSpan="4"/>
+
+
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

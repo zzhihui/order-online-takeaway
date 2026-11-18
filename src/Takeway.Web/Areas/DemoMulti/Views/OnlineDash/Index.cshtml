@@ -1,0 +1,99 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.OnlineDash.OnlineDashViewModel
+@{
+    ViewBag.Title = "Online Order DashBoard";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<div class="row well text-info">
+    <form id="submitform" class="form-horizontal" method="post">
+        <fieldset>
+            @Html.AntiForgeryToken()
+            <div class="col-md-12">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        @Html.ActionLink("Back to Main", "Index", "Admin", null, new { @class = "btn btn-primary" })
+                    </div>
+
+                    <div class="list-group-item">
+                        @if (Model.ShopInfo.IsOpen.HasValue && Model.ShopInfo.IsOpen.Value)
+                        {
+                            <img src="~/Content/icOpen.png" class="img-rounded" alt="Rounded Image" width="50" height="50">
+                        }
+                        else
+                        {
+                            <img src="~/Content/icClosed.png" class="img-rounded" alt="Rounded Image" width="50" height="50">
+                        }
+                        <h4>Shop Open @Html.CheckBoxFor(m => m.IsOpen)</h4>
+                        @Html.HiddenFor(m => m.ShopInfo.IsOpenByOwner)
+                        <button type="submit" class="btn btn-primary">Update Shop</button>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                REF
+                            </th>
+                            <th>
+                                CONTACT NAME
+                            </th>
+                            <th>
+                                PHONE NUMBER
+                            </th>
+                            <th>
+                                ADDRESS
+                            </th>
+                            <th>
+                                DELIVERY TYPE
+                            </th>
+                            <th>
+                                ORDER TOTAL
+                            </th>
+                            <th>
+                                ORDER TIME
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
+
+                        </tr>
+                        @foreach (var item in Model.OrdersToday)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OrderRef)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ContactName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeliveryType.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OrderTotal)
+                                </td>
+                                <td>
+                                    @item.Created.ToDateTimeUtcFormat()
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Order Detail", "Detail", new {id = item.Id}) |
+                                    @Html.ActionLink("Re-Print", "Reprint", new {id = item.Id}) |
+                                    @Html.ActionLink("Cancel", "Cancel", new {id = item.Id})
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+
+            </div>
+        </fieldset>
+    </form>
+
+</div>

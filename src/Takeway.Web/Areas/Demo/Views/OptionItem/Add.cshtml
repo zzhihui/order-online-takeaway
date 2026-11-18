@@ -1,0 +1,68 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Admin.OptionItemViewModel
+
+@{
+    ViewBag.Title = "Add New Option Items";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<div class="well">
+    <form class="form-horizontal" method="post">
+        <fieldset>
+            <legend>Create</legend>
+            <div class="text-danger">@Model.ErrorMessage</div>
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.ActionLink("Back", "List", "OptionItem", null, new { @class = "btn btn-primary" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Name</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedOptionItem.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Description</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedOptionItem.ItemDescription, new {htmlAttributes = new {@class = "form-control"}})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Price</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedOptionItem.UnitPrice, new {htmlAttributes = new {@class = "form-control"}})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Translate Name</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedOptionItem.TranslateName, new {htmlAttributes = new {@class = "form-control"}})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Group ID</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedOptionItem.GroupId, new { htmlAttributes = new { @class = "form-control" } })
+                        <br/>
+                        Group Value must between 1-4
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>

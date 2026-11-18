@@ -1,0 +1,116 @@
+## Visual Studio / .NET Framework
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Oo]ut/
+
+# Visual Studio cache / options
+.vs/
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.pidb
+*.svclog
+*.scc
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# ReSharper / Rider / other tools
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Node / front-end
+node_modules/
+bower_components/
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Build / publish / Azure
+*.publishsettings
+*.pfx
+*.snk
+*.pem
+*.p12
+*.keystore
+*.jks
+*.cer
+*.p7b
+PublishScripts/
+*.azurePubxml
+# Keep example publish profiles (passwords already stripped), ignore user-specific ones
+*.user.pubxml
+*.pubxml.user
+
+# Databases / local data
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Design source files (not required to build)
+*.psd
+
+# Test / coverage
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+Coverage*.xml
+*.coverage
+*.coveragexml
+TestResult.xml
+
+# Others
+*.log
+*.tlog
+*.tmp
+*~
+*.swp
+client_secrets.json
+secrets.json
+appsettings.Development.json
+appsettings.Local.json

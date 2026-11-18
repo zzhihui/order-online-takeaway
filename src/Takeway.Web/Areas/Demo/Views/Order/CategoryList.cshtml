@@ -1,0 +1,75 @@
+﻿@using System.Configuration
+@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.App_Start
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.CategoryItemViewModel
+@{
+    ViewBag.Title = WebResource.page_order_categoryItem_title;
+    Layout = Html.Shared("_Layout.cshtml");
+}
+<p>
+    <h6>@WebResource.page_order_categoryItem_comment</h6>
+</p>
+
+<div>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header pull-left">
+                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+            </div>
+            <div class="navbar-header pull-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#subMenu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="subMenu" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @foreach (var reportItem in Model.CategoryCategories)
+                    {
+                        <li><a href="#@reportItem.Id">@reportItem.Name</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="well">
+
+        @foreach (var reportItem in Model.CategoryCategories)
+        {
+            <div class="row">
+                <div class="col-md-12 well" style='background-color: #5D5D5D;' id="@reportItem.Id">
+                    <h4 class="list-group-item-heading">@reportItem.Name </h4>@reportItem.Description
+                </div>
+
+                @foreach (var item in Model.CategoryItems.Where(r => r.MenuItemCategoryId == reportItem.Id))
+                {
+                    <div class="col-md-4">
+                        <a href="@Url.Action("additemtobasket", "Order", new {id=item.Id})" class="list-group-item" style="cursor: pointer;">
+                            @if (!string.IsNullOrEmpty(@item.ImageUrl))
+                            {
+                                <div style="background: url('@item.ImageUrl'); height: 150px"></div>
+                            }
+                            <h6 class="list-group-item-heading">@item.Name</h6>
+                            <span class="badge alert-danger">@item.Price.ToPriceStringIe()</span>
+                            <p class="list-group-item-text">@item.Description &nbsp;</p>
+                        </a>
+                    </div>
+                }
+
+                <div class="col-md-12">
+                    &nbsp;
+                </div>
+
+            </div>
+        }
+    </div>
+
+</div>
+
+
+

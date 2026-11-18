@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{535FC7EB-27C3-4834-929B-7305F51933F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeaway.Data.Entities</RootNamespace>
+    <AssemblyName>Takeaway.Data.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\ShopUser.cs" />
+    <Compile Include="BaseDataEntity.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Enum\DeliveryOptiponEnum.cs" />
+    <Compile Include="Enum\DiscountRuleEnum.cs" />
+    <Compile Include="Enum\OrderStatusIdEnum.cs" />
+    <Compile Include="Enum\ReportType.cs" />
+    <Compile Include="Enum\ServerSettingEnum.cs" />
+    <Compile Include="Enum\UpdateShopInfoOption.cs" />
+    <Compile Include="Health\SyncStatus.cs" />
+    <Compile Include="Licence\LicenceInfo.cs" />
+    <Compile Include="Payment\Payment.cs" />
+    <Compile Include="Payment\PaymentInfo.cs" />
+    <Compile Include="Reports\Report.cs" />
+    <Compile Include="Reports\ReportCategory.cs" />
+    <Compile Include="Reports\ReportCategoryReport.cs" />
+    <Compile Include="Reports\ReportLabel.cs" />
+    <Compile Include="Reports\ReportLabelReport.cs" />
+    <Compile Include="Reports\ReportParameter.cs" />
+    <Compile Include="Reports\ReportParameterType.cs" />
+    <Compile Include="Reports\ReportSchedule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\EmailSettingsType.cs" />
+    <Compile Include="Settings\OfflineSetting.cs" />
+    <Compile Include="Settings\ServerSetting.cs" />
+    <Compile Include="Shops\Customer.cs" />
+    <Compile Include="Shops\DeliveryCost.cs" />
+    <Compile Include="Shops\DeliveryArea.cs" />
+    <Compile Include="Shops\DeliveryOption.cs" />
+    <Compile Include="Shops\DiscountOffer.cs" />
+    <Compile Include="Shops\DiscountOutput.cs" />
+    <Compile Include="Shops\PaymentType.cs" />
+    <Compile Include="Shops\Driver.cs" />
+    <Compile Include="Shops\MemuItemOffer.cs" />
+    <Compile Include="Shops\MenuItemCategoryGroup.cs" />
+    <Compile Include="Shops\OptionItem.cs" />
+    <Compile Include="Shops\MenuItem.cs" />
+    <Compile Include="Shops\MenuItemCategory.cs" />
+    <Compile Include="Shops\MenuItemSubItem.cs" />
+    <Compile Include="Shops\MenuSubItem.cs" />
+    <Compile Include="Shops\MenuSubItemItem.cs" />
+    <Compile Include="Shops\Order.cs" />
+    <Compile Include="Shops\OrderItem.cs" />
+    <Compile Include="Shops\OrderItemsSelection.cs" />
+    <Compile Include="Shops\ShopGeneralHour.cs" />
+    <Compile Include="Shops\ShopInfo.cs" />
+    <Compile Include="Shops\ShopNews.cs" />
+    <Compile Include="Shops\ShopSpecialHour.cs" />
+    <Compile Include="Shops\ShopSpecialOffer.cs" />
+    <Compile Include="Shops\TableAlias.cs" />
+    <Compile Include="Shops\TableCommand.cs" />
+    <Compile Include="Shops\Tables.cs" />
+    <Compile Include="SMS\SmsRequest.cs" />
+    <Compile Include="SMS\SmsResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{d42f3734-766f-404b-8d5d-1acd6c42e686}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

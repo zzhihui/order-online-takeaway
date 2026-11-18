@@ -1,0 +1,106 @@
+﻿<ion-view view-title="Basket">
+    <ion-content class="padding">
+        <form name="submitOrderForm" novalidate="">
+            <!--Orde summary-->
+            <div class="item item-divider">Order summary</div>
+            <div class="item" ng-hide="shopInfo.isOpen" style="color: red">
+                Shop is closed now
+            </div>
+            <div class="item" ng-show="hasMinOrder" style="color: red">
+                Min Order {{shopInfo.minOrder |convertEuro}}
+            </div>
+            <!--Order Items-->
+            <div class="item item-divider">
+                Order Items
+            </div>
+            <div class="item">
+                <a href="#/tab/category" class="button button-dark ion-backspace">
+                    Add more items
+                </a>
+            </div>
+            <div class="item item-text-wrap" ng-repeat="item in myOrder.orderItems">
+                <p>{{item.name}}</p>
+                <p>{{item |orderSubItemString}}</p>
+                <p>
+                    <h2>{{"€"+(item.price | number:2)}}</h2>
+                </p>
+                <span class="item-note ion-ios-trash-outline">
+                    <a href="#/tab/basket" ng-click="removeItemFromBasket($index)">Remove</a>
+                </span>
+
+            </div>
+            <div class="item item-text-wrap">
+                <div class="col">
+                    <h2>Sub Total:</h2>
+                </div>
+                <div class="col">
+                    <h1>{{"€"+(subtotal | number:2)}}</h1>
+                </div>
+
+            </div>
+            <div class="item item-text-wrap" ng-show="discountApplied">
+                Discount: {{"€"+(discountAmount | number:2)}}
+            </div>
+            <div class="item">
+                <a href="#/tab/deliveryarea" class="button button-stable ion-android-car">
+                    Delivery area and charges
+                </a>
+            </div>
+
+            <div class="item item-text-wrap">
+                <p>Delivery Charge </p>
+                <p>Start from {{"€"+(shopInfo.deliveryCharge | number:2)}}</p>
+            </div>
+
+            <!--Delivery Options-->
+            <div class="item item-divider">
+                Delivery Option
+            </div>
+            <div class="item">
+                <select ng-model="$parent.deliveryOptionSelected" ng-options="doption as doption.name for doption in deliveryOptions"> </select>
+            </div>
+            <!--Contact Information-->
+            <div class="item item-divider item-text-wrap">
+                Contact Info
+                <p>Please enter your contact information for your order</p>
+            </div>
+
+            <!--contact name-->
+            <label class="item item-input" ng-class="{ 'has-errors' : submitOrderForm.contactname.$invalid, 'no-errors' : submitOrderForm.contactname.$valid}">
+                <input type="text" name="contactname" placeholder="Contact Name" required ng-model="myOrder.contactName" ng-minlength="3" maxlength="50">
+            </label>
+            
+
+            <!--phone number-->
+            <label class="item item-input" type="tel" ng-class="{ 'has-errors' : submitOrderForm.phone.$invalid, 'no-errors' : submitOrderForm.phone.$valid}">
+                <input type="text" name="phone" placeholder="Phone" required ng-model="myOrder.phoneNumber" ng-minlength="3" maxlength="50">
+            </label>
+            
+            <label class="item item-input" ng-class="{ 'has-errors' : submitOrderForm.email.$invalid, 'no-errors' : submitOrderForm.email.$valid}">
+                <input type="email" name="email" placeholder="Email" required ng-model="myOrder.email" ng-minlength="3" maxlength="50">
+            </label>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : submitOrderForm.address.$invalid, 'no-errors' : submitOrderForm.address.$valid}">
+                <textarea name="address" placeholder="Address" required ng-model="myOrder.address" ng-minlength="3" maxlength="50"></textarea>
+
+            </label>
+           <label class="item item-text-wrap">
+                <p>
+                    Select Your Area
+                </p>
+                <select ng-model="$parent.dareaSelected"
+                        ng-options="darea as darea.area for darea in deliveryAreas" ng-change="updateArea()"></select>
+            </label>
+
+            <div class="item item-divider item-text-wrap">
+                Your final order comment
+            </div>
+            <label class="item item-input" ng-class="{ 'has-errors' : submitOrderForm.comment.$invalid, 'no-errors' : submitOrderForm.comment.$valid}">
+                <textarea name="comment" placeholder="Your Comment" ng-model="myOrder.comment" maxlength="100"></textarea>
+            </label>
+            <button class="button button-block button-assertive" ng-click="orderSubmit()" ng-disabled="!submitOrderForm.$valid || notvalidToSubmit()">
+                Submit Order
+            </button>
+        </form>
+</ion-content>
+</ion-view>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Version"
+	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <Import Project="$(MSBuildExtensionsPath32)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+  <PropertyGroup>
+
+    <!-- Parameter to pass in  
+    <WorkingFolder>D:\Developement\github\Takeaway\</WorkingFolder>
+    <BUILD_NUMBER>1.2.3.5</BUILD_NUMBER>
+    <RevisionNumber>6</RevisionNumber>
+    <AppVersionName>1.2.4</AppVersionName>
+    -->
+    <ClientMode>TakeawayClientApp</ClientMode>
+    <AdminMode>TakeawayAdminApp</AdminMode>
+    
+  </PropertyGroup>
+
+  <Target Name="Version">
+
+    <PropertyGroup>
+      <AssemblyAdminAndroid>$(WorkingFolder)\src\Takeaway.Admin.Service\Properties\AssemblyInfo.cs</AssemblyAdminAndroid>
+      <AssemblyClientAndroid>$(WorkingFolder)\src\Takeway.Mobile.AndroidClient\Properties\AssemblyInfo.cs</AssemblyClientAndroid>
+      <AssemblyCommon>$(WorkingFolder)\src\Exlib\AssemblyInfo.cs</AssemblyCommon>
+      <AssemblyWeb>$(WorkingFolder)\src\Takeway.Web\Properties\AssemblyInfo.cs</AssemblyWeb>
+      <ManifestAdminAndroid>$(WorkingFolder)\src\Takeway.Mobile.AndroidAdmin\Properties\AndroidManifest.xml</ManifestAdminAndroid>
+      <ManifestClientAndroid>$(WorkingFolder)\src\Takeway.Mobile.AndroidClient\Properties\AndroidManifest.xml</ManifestClientAndroid>
+      <SetupModeClient>$(WorkingFolder)\src\Takeway.Mobile.AndroidClient\Setup.cs</SetupModeClient>
+      <SetupModeAdmin>$(WorkingFolder)\src\Takeway.Mobile.AndroidAdmin\Setup.cs</SetupModeAdmin>
+      <AssemblyClient>$(WorkingFolder)\src\Takeaway.Admin.Wpf\Properties\AssemblyInfo.cs</AssemblyClient>
+      <AssemblyDashBoard>$(WorkingFolder)\src\Takeaway.Notification.Wpf\Properties\AssemblyInfo.cs</AssemblyDashBoard>
+    </PropertyGroup>
+
+    <FileUpdate Files="$(SetupModeClient)" Regex="#define \w+" ReplacementText="#define $(ClientMode)" />
+    <FileUpdate Files="$(SetupModeAdmin)" Regex="#define \w+" ReplacementText="#define $(AdminMode)" />
+    
+    <FileUpdate Files="$(AssemblyAdminAndroid)" Regex="(\d+)\.(\d+)\.(\d+)\.(\d+)" ReplacementText="$(BUILD_NUMBER)" />
+    <FileUpdate Files="$(AssemblyClientAndroid)" Regex="(\d+)\.(\d+)\.(\d+)\.(\d+)" ReplacementText="$(BUILD_NUMBER)" />
+    <FileUpdate Files="$(AssemblyCommon)" Regex="(\d+)\.(\d+)\.(\d+)\.(\d+)" ReplacementText="$(BUILD_NUMBER)" />
+    <FileUpdate Files="$(AssemblyWeb)" Regex="(\d+)\.(\d+)\.(\d+)\.(\d+)" ReplacementText="$(BUILD_NUMBER)" />
+    <FileUpdate Files="$(AssemblyClient)" Regex="(\d+)\.(\d+)\.(\d+)\.(\d+)" ReplacementText="$(BUILD_NUMBER)" />
+    <FileUpdate Files="$(AssemblyDashBoard)" Regex="(\d+)\.(\d+)\.(\d+)\.(\d+)" ReplacementText="$(BUILD_NUMBER)" />
+    
+    <FileUpdate Files="$(ManifestAdminAndroid)" Regex="android:versionCode=&quot;(\d+)&quot;" ReplacementText="android:versionCode=&quot;$(RevisionNumber)&quot;" />
+    <FileUpdate Files="$(ManifestAdminAndroid)" Regex="android:versionName=&quot;(\d+)\.(\d+)\.(\d+)&quot;" ReplacementText="android:versionName=&quot;$(AppVersionName)&quot;" />
+    <FileUpdate Files="$(ManifestClientAndroid)" Regex="android:versionCode=&quot;(\d+)&quot;" ReplacementText="android:versionCode=&quot;$(RevisionNumber)&quot;" />
+    <FileUpdate Files="$(ManifestClientAndroid)" Regex="android:versionName=&quot;(\d+)\.(\d+)\.(\d+)&quot;" ReplacementText="android:versionName=&quot;$(AppVersionName)&quot;" />
+
+  </Target>
+
+
+
+</Project>
+
+
+
+
+
+
+
+

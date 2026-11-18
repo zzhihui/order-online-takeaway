@@ -1,0 +1,48 @@
+<ion-view view-title="Complete Order">
+    <ion-content class="padding">
+        <div class="item">
+            <a href="#/tab/category" class="button button-dark ion-backspace" ng-click="startNew()">
+                Back to main
+            </a>
+        </div>
+
+        <!--Orde summary-->
+        <div class="item item-divider">Your Order is completed</div>
+
+        <div class="item item-text-wrap">
+            <h2>Order Total: {{"€"+(lastOrder.orderTotal | number:2)}}</h2>
+        </div>
+        <div class="item item-text-wrap">
+            <h2>Delivery Option: {{lastOrder.deliveryType.name}}</h2>
+        </div>
+        <div class="item item-text-wrap">
+            <h2>Delivery Charge: {{"€"+(lastOrder.deliveryCharge | number:2)}}</h2>
+        </div>
+        <div class="item item-text-wrap">
+            <div class="col">
+                <h2>Sub Total:</h2>
+            </div>
+            <div class="col">
+                <h1>{{"€"+(subTotal | number:2)}}</h1>
+            </div>
+        </div>
+        <div class="item item-text-wrap">
+            <div class="col">
+                <h2>Order Ref:</h2>
+            </div>
+            <div class="col">
+                <h1>{{lastOrder.orderRef}}</h1>
+            </div>
+        </div>
+        <div class="item item-text-wrap">
+            <div class="col">
+                <h2>Estimate Ready Time:</h2>
+            </div>
+            <div class="col">
+                <h1>{{deliveryTime}}</h1>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

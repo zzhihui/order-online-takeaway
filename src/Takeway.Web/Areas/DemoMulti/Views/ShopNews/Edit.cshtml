@@ -1,0 +1,41 @@
+﻿@model Takeway.Web.ViewModels.Admin.ShopNewsViewModel
+@using Takeway.Web.Application.Extension
+
+
+@{
+    ViewBag.Title = "Edit Shop News";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<div class="well text-info">
+    <form class="form-horizontal" method="post">
+        <fieldset>
+            <legend>Edit</legend>
+            <div class="text-danger">@Model.ErrorMessage</div>
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.ActionLink("Back", "List", "ShopNews", null, new { @class = "btn btn-primary" })
+                </div>
+
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.SelectedShopNews.Id)
+                    <label class="col-lg-2 control-label">News</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedShopNews.News, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>

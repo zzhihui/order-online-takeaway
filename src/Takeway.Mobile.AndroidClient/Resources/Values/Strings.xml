@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--Application-->
+  <string name="app_name">Zao Takeaway</string>
+  <string name="app_versionname">1.0.0</string>
+
+  <!--Service and Notifcation-->
+  <string name="app_notification_header">Special offer</string>
+  <string name="app_notification_title">New Special offer Available</string>
+  <string name="app_notification_detail">New offer</string>
+
+  <!--Home Page-->
+  <string name="app_page_home_title">Welcome</string>
+  <string name="app_page_home_label_openhours">Open Hours</string>
+  <string name="app_page_home_label_shopnews">Shop News</string>
+  <string name="app_page_home_button_viewMenu">View Menu</string>
+
+  <!--Main/Category Page-->
+  <string name="app_page_main_title">Category</string>
+
+  <!--Category item page-->
+  <string name="app_page_categoryitem_title">Selections</string>
+
+  <!--Category Sub Items-->
+  <string name="app_page_categoryitemsub_title">Extras</string>
+  <string name="app_page_categoryitemsub_optionextra_description">Select your Option Extra</string>
+  <string name="app_page_categoryitemsub_buttonadd">Add to Basket</string>
+
+
+  <!--Basket Page-->
+  <string name="app_page_basket_title">My Basket</string>
+  <string name="app_page_basket_ordersummary">Order Summary</string>
+  <string name="app_page_basket_minorder">Min Order Required:</string>
+  <string name="app_page_basket_buymore">Add Items</string>
+  <string name="app_page_basket_subtotal">Sub total excluding delivery charge</string>
+  <string name="app_page_basket_submitorder">Submit Order</string>
+
+  <!--Submit Order Page-->
+  <string name="app_page_submitorder_title">Submit Order</string>
+  <string name="app_page_submitorder_summary">Submit your order</string>
+  <string name="app_page_submitorder_totalorder">Total:</string>
+  <string name="app_page_submitorder_youraddress">Address:</string>
+  <string name="app_page_submitorder_yourcontactname">Contact name:</string>
+  <string name="app_page_submitorder_yourphonenumber">Phone number:</string>
+  <string name="app_page_submitorder_youremail">Email:</string>
+  <string name="app_page_submitorder_lastcomment">Final Comment:</string>
+  <string name="app_page_submitorder_deliveryoption">Delivery Option:</string>
+  <string name="app_page_submitorder_finish">Submit</string>
+  <string name="app_page_submitorder_goback">Go Back</string>
+
+  <!--About us page-->
+  <string name="app_page_about_title">About us</string>
+  <string name="app_page_about_copyright">Copyright © 2015 IndaSoft Ltd. All rights reserved.</string>
+  <string name="app_page_about_checkupdate">Check for Update</string>
+  <string name="app_page_about_contactindasoft">Email IndaSoft</string>
+  <string name="app_page_about_feedback">Feedback</string>
+  
+
+  <!--Setting page-->
+  <string name="app_page_setting_title">Settings</string>
+  <string name="app_page_setting_section_notification">Notifications</string>
+
+
+
+  <!--Payment page-->
+  <string name="app_page_setting_title">Settings</string>
+  <string name="app_page_setting_section_notification">Notifications</string>
+
+
+
+
+
+</resources>

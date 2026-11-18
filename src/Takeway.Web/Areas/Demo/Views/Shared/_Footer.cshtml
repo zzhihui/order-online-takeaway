@@ -1,0 +1,25 @@
+﻿
+@using System.Reflection
+@using Takeway.Web.Controllers
+
+
+@*TODO:Localisation*@
+<div class="row">
+    <p>&copy; @DateTime.Now.Year - demo.kingfood.ie. --Powered by <a href="http://www.indasoft.ie">IndaSoft.ie</a> Ver:@Assembly.GetAssembly(typeof(HomeController)).GetName().Version.ToString()</p>
+    <a href="#" alt="Facebook" title="Facebook" target="_blank">
+        <img style="float: left" src="~/Content/facebook.png" class="img-responsive" alt="Twitter" height="40" width="40">
+    </a> &nbsp;
+    <a href="#" alt="Twitter" title="Twitter" target="_blank">
+        <img style="float: left" src="~/Content/twitter.png" class="img-responsive" alt="Twitter" height="40" width="40">
+    </a>&nbsp;
+    <a href="#" alt="TripAdvisor" title="TripAdvisor" target="_blank">
+        <img style="float: left" src="~/Content/tripadvisor.png" class="img-responsive" alt="Twitter" height="40" width="40">
+    </a>&nbsp;
+    <a href="#" alt="Yelp" title="Yelp" target="_blank">
+        <img style="float: left" src="~/Content/yelp.png" class="img-responsive" alt="Twitter" height="40" width="40">
+    </a>&nbsp;
+    <a href="#" alt="Webmail" title="Webmail" target="_blank">
+        <img style="float: left" src="~/Content/gmail.png" class="img-responsive" alt="Twitter" height="40" width="40">
+    </a>
+
+</div>

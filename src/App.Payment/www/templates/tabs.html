@@ -1,0 +1,15 @@
+<ion-tabs class="tabs-icon-top tabs-stable tabs-assertive">
+
+    <ion-tab title="Home" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" ng-click="goToDash()">
+        <ion-nav-view name="tab-dash"></ion-nav-view>
+    </ion-tab>
+   
+    <ion-tab title="Payment" icon-off="ion-ios-cart-outline" icon-on="ion-ios-cart" badge="number" ng-click="goToBasket()">
+        <ion-nav-view name="tab-basket"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Setting" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" ng-click="goToMore()">
+        <ion-nav-view name="tab-more"></ion-nav-view>
+    </ion-tab>
+
+</ion-tabs>

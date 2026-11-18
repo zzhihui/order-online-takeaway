@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="All" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+	<Import Project="$(MSBuildExtensionsPath32)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+	
+	<PropertyGroup>
+		<MSTestToHtml>C:\trx2hml\trx2html.exe</MSTestToHtml>
+		<TestOutputFolder>$(WorkingFolder)\src\TestOutput</TestOutputFolder>
+	</PropertyGroup>
+  
+  
+  <Target Name="Unit">
+    <CallTarget Targets="UnitClient;UnitServer;" />
+  </Target>
+  
+  <Target Name="UnitClient">
+		<PropertyGroup>
+			<Title>Unit</Title>
+			<TestResultFile>$(TestOutputFolder)\ClientUnitTests.trx</TestResultFile>
+			<TestContainers>/testcontainer:&quot;$(WorkingFolder)\src\Takeaway.Mobile.UnitTests\bin\Release\Takeaway.Mobile.UnitTests.dll&quot;</TestContainers>
+		</PropertyGroup>
+
+		<Message Text="*** Running $(Title) Tests" />
+		<Delete Files="$(TestResultFile)" />
+
+		<Exec Command="&quot;$(MSTestExe)&quot; $(TestContainers) /resultsfile:&quot;$(TestResultFile)&quot;" ContinueOnError="true" />
+
+		<PropertyGroup>
+			<TestsFailed>false</TestsFailed>
+			<TestsFailed Condition="'$(MSBuildLastTaskResult)' == 'false'" >true</TestsFailed>
+		</PropertyGroup>
+
+		<Exec Command="$(MSTestToHtml) &quot;$(TestResultFile)&quot;" ContinueOnError="WarnAndContinue" />
+		<Copy SourceFiles="$(TestResultFile).htm" DestinationFolder="$(WorkingFolder)" />
+		<Error Text="$(Title) Tests - Failed!" Code="$(ErrorCode)" Condition="'$(TestsFailed)'" />
+	</Target>
+
+  <Target Name="UnitServer">
+    <PropertyGroup>
+      <TestResultFile>$(TestOutputFolder)\ServerUnitTests.trx</TestResultFile>
+      <TestContainers>/testcontainer:&quot;$(WorkingFolder)\src\Takeaway.Service.UnitTests\bin\Release\Takeaway.Service.UnitTests.dll&quot; /testcontainer:&quot;$(WorkingFolder)\src\Core.Common.UnitTests\bin\Release\Core.Common.UnitTests.dll&quot;</TestContainers>
+    </PropertyGroup>
+    <Message Text="*** Running Unit Tests" />
+    <Delete Files="$(TestResultFile)" />
+    <Exec Command="&quot;$(MSTestExe)&quot; $(TestContainers) /resultsfile:&quot;$(TestResultFile)&quot;" />
+    <Exec Command="$(MSTestToHtml) &quot;$(TestResultFile)&quot;" />
+    <Copy SourceFiles="$(TestResultFile).htm" DestinationFolder="$(WorkingFolder)" />
+
+  </Target>
+
+  <Target Name="Integration">
+    <PropertyGroup>
+      <TestResultFile>$(TestOutputFolder)\ServerIntegrationTests.trx</TestResultFile>
+      <TestContainers>/testcontainer:&quot;$(WorkingFolder)\src\Takeaway.Service.IntegrationTests\bin\Release\Takeaway.Service.IntegrationTests.dll&quot;</TestContainers>
+    </PropertyGroup>
+
+    <Message Text="*** Running Integration Tests" />
+    <Delete Files="$(TestResultFile)" />
+
+    <Exec Command="&quot;$(MSTestExe)&quot; $(TestContainers) /resultsfile:&quot;$(TestResultFile)&quot;"/>
+    <Exec Command="$(MSTestToHtml) &quot;$(TestResultFile)&quot;" />
+    <Copy SourceFiles="$(TestResultFile).htm" DestinationFolder="$(WorkingFolder)" />
+  </Target>
+
+
+  <Target Name="AutomationService">
+    <PropertyGroup>
+      <TestResultFile>$(TestOutputFolder)\ServerAutomationTests.trx</TestResultFile>
+      <TestContainers>/testcontainer:&quot;$(WorkingFolder)\src\Takeaway.Service.ServiceTests\bin\Release\Takeaway.Service.ServiceTests.dll&quot;</TestContainers>
+      <TestConfig>$(WorkingFolder)\src\Takeaway.Service.ServiceTests\_Configuration\Test\Takeaway.Service.ServiceTests.dll.config</TestConfig>
+      <TestBin>$(WorkingFolder)\src\Takeaway.Service.ServiceTests\bin\Release\</TestBin>
+
+    </PropertyGroup>
+
+    <Message Text="*** Copy Configuration Files" />
+    <Copy SourceFiles="$(TestConfig)" DestinationFolder="$(TestBin)" />
+
+    <Message Text="*** Running Service Automation Tests" />
+    <Delete Files="$(TestResultFile)" />
+
+    <Exec Command="&quot;$(MSTestExe)&quot; $(TestContainers) /resultsfile:&quot;$(TestResultFile)&quot;"/>
+    <Exec Command="$(MSTestToHtml) &quot;$(TestResultFile)&quot;" />
+    <Copy SourceFiles="$(TestResultFile).htm" DestinationFolder="$(WorkingFolder)" />
+  </Target>
+  
+  
+	
+</Project>
+

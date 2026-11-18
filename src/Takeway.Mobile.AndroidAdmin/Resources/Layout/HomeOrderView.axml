@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <!--Header-->
+  <include layout="@layout/_headmessagecontrol" />
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent">
+    <!--Category Bar-->
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:background="#A1651F"
+        android:orientation="vertical">
+      <Mvx.MvxListView
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          local:MvxBind="ItemsSource MenuItemCategory; ItemClick MenuItemCategorySelectedCommand"
+          local:MvxItemTemplate="@layout/categorylist" />
+    </LinearLayout>
+
+
+
+    <!--Item Bar-->
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="0.80"
+        android:background="#F2CCAC"
+        android:orientation="vertical">
+
+      <!--Category Item-->
+      <LinearLayout
+          android:layout_height="wrap_content"
+          android:layout_width="fill_parent"
+          android:orientation="vertical"
+          local:MvxBind="Visibility ShowCategoryItemRegion, Converter=Visibility">
+        <Mvx.MvxGridView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="3"
+            local:MvxBind="ItemsSource CategoryItems; ItemClick CategoryItemsSelectedCommand"
+            local:MvxItemTemplate="@layout/categoryitemgrid" />
+
+      </LinearLayout>
+
+      <!--Option extra-->
+      <LinearLayout
+          android:layout_height="wrap_content"
+          android:layout_width="fill_parent"
+          android:orientation="vertical"
+          local:MvxBind="Visibility ShowOptionExtraRegion, Converter=Visibility">
+
+        <include layout="@layout/homeoptionextrapadview" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+  </LinearLayout>
+</LinearLayout>

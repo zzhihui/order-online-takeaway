@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E991F3B-B614-44F4-9D53-439A06D12EC9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeaway.Service.Contract</RootNamespace>
+    <AssemblyName>Takeaway.Service.Contract</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Exlib\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Entities\Authentication\WsShopUser.cs" />
+    <Compile Include="Entities\Email\WsEmailResponse.cs" />
+    <Compile Include="Entities\Health\WsSyncStatus.cs" />
+    <Compile Include="Entities\Licence\WsLicenceInfo.cs" />
+    <Compile Include="Entities\Payment\WsPayment.cs" />
+    <Compile Include="Entities\Payment\WsPaymentInfo.cs" />
+    <Compile Include="Entities\Payment\WsPaymentMonth.cs" />
+    <Compile Include="Entities\Payment\WsPaymentYear.cs" />
+    <Compile Include="Entities\Print\WsPrintGroupItem.cs" />
+    <Compile Include="Entities\Print\WsPrintRawData.cs" />
+    <Compile Include="Entities\Print\WsPrintRequest.cs" />
+    <Compile Include="Entities\Print\WsPrintResponse.cs" />
+    <Compile Include="Entities\Print\WsPrintSetting.cs" />
+    <Compile Include="Entities\Reports\WsReport.cs" />
+    <Compile Include="Entities\Reports\WsReportCategory.cs" />
+    <Compile Include="Entities\Reports\WsReportParameter.cs" />
+    <Compile Include="Entities\Settings\WsOfflineSetting.cs" />
+    <Compile Include="Entities\Settings\WsSetting.cs" />
+    <Compile Include="Entities\Shop\WsDeliveryCost.cs" />
+    <Compile Include="Entities\Shop\WsDeliveryArea.cs" />
+    <Compile Include="Entities\Shop\WsDeliveryOption.cs" />
+    <Compile Include="Entities\Shop\WsDeliveryOptionSequence.cs" />
+    <Compile Include="Entities\Shop\WsMergeOrder.cs" />
+    <Compile Include="Entities\Shop\WsOrderHolder.cs" />
+    <Compile Include="Entities\Shop\WsOrderItems.cs" />
+    <Compile Include="Entities\Shop\WsPaymentType.cs" />
+    <Compile Include="Entities\Shop\WsDriver.cs" />
+    <Compile Include="Entities\Shop\WsMenuItemCategoryGroup.cs" />
+    <Compile Include="Entities\Shop\WsOptionItem.cs" />
+    <Compile Include="Entities\Shop\WsMenuItem.cs" />
+    <Compile Include="Entities\Shop\WsMenuItemCategory.cs" />
+    <Compile Include="Entities\Shop\WsMenuSubItem.cs" />
+    <Compile Include="Entities\Shop\WsOptionItemSelection.cs" />
+    <Compile Include="Entities\Shop\WsOrder.cs" />
+    <Compile Include="Entities\Shop\WsOrderSearch.cs" />
+    <Compile Include="Entities\Shop\WsPhoneRecord.cs" />
+    <Compile Include="Entities\Shop\WsShop.cs" />
+    <Compile Include="Entities\Shop\WsShopCustomer.cs" />
+    <Compile Include="Entities\Shop\WsShopHour.cs" />
+    <Compile Include="Entities\Shop\WsShopHourSpecial.cs" />
+    <Compile Include="Entities\Shop\WsShopNews.cs" />
+    <Compile Include="Entities\Shop\WsShopSpecialOffer.cs" />
+    <Compile Include="Entities\Shop\WsTableAlias.cs" />
+    <Compile Include="Entities\Shop\WsTableCommand.cs" />
+    <Compile Include="Entities\Shop\WsTables.cs" />
+    <Compile Include="Entities\WsEntity.cs" />
+    <Compile Include="Enum\DeliveryAreaEnum.cs" />
+    <Compile Include="Enum\DeliveryOptions.cs" />
+    <Compile Include="Enum\MenuItemCategoryGroupEnum.cs" />
+    <Compile Include="Enum\WsOrderStatusIdEnum.cs" />
+    <Compile Include="Enum\PrintRawDataFormat.cs" />
+    <Compile Include="Enum\TranslateType.cs" />
+    <Compile Include="Enum\UpdateOrderOption.cs" />
+    <Compile Include="Enum\WsDeliverySequenceEnum.cs" />
+    <Compile Include="Enum\WsFoodCategoryEnum.cs" />
+    <Compile Include="Enum\WsOfflineSettingEnum.cs" />
+    <Compile Include="Enum\WsOptionItemCommandEnum.cs" />
+    <Compile Include="Enum\WsOrderSourceEnum.cs" />
+    <Compile Include="Enum\WsPaymentTypeEnum.cs" />
+    <Compile Include="Enum\WsPrintModeEnum.cs" />
+    <Compile Include="Enum\WsServerSettingEnum.cs" />
+    <Compile Include="Enum\WsShopIdEnum.cs" />
+    <Compile Include="Enum\WsUpdateShopInfoOption.cs" />
+    <Compile Include="Enum\WsUserGroupIdEnum.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

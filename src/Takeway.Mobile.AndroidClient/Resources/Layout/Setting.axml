@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
+  <!--Header-->
+  <include layout="@layout/_headmessagecontrol"/>
+
+  <!--Notification Section-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="10dp"
+      android:orientation="vertical">
+    <TextView
+        style="@style/AppFont.Medium.Bold"
+        android:text="@string/app_page_setting_section_notification"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:orientation="horizontal" />
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+      <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receive Notification"/>
+
+        <CheckBox
+            android:gravity="right"
+            android:padding="3dp"
+            local:MvxBind="Checked ReceiveNotification"/>
+
+      </TableRow>
+
+
+    </TableLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="10dp"
+      android:orientation="vertical">
+    <Button
+     android:text="Save Settings"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     style="@style/AppFont.Large.Bold"
+     local:MvxBind="Click SaveSettingCommand" />
+
+  </LinearLayout>
+
+
+
+
+</LinearLayout>
+

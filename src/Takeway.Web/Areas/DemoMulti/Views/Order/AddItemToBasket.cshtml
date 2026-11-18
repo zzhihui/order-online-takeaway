@@ -1,0 +1,86 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.AddItemToBasketViewModel
+@{
+    Layout = @Html.Shared("_Layout.cshtml");
+}
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <h2>Confirm Adding Item</h2>
+            <form class="form-horizontal text-info" method="post">
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.ActionLink("Back to menu", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-primary" })
+                    </div>
+                    @Html.HiddenFor(r => r.SelectedItem.Id)
+                    @*Name*@
+                    <div class="form-group list-group-item">
+                        <div class="col-md-3">
+                            <h4>@Html.DisplayFor(r => r.SelectedItem.Name)</h4>
+                            @Html.HiddenFor(r => r.SelectedItem.Name)
+                        </div>
+                        <div class="col-md-8">
+                            <h4>@Model.SelectedItem.Price.ToPriceStringIe()</h4>
+                            @Html.HiddenFor(r => r.SelectedItem.Price)
+                            <span class="help-block">@Html.DisplayFor(r => r.SelectedItem.Description)</span>
+                        </div>
+                    </div>
+                    @*Image*@
+                    @if (!string.IsNullOrEmpty(Model.SelectedItem.ImageUrl))
+                    {
+                        <div class="form-group list-group-item">
+                            <div class="col-md-12">
+
+                                <img class="img-responsive img-thumbnail" src="@Model.SelectedItem.ImageUrl" alt="">
+                            </div>
+                        </div>
+                    }
+
+                    @*Option Extra*@
+                    @Html.HiddenFor(r => r.SelectedItem.HasSubOrder)
+                    @if (Model.SelectedItem.HasSubOrder.HasValue && Model.SelectedItem.HasSubOrder.Value)
+                    {
+                        <div class="form-group list-group-item">
+                            <div class="col-md-12">
+                                <h4>Select your option extra</h4>
+                            </div>
+
+                            @for (int sub = 0; sub < Model.SelectedItem.SubItemSelections.Count; sub++)
+                            {
+                                <div class="col-md-3">
+                                    <label class="control-label">@Model.SelectedItem.SubItemSelections[sub].Name</label>
+                                </div>
+                                <div class="col-md-8">@Html.DropDownListFor(r => r.SelectedItem.SubItemSelections[sub].SelectedId, new SelectList(@Model.SelectedItem.SubItemSelections[sub].Selections, "Id", "Name"), new { @class = "form-control" })</div>
+                            }
+
+                        </div>
+                    }@*Addtional Comment*@
+                    <div class="form-group list-group-item">
+                        <label class="col-md-3 control-label">Additonal Comment</label>
+                        <div class="col-md-8">@Html.TextAreaFor(t => t.SelectedItem.Comment, new { @class = "form-control", @placeholder = WebResource.page_order_additembasket_addtionalcomment })</div>
+                    </div>
+
+
+
+                    @*Quantity*@
+                    <div class="form-group list-group-item">
+                        <label class="col-lg-3 control-label">Quantity</label>
+                        <div class="col-lg-8">
+                            @Html.DropDownListFor(r => r.Quantity, new SelectList(@Model.Numbers), new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group list-group-item">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="submit" class="btn btn-primary">Add to Basket</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</header>

@@ -1,0 +1,20 @@
+{
+  "android": {
+    "release": {
+      "keystore": "D:\\Development\\GIT\\Takeaway\\src\\Exlib\\Android.keystore",
+      "storePassword": "REPLACE_ME",
+      "alias": "takeawayclient",
+      "password": "REPLACE_ME",
+      "keystoreType": ""
+    }
+  },
+   "ios": {
+    "debug": {
+      "developmentTeam": "6QTG54Z4ND"
+    },
+    "release": {
+      "developmentTeam": "6QTG54Z4ND",
+       "codeSignIdentity": "iPhone Developer"
+    }
+  }
+ }

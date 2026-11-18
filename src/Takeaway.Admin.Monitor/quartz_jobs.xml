@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+    <job>
+      <name>SyncClientToCloud</name>
+      <group>DailyJobs</group>
+      <description>SycnOrderToCloud</description>
+      <job-type>Takeaway.Admin.Service.Jobs.SyncClientToCloud, Takeaway.Admin.Service</job-type>
+      <durable>false</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>Product</key>
+          <value>App</value>
+        </entry>
+      </job-data-map>
+    </job>
+    <job>
+      <name>SyncCustomer</name>
+      <group>DailyJobs</group>
+      <description>SyncCustomer</description>
+      <job-type>Takeaway.Admin.Service.Jobs.SyncCustomer, Takeaway.Admin.Service</job-type>
+      <durable>false</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>Product</key>
+          <value>App</value>
+        </entry>
+      </job-data-map>
+    </job>
+    <job>
+      <name>SyncCloudToClient</name>
+      <group>DailyJobs</group>
+      <description>SyncCloudToClient</description>
+      <job-type>Takeaway.Admin.Service.Jobs.SyncCloudToClient, Takeaway.Admin.Service</job-type>
+      <durable>false</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>Product</key>
+          <value>App</value>
+        </entry>
+      </job-data-map>
+    </job>
+    <job>
+      <name>PrintExternalOrder</name>
+      <group>DailyJobs</group>
+      <description>PrintExternalOrder</description>
+      <job-type>Takeaway.Admin.Service.Jobs.PrintExternalOrder, Takeaway.Admin.Service</job-type>
+      <durable>false</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>Product</key>
+          <value>App</value>
+        </entry>
+      </job-data-map>
+    </job>
+    <trigger>
+      <cron>
+        <name>SyncClientToCloudTrigger</name>
+        <group>DailyJobs</group>
+        <description>SyncClientToCloud Trigger</description>
+        <job-name>SyncClientToCloud</job-name>
+        <job-group>DailyJobs</job-group>
+        <priority>1</priority>
+        <misfire-instruction>FireOnceNow</misfire-instruction>
+        <cron-expression>0 0/30 * * * ?</cron-expression>
+      </cron>
+    </trigger>
+    <trigger>
+      <cron>
+        <name>SyncCustomerTrigger</name>
+        <group>DailyJobs</group>
+        <description>SyncCustomer Trigger</description>
+        <job-name>SyncCustomer</job-name>
+        <job-group>DailyJobs</job-group>
+        <priority>2</priority>
+        <misfire-instruction>FireOnceNow</misfire-instruction>
+        <cron-expression>0 0 23 * * ? *</cron-expression>
+      </cron>
+    </trigger>
+    <trigger>
+      <cron>
+        <name>PrintExternalOrderTrigger</name>
+        <group>DailyJobs</group>
+        <description>PrintExternalOrder Trigger</description>
+        <job-name>PrintExternalOrder</job-name>
+        <job-group>DailyJobs</job-group>
+        <priority>2</priority>
+        <misfire-instruction>FireOnceNow</misfire-instruction>
+        <cron-expression>0 0/2 * * * ?</cron-expression>
+      </cron>
+    </trigger>
+    <trigger>
+      <cron>
+        <name>SyncCloudToClientTrigger</name>
+        <group>DailyJobs</group>
+        <description>SyncCloudToClient Trigger</description>
+        <job-name>SyncCloudToClient</job-name>
+        <job-group>DailyJobs</job-group>
+        <priority>3</priority>
+        <misfire-instruction>FireOnceNow</misfire-instruction>
+        <cron-expression>0 0/30 * * * ?</cron-expression>
+      </cron>
+    </trigger>
+
+  </schedule>
+</job-scheduling-data>

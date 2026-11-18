@@ -1,0 +1,123 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Order.PaymentViewModel
+@{
+    ViewBag.Title = "TakePayment";
+    Layout = @Html.Shared("_Layout.cshtml");
+}
+
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <h2>Please enter payment detail</h2>
+
+            <form id="submitform" class="form-horizontal text-info" method="post">
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.ActionLink("Back to Menu", "CategoryList", "Order", null, new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="form-group list-group-item">
+                        <div class="col-md-12 text-danger">@Html.ValidationSummary(true)</div>
+                    </div>
+
+                    @*Payment Amount*@
+                    <div class="form-group list-group-item">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Order Total</label>
+                            <div class="col-md-8">
+                                @Model.OrderTotal.ToPriceStringIe()
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Delivery Charge</label>
+                            <div class="col-md-8">
+                                @Model.DeliveryCharge.ToPriceStringIe()
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Amount</label>
+                            <div class="col-md-8">
+                                <h5> @Model.Payment.Amount.ToPriceStringIe()</h5>
+                                @Html.HiddenFor(r => r.Payment.Amount)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group list-group-item">
+                        @*Payment Holder*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Cardholder</label>
+                            <div class="col-md-8 has-error">
+                                @Html.TextBoxFor(t => t.Payment.CardName, new { @class = "form-control", @placeholder = "Cardholder name", })
+                                <span class="text-danger"> @Html.ValidationMessageFor(x => x.Payment.CardName)</span>
+                            </div>
+                        </div>
+                        @*Payment CardNumber*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Cardnumber</label>
+                            <div class="col-md-8 has-error">
+                                @Html.TextBoxFor(t => t.Payment.CardNumber, new { @class = "form-control", @placeholder = "Card number ", autocomplete = "off" })
+                                <span class="text-danger"> @Html.ValidationMessageFor(x => x.Payment.CardNumber)</span>
+                                <img src="\content\card-logos.png" />
+                            </div>
+                        </div>
+
+
+                        @*CVC Code*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">CVC</label>
+                            <div class="col-md-8 has-error">
+                                @Html.TextBoxFor(t => t.Payment.CardCvc, new { @class = "form-control", @placeholder = "CVC Code", autocomplete = "off" })
+                                <span class="text-danger"> @Html.ValidationMessageFor(x => x.Payment.CardCvc)</span>
+                                <img src="\content\security-card.png" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group list-group-item">
+                        <div class="form-group">
+                            <h4 class="list-group-item-heading">EXPIRE DATE</h4>
+                            <p class="list-group-item-text"></p>
+                        </div>
+                        @*Expire Date*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Expire Date</label>
+                            <div class="col-md-8 has-error">
+                                @Html.DropDownListFor(r => r.SelectedMonth, new SelectList(@Model.PaymentMonths, "Id", "Name"), new { @class = "form-control" })
+                            </div>
+                        </div>
+                        @*Expire Month*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Expire Month</label>
+                            <div class="col-md-8 has-error">
+                                @Html.DropDownListFor(r => r.SelectedYear, new SelectList(@Model.PaymentYears, "Id", "Name"), new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">&nbsp;</label>
+                            <div class="col-md-8">
+                                <img src="\content\encryption.png" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group list-group-item">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-5">
+                                <input type="submit" name="action:PayLater" value="Pay Later" class="btn btn-primary" />
+                            </div>
+                            <div class="col-md-8 col-xs-5 col-xs-offset-2 col-md-offset-0">
+                                <input type="submit" name="action:TakePayment" value="Take Payment" class="btn btn-primary" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+    </div>
+</header>

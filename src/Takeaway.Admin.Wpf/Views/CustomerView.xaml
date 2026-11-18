@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="Takeaway.Admin.Wpf.Views.CustomerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Takeaway.Admin.Wpf.Views"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style x:Key="Label" TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+
+        </Style>
+        <Style x:Key="ButtonSmall" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Width" Value="35" />
+        </Style>
+        <converters:PriceConverter x:Key="PriceConverter" />
+    </UserControl.Resources>
+    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" BusyContent="Please Wait...." >
+        <Grid>
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="300*" />
+            </Grid.ColumnDefinitions>
+            <views:_ErrorMessage  Grid.Row="0"/>
+
+            <Label Content="Email" Style="{DynamicResource Label}" Grid.Row="0" Grid.Column="0"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding CustomerEmail}" Width="auto" Height="50" Grid.Row="0" Grid.Column="1"/>
+
+            <Label Content="Contact Name" Style="{DynamicResource Label}" Grid.Row="1" Grid.Column="0"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding CustomerName}" Width="auto" Height="50" Grid.Row="1" Grid.Column="1"/>
+
+            <Label Content="Phone" Style="{DynamicResource Label}" Grid.Row="2" Grid.Column="0"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding CustomerPhone}" Width="auto" Height="50" Grid.Row="2" Grid.Column="1"/>
+
+            <Label Content="Address" Style="{DynamicResource Label}" Grid.Row="3" Grid.Column="0"/>
+            <controls:AutoCompleteBox Text="{Binding CustomerAddress,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" ItemsSource="{Binding AddressList}" Height="50" Grid.Row="3" Grid.Column="1">
+            </controls:AutoCompleteBox>
+            <Button Content="Address Lookup"  Width="120"  Height="50" Style="{DynamicResource Button}" Grid.Row="3" Grid.Column="2">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="DoAddressLookup"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Label Content="Delivery Charge:" HorizontalAlignment="Left"  Style="{DynamicResource Label}" Grid.Row="4" Grid.Column="0"/>
+            <StackPanel Orientation="Horizontal"  Grid.Row="4" Grid.Column="1">
+
+                <Button x:Name="DoDeliveryAdd" Content=" + "  Style="{DynamicResource ButtonSmall}" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="DoDeliveryAdd">
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <TextBox TextWrapping="Wrap" Text="{Binding CustomerDeliveryCharge, Converter={StaticResource PriceConverter}}" Width="100"  
+                     IsEnabled="{Binding DeliveryOptionEditable}"/>
+                <Button x:Name="DoDeliveryReduce" Content=" - " Style="{DynamicResource ButtonSmall}"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="DoDeliveryReduce">
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+
+            <Button Content="New"   Width="120"  Height="50" Style="{DynamicResource Button}" Grid.Row="5" Grid.Column="0" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="RestCustomer"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+
+            <StackPanel Orientation="Horizontal"  Grid.Row="5" Grid.Column="1">
+                <Button Content="Save"   Width="120"  Height="50" Style="{DynamicResource Button}" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="DoSaveCustomer"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+
+                <Button Content="Delete"   Width="120"  Height="50" Style="{DynamicResource Button}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="DoRemoveCustomer"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+
+            </StackPanel>
+
+            <Button Content="Search"   Width="120"  Height="50" Style="{DynamicResource Button}" Grid.Row="5" Grid.Column="2" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="DoSearchCustomer"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+
+
+
+
+            <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False"  Grid.Row="6"   Grid.Column="0" Grid.ColumnSpan="3" IsReadOnly="True"
+                      SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Customer Name" Binding="{Binding ContactName}" />
+                    <DataGridTextColumn Header="Customer Phone" Binding="{Binding PhoneNumber}" />
+                    <DataGridTextColumn Header="Customer Address" Binding="{Binding Address}" />
+                    <DataGridTextColumn Header="Customer Email" Binding="{Binding Email}" />
+                    <DataGridTextColumn Header="Customer DeliveryCharge" Binding="{Binding DeliveryCharge}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+<!--Header-->
+    <include
+        layout="@layout/_headmessagecontrol" />
+<!--Shop Summary Line-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <!--Shop logo-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.30"
+            android:orientation="vertical">
+            <ImageView
+                android:src="@drawable/ic_shop_logo"
+                android:layout_marginRight="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+          <Button
+               android:text="Delivery Area"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:background="?android:attr/selectableItemBackground"
+               style="@style/AppFont.Small"
+               local:MvxBind="Click ViewDeliveryArea" />
+          
+        </LinearLayout>
+    <!--Shop Name Section-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.40"
+            android:orientation="vertical">
+            <TextView
+                style="@style/AppFont.Large"
+                local:MvxBind="Text ShopInfo.ShopName"
+                android:shadowColor="#FF0000"
+                android:shadowRadius="1.5"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                style="@style/AppFont.Medium"
+                local:MvxBind="Text ShopInfo.ShopNumber"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                style="@style/AppFont.Medium"
+                local:MvxBind="Text ShopInfo.ShopAddress1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                style="@style/AppFont.Medium"
+                local:MvxBind="Text ShopInfo.ShopAddress2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+           
+        </LinearLayout>
+    <!--Shop Open Hours-->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:orientation="vertical">
+            <Mvx.MvxImageView
+                android:id="@+id/OpenHourImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_open"
+                local:MvxBind="ImageUrl ShopOpenImagePath" />
+            <TextView
+                android:text="@string/app_page_home_label_openhours"
+                style="@style/AppFont.Small.Bold"
+                android:id="@+id/OpenHourTextView"
+                android:layout_marginTop="1dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                style="@style/AppFont.Small"
+                android:typeface="monospace"
+                local:MvxBind="Text ShopOpenHours"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+<!--View Menu Line-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+        <Button
+            android:text="View Menu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppFont.Large.Bold"
+            local:MvxBind="Click ViewMenuCommand" />
+    </LinearLayout>
+<!--Business Process Line-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.05"
+            android:orientation="vertical" />
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/Step1ImageButton"
+                android:src="@drawable/ic_intro_step1"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:scaleType="fitCenter"
+                local:MvxBind="Click ViewMenuCommand"
+                android:layout_height="100dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/Step2ImageButton"
+                android:src="@drawable/ic_intro_step2"
+                local:MvxBind="Click ViewBasketCommand"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:scaleType="fitCenter"
+                android:layout_height="100dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/Step3ImageButton"
+                android:src="@drawable/ic_intro_step3"
+                local:MvxBind="Click ViewMenuCommand"
+                android:layout_width="fill_parent"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:layout_height="100dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="0.05"
+            android:orientation="vertical" />
+    </LinearLayout>
+<!--Shop News Line-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:text="@string/app_page_home_label_shopnews"
+            style="@style/AppFont.Medium.Bold"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <Mvx.MvxListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice"
+            local:MvxBind="ItemsSource ShopNews"
+            local:MvxItemTemplate="@layout/shopnewslistview" />
+    </LinearLayout>
+</LinearLayout>

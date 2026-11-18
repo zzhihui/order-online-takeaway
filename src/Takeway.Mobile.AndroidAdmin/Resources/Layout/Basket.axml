@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:scrollbars="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:fadeScrollbars="false"
+              android:minWidth="25px"
+              android:minHeight="25px">
+
+
+  <!--Item Detail-->
+  <LinearLayout android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.60"
+                android:orientation="vertical">
+    <!--Summary Header-->
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+      <TextView  android:text="@string/app_page_basket_ordersummary"
+                  style="@style/AppFont.Large.Bold"
+                  android:layout_width="0dp"
+                  android:layout_weight="0.70"
+                  android:layout_height="wrap_content" />
+      <Button android:text="@string/app_page_basket_buymore"
+              android:layout_width="0dp"
+              android:layout_weight="0.30"
+              android:layout_height="wrap_content"
+              style="@style/AppFont.Medium.Bold"
+              local:MvxBind="Click AddMoreCommand" />
+    </LinearLayout>
+
+    <!--Line break-->
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="1dp"
+                  android:background="#000000"
+                  android:orientation="horizontal" />
+
+    <!--Listview-->
+    <Mvx.MvxListView android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:choiceMode="singleChoice"
+                    local:MvxBind="ItemsSource MyOrderItems; ItemClick BasketItemsRemoveCommand"
+                    local:MvxItemTemplate="@layout/basketitemslistview" />
+    <!--Summary total-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+      <TextView
+          android:text="Total:"
+          style="@style/AppFont.Large.Bold"
+          android:layout_width="0dp"
+          android:layout_weight="0.80"
+          android:layout_height="wrap_content" />
+      <TextView
+          style="@style/AppFont.Large.Bold"
+          android:layout_width="0dp"
+          android:layout_weight="0.20"
+          local:MvxBind="Text OrderTotal"
+          android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+  </LinearLayout>
+
+  <LinearLayout android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.40"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+    <!--Contact Name-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      <TextView
+          android:text="Contact Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_width="fill_parent"
+          android:layout_column="1"
+          android:layout_height="wrap_content" />
+      <EditText
+          local:MvxBind="Text Name"
+          android:layout_width="fill_parent"
+          style="@style/AppFont.Medium"
+          android:inputType="textPersonName"
+          android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--Email-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      <TextView
+          android:text="Email"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content" />
+      <EditText
+          local:MvxBind="Text Email"
+          style="@style/AppFont.Medium"
+          android:layout_width="fill_parent"
+          android:inputType="textEmailAddress"
+          android:nextFocusForward="@+id/ButtonSubmit"
+          android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--Final Comment-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      <TextView
+          android:text="Comment"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content" />
+      <EditText
+          local:MvxBind="Text Comment"
+          android:layout_width="fill_parent"
+          android:inputType="text"
+          style="@style/AppFont.Medium"
+          android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"/>
+    <TextView
+         android:text="Please pass back to waitress to complete your order"
+         style="@style/AppFont.Medium.Bold"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" />
+    <!--Submit Button-->
+    <Button
+        android:text="Click By Waitress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppFont.Large.Bold"
+        android:gravity="bottom"
+        android:layout_marginBottom="10dp"
+        local:MvxBind="Click SubmitOrderCommand;Enabled CanSubmit" />
+
+
+  </LinearLayout>
+
+
+
+
+</LinearLayout>

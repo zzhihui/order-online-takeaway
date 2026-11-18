@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3C79606-F3D3-4388-965D-95E53248FD87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeaway.Service.IntegrationTests</RootNamespace>
+    <AssemblyName>Takeaway.Service.IntegrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.4.7.1\lib\3.5\Twilio.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="DatabaseMappings\ReportMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportCategoryMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportCategoryReportMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportLabelMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportLabelReportMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportParameterMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportParameterTypeMappingTest.cs" />
+    <Compile Include="DatabaseMappings\ReportScheduleMappingTest.cs" />
+    <Compile Include="DatabaseMappings\CustomerMapTest.cs" />
+    <Compile Include="DatabaseMappings\DeliveryOptionMapTest.cs" />
+    <Compile Include="DatabaseMappings\DiscountOfferMapTest.cs" />
+    <Compile Include="DatabaseMappings\MemuItemOfferMapTest.cs" />
+    <Compile Include="DatabaseMappings\MenuItemMapTest.cs" />
+    <Compile Include="DatabaseMappings\MenuItemCategoryMapTest.cs" />
+    <Compile Include="DatabaseMappings\MenuItemSubItemMapTest.cs" />
+    <Compile Include="DatabaseMappings\MenuSubItemMapTest.cs" />
+    <Compile Include="DatabaseMappings\MenuSubItemItemMapTest.cs" />
+    <Compile Include="DatabaseMappings\OrderMapTest.cs" />
+    <Compile Include="DatabaseMappings\OrderItemMapTest.cs" />
+    <Compile Include="DatabaseMappings\ServerSettingMapTest.cs" />
+    <Compile Include="DatabaseMappings\ShopGeneralHourMapTest.cs" />
+    <Compile Include="DatabaseMappings\ShopInfoMapTest.cs" />
+    <Compile Include="DatabaseMappings\ShopNewsMapTest.cs" />
+    <Compile Include="DatabaseMappings\ShopSpecialHourMapTest.cs" />
+    <Compile Include="DatabaseMappings\ShopUserMapTest.cs" />
+    <Compile Include="DatabaseMappings\SyncStatusMapTest.cs" />
+    <Compile Include="PaymentTests\PaymentTest.cs" />
+    <Compile Include="SendGridTests\EmailTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmsTests\SmsCommunicationTest.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="Transformers\OrderTransformerTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{d42f3734-766f-404b-8d5d-1acd6c42e686}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Test.Utilities\Core.Test.Utilities.csproj">
+      <Project>{949ef63b-1cfc-4c93-8b22-9e0149479f74}</Project>
+      <Name>Core.Test.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Builder.Data\Takeaway.Builder.Data.csproj">
+      <Project>{294e61f9-8a22-4889-af38-16d1590a72d2}</Project>
+      <Name>Takeaway.Builder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.BusinessEngine\Takeaway.BusinessEngine.csproj">
+      <Project>{a8423431-e9d1-443c-bc16-e667660a0595}</Project>
+      <Name>Takeaway.BusinessEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data.Entities\Takeaway.Data.Entities.csproj">
+      <Project>{535fc7eb-27c3-4834-929b-7305f51933f0}</Project>
+      <Name>Takeaway.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data\Takeaway.Data.csproj">
+      <Project>{715f1cb3-0202-454b-a1b5-7a6380717da2}</Project>
+      <Name>Takeaway.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

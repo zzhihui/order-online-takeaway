@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+  <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:orientation="vertical">
+    <MvxImageView
+       android:src="@drawable/food"
+       local:MvxBind="ImageUrl ImageUrl"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+    />
+
+  </LinearLayout>
+
+  <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="0dp"
+         android:layout_weight="0.70"
+         android:orientation="vertical">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal">
+      <TextView
+             local:MvxBind="Text Name"
+             style="@style/AppFont.Medium.Bold"
+             android:layout_width="0dp"
+             android:layout_weight="0.70"
+             android:layout_height="wrap_content" />
+
+      <TextView
+            local:MvxBind="Text Price, Converter=DecimalString"
+            style="@style/AppFont.Small.Bold"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+           local:MvxBind="Text Description"
+           style="@style/AppFont.Small"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content" />
+
+    <TextView
+           local:MvxBind="Text SubItemSelections, Converter=SubItemString"
+           style="@style/AppFont.Small"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content" />
+
+
+    <TextView
+           local:MvxBind="Text Comment"
+           style="@style/AppFont.Small"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content" />
+
+  </LinearLayout>
+
+  <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="0dp"
+         android:layout_weight="0.10"
+         android:orientation="vertical">
+
+    <MvxImageView
+        android:src="@drawable/remove"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:gravity="center_vertical"
+         />
+
+  </LinearLayout>
+
+</LinearLayout>

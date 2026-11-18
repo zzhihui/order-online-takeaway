@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="page_order_additembasket_addtionalcomment" xml:space="preserve">
+    <value>Additonal Comment</value>
+  </data>
+  <data name="page_order_additembasket_addtobasket" xml:space="preserve">
+    <value>Add to Basket</value>
+  </data>
+  <data name="page_order_additembasket_optionextra" xml:space="preserve">
+    <value>Select your option extra</value>
+  </data>
+  <data name="page_order_additembasket_title" xml:space="preserve">
+    <value>Confirm Adding Item</value>
+  </data>
+  <data name="page_order_basket_address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="page_order_basket_closed" xml:space="preserve">
+    <value>Sorry we are currently closed</value>
+  </data>
+  <data name="page_order_basket_commentlabel" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="page_order_basket_contactinfo" xml:space="preserve">
+    <value>Contact Info</value>
+  </data>
+  <data name="page_order_basket_contactinfocomment" xml:space="preserve">
+    <value>Please enter your contact information for your order</value>
+  </data>
+  <data name="page_order_basket_contactname" xml:space="preserve">
+    <value>Contact name</value>
+  </data>
+  <data name="page_order_basket_deliveryarea" xml:space="preserve">
+    <value>delivery area and charges</value>
+  </data>
+  <data name="page_order_basket_deliveryoption" xml:space="preserve">
+    <value>Delivery Option</value>
+  </data>
+  <data name="page_order_basket_email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="page_order_basket_excludedeliveryarea" xml:space="preserve">
+    <value>Note: Sub total is excluding delivery charge</value>
+  </data>
+  <data name="page_order_basket_finalcomment" xml:space="preserve">
+    <value>Your final order comment</value>
+  </data>
+  <data name="page_order_basket_minorder" xml:space="preserve">
+    <value>Min Order:</value>
+  </data>
+  <data name="page_order_basket_orderitemheader" xml:space="preserve">
+    <value>List of order items</value>
+  </data>
+  <data name="page_order_basket_ordersummary" xml:space="preserve">
+    <value>Order Summary</value>
+  </data>
+  <data name="page_order_basket_phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="page_order_basket_removefrombasket" xml:space="preserve">
+    <value>remove from basket</value>
+  </data>
+  <data name="page_order_basket_submitorderbutton" xml:space="preserve">
+    <value>Submit Order</value>
+  </data>
+  <data name="page_order_basket_subtotal" xml:space="preserve">
+    <value>Sub Total</value>
+  </data>
+  <data name="page_order_basket_title" xml:space="preserve">
+    <value>My Basket</value>
+  </data>
+  <data name="page_order_basket_validate_address" xml:space="preserve">
+    <value>Please enter address</value>
+  </data>
+  <data name="page_order_basket_validate_email" xml:space="preserve">
+    <value>Please enter email</value>
+  </data>
+  <data name="page_order_basket_validate_emailinvalid" xml:space="preserve">
+    <value>Please enter valid email</value>
+  </data>
+  <data name="page_order_basket_validate_nameempty" xml:space="preserve">
+    <value>Please enter contact name</value>
+  </data>
+  <data name="page_order_basket_validate_phoneempty" xml:space="preserve">
+    <value>Please enter phone number</value>
+  </data>
+  <data name="page_order_basket_validate_phoneinvalid" xml:space="preserve">
+    <value>Please enter valid phone number</value>
+  </data>
+  <data name="page_order_categoryItem_comment" xml:space="preserve">
+    <value>Select item to add to your basket</value>
+  </data>
+  <data name="page_order_categoryItem_title" xml:space="preserve">
+    <value>Select your dish</value>
+  </data>
+  <data name="page_order_category_title" xml:space="preserve">
+    <value>Select a category</value>
+  </data>
+  <data name="page_order_completeorder_description" xml:space="preserve">
+    <value>Thank you for submitting your order. You order will be processed shortly. Below is your order reference:</value>
+  </data>
+  <data name="page_order_completeorder_orderref" xml:space="preserve">
+    <value>Order Ref:</value>
+  </data>
+  <data name="page_order_completeorder_title" xml:space="preserve">
+    <value>Order Complete</value>
+  </data>
+  <data name="page_order_index_address" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="page_order_index_contactInfo" xml:space="preserve">
+    <value>Contact Information</value>
+  </data>
+  <data name="page_order_index_news" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="page_order_index_openhour" xml:space="preserve">
+    <value>Open Hours</value>
+  </data>
+  <data name="page_order_index_tel" xml:space="preserve">
+    <value>Tel:</value>
+  </data>
+  <data name="page_order_index_title" xml:space="preserve">
+    <value>Old Town Chinese Restaurant</value>
+  </data>
+  <data name="page_order_index_viewmenu" xml:space="preserve">
+    <value>View Menu</value>
+  </data>
+  <data name="page_order_index_viewmenucomment" xml:space="preserve">
+    <value>Start order online by click view menu button below</value>
+  </data>
+</root>

@@ -1,0 +1,18 @@
+﻿<ion-view view-title="Welcome">
+    <ion-content>
+        <div class="text-center">
+            <h2>{{shopInfo.shopName}}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-50">
+                <b>Tel: {{shopInfo.shopNumber}}</b>
+            </div>
+            <div class="col-50">
+                <b> {{shopInfo.shopAddress1}}, {{shopInfo.shopAddress2}}</b>
+            </div>
+        </div>
+        <iframe ng-src="{{googleMap}}" class="iframe-fullfill"></iframe>
+
+    </ion-content>
+</ion-view>

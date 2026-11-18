@@ -1,0 +1,16 @@
+
+<ion-view view-title="Delivery Area">
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item class="item item-divider">
+                Delivery Area
+            </ion-item>
+
+            <div class="row item item-text-wrap" ng-repeat="darea in deliveryAreas">
+                <div class="col col-50">{{darea.area}}</div>
+                <div class="col">{{darea.minOrder |minOrderEuro}}</div>
+                <div class="col">{{darea.deliveryCost |convertEuro}}</div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

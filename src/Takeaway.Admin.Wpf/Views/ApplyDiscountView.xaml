@@ -1,0 +1,96 @@
+﻿<controls:MetroWindow x:Class="Takeaway.Admin.Wpf.Views.ApplyDiscountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             ShowMaxRestoreButton="False"
+             ShowMinButton="False"
+             ResizeMode="NoResize"
+             Background="#2D88EF"
+             Icon="../Icon.ico"
+             ShowIconOnTitleBar="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500">
+    <controls:MetroWindow.Resources>
+
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="CheckBox" TargetType="{x:Type CheckBox}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Content="5%"   Width="50" Height="40" HorizontalAlignment="Right">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="DoPercent">
+                            <cal:Parameter Value="5" />
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Content="10%"   Width="50" Height="40" HorizontalAlignment="Right">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="DoPercent">
+                            <cal:Parameter Value="10" />
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Content="20%"    Width="50" Height="40" HorizontalAlignment="Right">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="DoPercent">
+                            <cal:Parameter Value="20" />
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <StackPanel Orientation="Horizontal" >
+                <TextBox Width="100" Height="50" TextWrapping="Wrap" Text="{Binding ApplyDiscountPercent}" />
+                <Button x:Name="DoApplyPercent" Content="%"  Width="70" Height="50" Style="{DynamicResource Button}"/>
+            </StackPanel>
+        </StackPanel>
+        <TextBox Height="50" TextWrapping="Wrap" Text="{Binding DiscountAmount}"  Margin="10,0,0,0" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="{Binding MaxDiscountAllowedText}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+        <Button x:Name="DoApplyDiscountAmount" Content="Apply Discount" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource Button}" />
+        <Button x:Name="DoCancel" Content="Cancel" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="70" Height="50" Style="{DynamicResource Button}" Margin="10,0,0,0" />
+
+       
+        
+        
+        <CheckBox Content="Discount Exclude Drink"  IsChecked="{Binding IsDiscountExcludeDrink}" Style="{DynamicResource CheckBox}" Grid.Row="4" Grid.Column="0" FontSize="10"  Grid.ColumnSpan="2">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+    </Grid>
+</controls:MetroWindow>

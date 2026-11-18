@@ -1,0 +1,61 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Admin.ShopUserViewModel
+@{
+    ViewBag.Title = "Create New User";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <div class="well">
+        <form class="form-horizontal" method="post">
+            <fieldset>
+                <legend>Create New User</legend>
+                <div class="text-danger">@Model.ErrorMessage</div>
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+                    <div class="form-group">
+                        @Html.ActionLink("Back", "List", "ShopUser", null, new {@class = "btn btn-primary"})
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">User Name</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NewShopUser.UserName, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Password</label>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(model => model.NewShopUser.Password, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Pin</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NewShopUser.Pin, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">User Group</label>
+                        <div class="col-md-10">
+                            <p>Admin=1; User=2; Manager=0</p>
+                            @Html.EditorFor(model => model.NewShopUser.UserGroupId, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+</div>

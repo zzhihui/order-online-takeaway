@@ -1,0 +1,29 @@
+﻿<ion-view view-title="Category Items">
+    <ion-content class="padding">
+
+        <!--//TODO: Provide Search Functionality
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>-->
+        <ion-list>
+            <ion-item class="item item-divider">
+                Please select a dish to add to basket
+            </ion-item>
+            <ion-item class="item item-avatar item-text-wrap" ng-repeat="menuItem in categoryItems" type="item-text-wrap" href="#/tab/categoryitem/{{menuItem.id}}">
+
+                <img ng-src="{{menuItem.imageUrl}}" ng-if="menuItem.imageUrl">
+                <img ng-src="img/food.png" ng-if="!menuItem.imageUrl">
+                <h2>{{menuItem.name}}</h2>
+                <p>{{menuItem.description}}</p>
+                <span class="item-note">
+                    <h2>{{"€"+(menuItem.price | number:2)}}</h2>
+                </span>
+            </ion-item>
+        </ion-list>
+
+
+    </ion-content>
+</ion-view>

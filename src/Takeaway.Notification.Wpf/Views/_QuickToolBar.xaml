@@ -1,0 +1,78 @@
+﻿<UserControl xmlns:Views="clr-namespace:Takeaway.Admin.Wpf.Views"  x:Class="Takeaway.Admin.Wpf.Views._QuickToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             mc:Ignorable="d" 
+             Height="50"
+             d:DesignHeight="300" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="ButtonContentStyle" TargetType="Rectangle">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="50" />
+        </Style>
+        <converters:BoolToVisibleConverter x:Key="Converter"></converters:BoolToVisibleConverter>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Logout">
+                <Rectangle Style="{StaticResource ButtonContentStyle}">
+                    <Rectangle.Fill>
+                        <VisualBrush Stretch="Fill">
+                            <VisualBrush.Visual>
+                                <Image Source="../Images/ic_logout.png"  Stretch="Uniform" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="MenuLogout">
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="About">
+                <Rectangle Style="{StaticResource ButtonContentStyle}">
+                    <Rectangle.Fill>
+                        <VisualBrush Stretch="Fill">
+                            <VisualBrush.Visual>
+                                <Image Source="../Images/ic_online.png"  Stretch="Uniform" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="MenuAbout">
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Home">
+                <Rectangle Style="{StaticResource ButtonContentStyle}">
+                    <Rectangle.Fill>
+                        <VisualBrush Stretch="Fill">
+                            <VisualBrush.Visual>
+                                <Image Source="../Images/ic_home.png"  Stretch="Uniform" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="MenuHome">
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

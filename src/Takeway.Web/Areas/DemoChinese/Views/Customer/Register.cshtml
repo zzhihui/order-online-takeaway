@@ -1,0 +1,47 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Customer.CustomerViewModel
+
+@{
+    Layout = Html.Shared("_Layout.cshtml");
+}
+
+<div class="well">
+
+    <form id="registrationform" class="form-horizontal" method="post">
+        <fieldset>
+            <legend>Register Account</legend>
+            <p class="text-danger">@Html.ValidationSummary(true)</p>
+            @Html.AntiForgeryToken()
+
+
+            @*Email*@
+            <div class="form-group list-group-item">
+                <label class="control-label col-md-3">
+                    <h6>Email</h6>
+                </label>
+                <div class="col-md-9 has-error">
+                    @Html.TextBoxFor(t => t.Email, new {@class = "form-control", @placeholder = "Email"})
+                    @Html.ValidationMessageFor(x => x.Email)
+                </div>
+            </div>
+            @*Password*@
+            <div class="form-group list-group-item">
+                <label class="control-label col-md-3">
+                    <h6>Password</h6>
+                </label>
+                <div class="col-md-9 has-error">
+                    @Html.PasswordFor(t => t.Password, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
+            </div>
+
+            <div class="form-group list-group-item">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-theme">Register</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>

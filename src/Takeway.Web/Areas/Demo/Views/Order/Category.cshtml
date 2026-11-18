@@ -1,0 +1,54 @@
+﻿@using System.Configuration
+@using Takeaway.Data.Entities.Shops
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.CategoryViewModel
+@{
+    ViewBag.Title = WebResource.page_order_category_title;
+    Layout = Html.Shared("_Layout.cshtml");
+}
+<h2>@WebResource.page_order_category_title</h2>
+<div>
+    <div class="list-group">
+        <div class="list-group-item">
+            <span class="help-block">
+                <a href="@Html.Content("menu.pdf")" target="_blank">
+                    <img src="~/Content/menuIco.gif" class="img-responsive" alt="Download our offline menu" width="80" height="80">
+                    Download our offline menu
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="well">
+        <div class="row">
+            @foreach (var reportItem in Model.CategoryCategories)
+            {
+                <div class="col-md-4">
+                    <a href="@Url.Action("categoryitem", "Order", new {id=reportItem.Id})" class="span4 list-group-item">
+                        @{
+                            var webUrl = reportItem.WebImageUrl;
+                            if (string.IsNullOrEmpty(webUrl))
+                            {
+                                webUrl = "../../Content/foodCategory.png";
+                            }
+
+                            <div class="clearfix content-heading fixDivS">
+                                <img src="@webUrl" class="img-responsive pull-left fixImageS" alt="@reportItem.Name" width="100" height="300">
+                                <h4 class="list-group-item-heading">@reportItem.Name</h4>
+                                <p class="list-group-item-text">@reportItem.Description</p>
+                            </div>
+
+                        }
+
+
+                    </a>
+                </div>
+                            }
+
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+
+</div>

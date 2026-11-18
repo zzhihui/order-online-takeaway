@@ -1,0 +1,50 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Admin.OptionItemViewModel
+
+@{
+    ViewBag.Title = "Manage Option Items";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<h2>Option Items</h2>
+<p>
+    @Html.ActionLink("Create New", "Add", "OptionItem", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            TranslateName
+        </th>
+    </tr>
+    @foreach (var item in Model.OptionItems)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranslateName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

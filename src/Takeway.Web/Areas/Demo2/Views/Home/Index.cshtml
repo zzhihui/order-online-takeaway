@@ -1,0 +1,274 @@
+﻿@using Takeway.Web.Application.Extension
+@{
+    ViewBag.Title = "Welcome";
+    Layout = Html.Shared("_LayoutHome.cshtml");
+}
+
+
+
+
+<!-- INTRO -->
+<section id="intro">
+    <div class="overlay">
+        <div class="container">
+
+
+            <!-- INTRO SLIDER -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <!-- Rotator Content -->
+                    <div class="intro_slider">
+                        <ul class="slides">
+
+                            <!-- Intro Slide #1 -->
+                            <li>
+                                <div class="intro_slide">
+                                    <h2>THE SECRET OF<br />LONGER LIFE</h2>
+
+                                    <!-- INTRO BUTTONS -->
+                                    <div class="intro_buttons">
+                                        <a class="btn btn-theme" href="@Url.Action("Index", "Order")">View Our Menu</a>
+                                    </div>
+                                </div>
+                            </li>	<!-- End Intro Slide #1 -->
+                            <!-- Intro Slide #2 -->
+                            <li>
+                                <div class="intro_slide">
+                                    <h2>Fresh Sushi<br />for delivery</h2>
+
+                                    <!-- INTRO BUTTONS -->
+                                    <div class="intro_buttons">
+                                        <a class="btn btn-theme" href="@Url.Action("Index", "Order")">View Our Menu</a>
+                                    </div>
+                                </div>
+                            </li>	<!-- End Intro Slide #2 -->
+                            <!-- Intro Slide #3 -->
+                            <li>
+                                <div class="intro_slide">
+                                    <h2>Are you a hungry <br />order from us</h2>
+
+                                    <!-- INTRO BUTTONS -->
+                                    <div class="intro_buttons">
+                                        <a class="btn btn-theme" href="@Url.Action("Index", "Order")">View Our Menu</a>
+                                    </div>
+                                </div>
+                            </li>	<!-- End Intro Slide #3 -->
+
+                        </ul>
+                    </div>	 <!-- End Rotator Content -->
+
+                </div>
+            </div>	 <!-- END INTRO SLIDER -->
+            <!-- BACKGROUND VIDEO CONTROLS -->
+            <div id="video-controls">
+                <a href="#" id="video-volume" class="fa fa-volume-off"></a>
+                <a href="#" id="video-play" class="fa fa-pause"></a>
+            </div>
+
+
+        </div>			<!-- End container -->
+    </div>			<!-- End overlay-->
+</section>
+<!-- YOUTUBE BACKGROUND VIDEO-->
+<div id="bg-video">
+    <div class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=odPA7y5QjQA',containment:'#intro',startAt:0, mute:true, autoPlay:true, showControls:false}"></div>
+</div>
+
+<!-- CONTACT-INFO-->
+<section id="contact-info">
+    <div class="container">
+
+
+        <!-- SECTION TITLE -->
+        <div class="row">
+            <div class="col-sm-12 titlebar">
+                <h2>Contact Us</h2>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2379.926811033807!2d-6.1987673999999995!3d53.380359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670fbf4cfe13df%3A0x5ec8b441deb80d2b!2sLin+Kee!5e0!3m2!1sen!2suk!4v1437061902776" frameborder="0" style="border: 0" allowfullscreen=""></iframe>
+
+            </div>
+
+
+
+            <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                <i class="fa fa-map-marker"></i>
+                <h4 class="contact_title">Address</h4>
+                <p class="contact_description"> 1 test street Dublin 2</p>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                <i class="fa fa-phone"></i>
+                <h4 class="contact_title">Phone</h4>
+                <p class="contact_description">
+                    0874532106<br />0874414099
+                </p>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                <i class="fa fa-clock-o"></i>
+                <h4 class="contact_title">WORKING HOURS</h4>
+                <p class="contact_description"> Monday - Friday 9:00 - 21:00</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- App-->
+<section id="app">
+    <div class="container">
+
+
+        <!-- ACCORDION HOLDER -->
+        <div id="accordion-holder" class="row">
+
+            
+            <!-- ACCORDION HOLDER IMAGE -->
+            <div class="col-md-6 text-center animated fadeInLeft visible" data-animation="fadeInLeft" data-animation-delay="600">
+                <a href="https://play.google.com/store/apps/details?id=com.indasoft.takeaway.indasoft&amp;hl=en"><img class="img-responsive" src="~/Content/googleplay.png" alt="android" width="200" height="100"><br /></a>
+                <a href="https://itunes.apple.com/ie/app/indasoft-takeaway/id1077910982?mt=8"><img class="img-responsive" src="~/Content/applestore.png" alt="ios" width="200" height="100"></a>
+            </div>
+
+
+            <!--  ACCORDION -->
+            <div class="col-md-6">
+                <div class="panel-group" id="accordion">
+
+
+                    <!-- PANEL #1 -->
+                    <div class="panel panel-default animated fadeInRight visible" data-animation="fadeInRight" data-animation-delay="300">
+
+                        <!-- Panel Title -->
+                        <div class="panel-heading">
+                            <h5 class="panel-title"><a data-toggle="collapse" class="panel-toggle active" data-parent="#accordion" href="#collapseOne"><i class="fa fa-check"></i> Download our App today </a> </h5>
+                        </div>
+
+                        <!-- Panel Content -->
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>Now you can order from us even easier than ever. Just download the app using one of the links and then you'll be able to find out all the latest news, exclusive offers and opening times, whilst ordering with a few touches of your phone or tablet. What are you waiting for? </p>
+                                <p>Download now!</p>
+                            </div>
+                        </div>
+
+                    </div>	<!-- END PANEL #1 -->
+                    <!-- PANEL #2 -->
+                    <div class="panel panel-default animated fadeInRight visible" data-animation="fadeInRight" data-animation-delay="500">
+
+                        <!-- Panel Title -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title"> <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-check"></i> Install once then it is there </a> </h4>
+                        </div>
+
+                        <!-- Panel Title -->
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Very straight forward to use
+                            </div>
+                        </div>
+
+                    </div>	<!-- END PANEL #2 -->
+
+
+
+                </div>
+            </div>	<!--  END ACCORDION -->
+
+
+        </div>	<!-- END ACCORDION HOLDER -->
+
+
+    </div>	  <!-- End container -->
+</section>
+
+<section id="about">
+    <div class="container">
+
+
+        <!-- SECTION TITLE -->
+        <div class="row">
+            <div class="col-sm-12 titlebar">
+                <h2>About Us</h2>
+            </div>
+        </div>
+
+
+        <!-- TABS HOLDER -->
+        <div id="tabs-holder" class="row">
+
+
+            <!-- TABS -->
+            <div class="col-md-7">
+
+
+                <!-- Nav Tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active animated bounceIn visible" data-animation="bounceIn" data-animation-delay="300"><a href="#tab_1" role="tab" data-toggle="tab">LATEST NEWS</a></li>
+                    <li class="animated bounceIn visible" data-animation="bounceIn" data-animation-delay="400"><a href="#tab_2" role="tab" data-toggle="tab">Who we are</a></li>
+                </ul>
+
+
+                <!-- Tab Panes -->
+                <div class="tab-content">
+
+
+                    <!-- TAB #1 -->
+                    <div id="tab_1" class="tab-pane active">
+
+                        <!-- Tab #1 Description -->
+                        
+
+                        <!-- Tab #1 Buttons -->
+                        <a href="@Url.Action("Index", "Order")" class="btn btn-theme animated bounceIn visible" data-animation="bounceIn" data-animation-delay="300">Order Online</a>
+
+                    </div>	<!-- END TAB #1 -->
+                    <!-- TAB #2 -->
+                    <div id="tab_2" class="tab-pane">
+
+                        <h4 class="section-heading">WHO WE ARE</h4>
+                        <p>We are a Chinese Take-Aways in the Dublin area. The excellent taste and high quality of the food is matched by our excellent service and express delivery.</p>
+                        <h4 class="section-heading">WHAT WE DO</h4>
+                        <p>We believe in the best. We guarantee 100% natural, fresh and healthy food cooked to your order preference. Lin Kee brings you the best fresh food daily. We aim to provide top quality hot dishes for our customers</p>
+                        <h4 class="section-heading">WHAT MAKES US BETTER</h4>
+                        <ul>
+                            <li>Quality Asian Cuisine at excellent prices</li>
+                            <li>Special Eurosaver Meal Deals during week days</li>
+                            <li>Customers can see their order being made before their eyes through our open kitchen</li>
+                            <li>A team with the most experienced, highly skilled chefs in the country</li>
+                            <li>Our house secret recipe for sauces made by a well known professional chef&hellip; this makes us unbeatable!</li>
+                        </ul>
+                       
+                        <!-- Tab #2 Buttons -->
+                        <a href="@Url.Action("Index", "Order")" class="btn btn-theme animated" data-animation="bounceIn" data-animation-delay="300">Order Online</a>
+              
+                    </div>	<!-- END TAB #2 -->
+
+
+                </div>	<!-- End Tab Panes -->
+
+
+            </div>	<!-- END TABS -->
+            <!-- TABS HOLDER IMAGE -->
+            <div class="col-md-5 text-center animated fadeInRight visible" data-animation="fadeInRight" data-animation-delay="600">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmusashi.dublin&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="340" height="500" style="border: none; overflow: hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+
+
+        </div>	<!-- END TABS HOLDER -->
+
+
+    </div>	  <!-- End container -->
+</section>
+
+
+
+
+

@@ -1,0 +1,205 @@
+﻿@using System.Configuration
+@using Core.Common.Utility.Extension
+@using Takeaway.Service.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.BasketViewModel
+@{
+    Layout = Html.Shared("_Layout.cshtml");
+    var disabled = "";
+    if (!Model.AllowSubmit)
+    {
+        disabled = "disabled";
+    }
+}
+
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <h2>Order Summary</h2>
+
+            <form id="submitform" class="form-horizontal text-info" method="post">
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    <div class="list-group">
+                        @Html.ActionLink("Back to Menu", "CategoryList", "Order", null, new { @class = "btn btn-primary" })
+                    </div>
+
+                    @*Min Order*@
+                    <div class="form-group list-group-item text-danger">
+
+                        <div class="col-md-12">
+                            <p>@Html.ValidationSummary(true)</p>
+                            @Html.HiddenFor(r => r.MinOrder)
+                            @Html.HiddenFor(r => r.ShopInfo.IsOpen)
+                        </div>
+                        @if (Model.MinOrder > 0)
+                        {
+                        <div class="col-md-3 control-label">
+                            <h5>MIN ORDER:</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>@Model.MinOrder.ToPriceStringIe()</h5>
+                        </div>
+                        }
+                        @if (Model.ShopInfo.IsOpen.HasValue && !Model.ShopInfo.IsOpen.Value)
+                        {
+                        <div class="col-md-12">
+                            <h5>Sorry we are currently closed</h5>
+                        </div>
+                        }
+                    </div>
+
+                    @*Menu Items*@
+                    <div class="form-group list-group-item">
+                        <div class="form-group">
+                            <h4 class="list-group-item-heading">List of order items</h4>
+                            <p class="list-group-item-text"></p>
+                        </div>
+                        <div class="form-group">
+                            @Html.ActionLink("Add more food", "CategoryList", "Order", null, new { @class = "btn btn-primary" })
+                        </div>
+
+                        @foreach (var orderItem in Model.MyOrder.OrderItems)
+                        {
+                            <a href="@Url.Action("removeitemfrombasket", "order", new {id = orderItem.Guid})" class="list-group-item">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">@orderItem.Name</label>
+                                    <div class="col-md-8">
+                                        <label class="form-control-static">@orderItem.Price.ToPriceStringIe()</label>
+                                        <span class="badge">Remove from basket</span>
+                                        <span class="help-block">@orderItem.SubItemWithComment()</span>
+                                        <span class="help-block">@orderItem.Comment</span>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+
+                        <div class="list-group-item">
+                            <div class="form-group text-danger">
+                                <h5><label class="col-md-3 control-label">Sub Total</label></h5>
+                                <div class="col-md-8">
+                                    <h4><label class="form-control-static">@Model.MyOrder.OrderTotal.ToPriceStringIe()</label></h4>
+                                    <span class="help-block"><a href="@Url.Action("deliveryarea", "order")">delivery area and charges</a></span>
+                                    @if (Model.MyOrder.OrderOriginalTotal > Model.MyOrder.OrderTotal)
+                                    {
+                                    <p class="text-danger">Note: Discount may be applied</p>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-group-item">
+                            <div class="form-group">
+                                <h5><label class="col-md-3 control-label">Delivery Charge</label></h5>
+                                <div class="col-md-8">
+                                    <label class="form-control-static">Start from @Model.ShopInfo.DeliveryCharge.ToPriceStringIe()</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    @*Delivery Options*@
+                    <div class="form-group list-group-item">
+                        <h4>DELIVERY OPTION</h4>
+                        <label class="col-md-3 control-label">Delivery Option</label>
+                        <div class="col-md-8 has-error">
+                            @Html.DropDownListFor(r => r.SelectedDeliveryOptionId, new SelectList(@Model.DeliveryOptions, "Id", "Name"), new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+
+                    @*Contact Info*@
+                    <div class="form-group">
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">CONTACT INFO</h4>
+                            <p class="list-group-item-text">Please enter your contact information for your order</p>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Contact name</label>
+                                <div class="col-md-8 has-error">
+                                    @Html.TextBoxFor(t => t.Name, new { @class = "form-control", @placeholder = WebResource.page_order_basket_contactname })
+                                    <span class="text-danger">@Html.ValidationMessageFor(x => x.Name)</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Phone</label>
+                                <div class="col-md-8 has-error">
+                                    @Html.TextBoxFor(t => t.PhoneNumber, new { @class = "form-control", @placeholder = WebResource.page_order_basket_phone })
+                                    <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="col-md-3 control-label">Email</label>
+                                <div class="col-md-8 has-error">
+                                    @Html.TextBoxFor(t => t.Email, new { @class = "form-control", @placeholder = WebResource.page_order_basket_email })
+                                    <span class="text-danger">@Html.ValidationMessageFor(x => x.Email)</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="col-md-3 control-label">Address</label>
+                                <div class="col-md-8 has-error">
+                                    @Html.TextAreaFor(t => t.Address, new { @class = "form-control", @placeholder = WebResource.page_order_basket_address })
+                                    <span class="text-danger"> @Html.ValidationMessageFor(x => x.Address)</span>
+                                </div>
+                            </div>
+
+                            @if (ConfigurationManager.AppSettings["SingleDeliveryCharge"] != "true")
+                            {
+                                <div class="form-group">
+
+                                    <label class="col-md-3  control-label">Select Your Area</label>
+                                    <div class="col-md-8 has-error">
+                                        @Html.DropDownListFor(r => r.SelectedDeliveryAreaId, new SelectList(@Model.DeliveryAreas, "Id", "Area"), new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+                    @*Final Comment*@
+                    <div class="form-group">
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">YOUR FINAL ORDER COMMENT</h4>
+                            <div class="form-group">
+
+                                <label class="col-md-3 control-label">Comment</label>
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(t => t.Comment, new { @class = "form-control", @placeholder = WebResource.page_order_basket_commentlabel })
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary" @disabled>@WebResource.page_order_basket_submitorderbutton</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+
+        </div>
+
+    </div>
+</header>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $("#submitform").submit(function (event) {
+        $("#spinner").show().delay(3000).fadeOut();;
+
+    });
+
+</script>

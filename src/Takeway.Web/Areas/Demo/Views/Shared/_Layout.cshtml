@@ -1,0 +1,73 @@
+﻿@using Takeway.Web.Application.Extension
+@using Takeway.Web.App_Start
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Html.Partial(Html.Shared("_GoogleAnalytics.cshtml"))
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="@Html.Content("Style.css")" rel="stylesheet"/>
+    
+    <script type="text/javascript">
+    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"I agree","learnMore":"More info","link":"http://www.kingfood.ie/home/privacypolicy","theme":"dark-top"};
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+    
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header pull-left">
+                @*TODO:Localisation*@
+                @Html.ActionLink("Demo", "Index", "Order", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header pull-right">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="list-group-item-default">@{Html.RenderAction("BasketSummary", "Order");}</li>
+                </ul>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainMenu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse" id="mainMenu">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Order")</li>
+                    <li>@Html.ActionLink("Menu", "Category", "Order")</li>
+                    @*TODO:Localisation*@
+                    <li>@Html.ActionLink("DeliveryArea", "DeliveryArea", "Order")</li>
+                    <li>@Html.ActionLink("Help", "Help", "Order")</li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        <div id="spinner" style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001; opacity: .8; filter: alpha(opacity=70); display: none">
+            <p style="position: absolute; top: 30%; left: 45%; color: White;">
+                loading...<img src="@Url.Content("~/Content/loading.gif")" style="width: 100px; height: 100px;">
+            </p>
+        </div>
+        @RenderBody()
+        <a href="#0" class="cd-top">Top</a>
+        <hr />
+        <footer>
+            @Html.Partial(Html.Shared("_Footer.cshtml"))
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="@Html.Content("script.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

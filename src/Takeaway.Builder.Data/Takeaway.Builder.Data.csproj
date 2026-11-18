@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{294E61F9-8A22-4889-AF38-16D1590A72D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeaway.Builder.Data</RootNamespace>
+    <AssemblyName>Takeaway.Builder.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Faker.NET4">
+      <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Exlib\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Builders\CustomerBuilder.cs" />
+    <Compile Include="Builders\DeliveryOptionBuilder.cs" />
+    <Compile Include="Builders\DiscountOfferBuilder.cs" />
+    <Compile Include="Builders\MemuItemOfferBuilder.cs" />
+    <Compile Include="Builders\MenuItemBuilder.cs" />
+    <Compile Include="Builders\MenuItemCategoryBuilder.cs" />
+    <Compile Include="Builders\MenuItemSubItemBuilder.cs" />
+    <Compile Include="Builders\MenuSubItemBuilder.cs" />
+    <Compile Include="Builders\MenuSubItemItemBuilder.cs" />
+    <Compile Include="Builders\OrderBuilder.cs" />
+    <Compile Include="Builders\OrderItemBuilder.cs" />
+    <Compile Include="Builders\OrderItemsSelectionBuilder.cs" />
+    <Compile Include="Builders\ServerSettingBuilder.cs" />
+    <Compile Include="Builders\ShopGeneralHourBuilder.cs" />
+    <Compile Include="Builders\ShopInfoBuilder.cs" />
+    <Compile Include="Builders\ShopNewsBuilder.cs" />
+    <Compile Include="Builders\ShopUserBuilder.cs" />
+    <Compile Include="Builders\SyncStatusBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{d42f3734-766f-404b-8d5d-1acd6c42e686}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Test.Utilities\Core.Test.Utilities.csproj">
+      <Project>{949ef63b-1cfc-4c93-8b22-9e0149479f74}</Project>
+      <Name>Core.Test.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data.Entities\Takeaway.Data.Entities.csproj">
+      <Project>{535fc7eb-27c3-4834-929b-7305f51933f0}</Project>
+      <Name>Takeaway.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data\Takeaway.Data.csproj">
+      <Project>{715f1cb3-0202-454b-a1b5-7a6380717da2}</Project>
+      <Name>Takeaway.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

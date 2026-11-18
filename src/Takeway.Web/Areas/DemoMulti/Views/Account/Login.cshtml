@@ -1,0 +1,49 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = Html.Shared("_Layout.cshtml");
+}
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <h2>Admin Login</h2>
+            <form id="submitform" class="form-horizontal text-info" method="post">
+                <fieldset>
+                    <p class="text-danger">@Html.ValidationSummary(true)</p>
+                    @Html.AntiForgeryToken()
+
+                    @*Login Info*@
+                    <div class="form-group list-group-item">
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">User name</label>
+                            <div class="col-md-8 has-error">
+                                @Html.TextBoxFor(t => t.UserName, new { @class = "form-control", @placeholder = "Enter user name" })
+                                <span class="text-danger">@Html.ValidationMessageFor(x => x.UserName)</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-md-3 control-label">Password</label>
+                            <div class="col-md-8 has-error">
+                                @Html.PasswordFor(t => t.Password, new { @class = "form-control", @placeholder = "Enter password" })
+                                <span class="text-danger">@Html.ValidationMessageFor(x => x.Password)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group list-group-item">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+    </div>
+</header>

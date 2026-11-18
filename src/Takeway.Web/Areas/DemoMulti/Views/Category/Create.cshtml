@@ -1,0 +1,75 @@
+﻿@model Takeway.Web.ViewModels.Order.CategoryViewModel
+@using Takeway.Web.Application.Extension
+
+@{
+    ViewBag.Title = "Create Category";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<div class="well">
+    <form class="form-horizontal text-info" method="post">
+        <fieldset>
+            <legend>Create New Category</legend>
+            <div class="text-danger">@Model.ErrorMessage</div>
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.ActionLink("Back", "List", "Category", null, new { @class = "btn btn-primary" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Name</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedCategory.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Description</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.SelectedCategory.Description, new {htmlAttributes = new {@class = "form-control"}})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Translated Name</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedCategory.TranslateName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Image Url</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedCategory.WebImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Not Available Online</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SelectedCategory.IsInternal, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div>&nbsp;</div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Sort Order</label>
+                    <div class="col-md-10">
+                        <p>Higher number will display first</p>
+                        @Html.EditorFor(model => model.SelectedCategory.SortOrder, new {htmlAttributes = new {@class = "form-control"}})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+

@@ -1,0 +1,27 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Order.PaymentResultViewModel
+@{
+    ViewBag.Title = "Payment Result";
+    Layout = Html.Shared("_Layout.cshtml");
+}
+
+<section id="app">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 titlebar">
+                <h2>Payment</h2>
+            </div>
+        </div>
+
+        <p class="text-danger">
+            <strong>@Model.ErrorMessage</strong>
+        </p>
+        <p>
+            <strong>@Model.ConfirmationMessage</strong>
+        </p>
+
+        <a href="@Url.Action("GenericPayment", "Order")" class="btn btn-theme">Back</a>
+
+    </div>
+</section>

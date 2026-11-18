@@ -1,0 +1,92 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.CategoryItemViewModel
+@{
+    ViewBag.Title = WebResource.page_order_categoryItem_title;
+    Layout = Html.Shared("_Layout.cshtml");
+}
+
+<section id="app">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 titlebar">
+                <h2>Takeaway Menu</h2>
+            </div>
+        </div>
+
+        <div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header pull-left">
+                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    </div>
+                    <div class="navbar-header pull-right">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#subMenu">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="subMenu" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            @foreach (var reportItem in Model.CategoryCategories)
+                            {
+                                <li>
+                                    <a href="#@reportItem.Id" class="text-uppercase">
+                                        <strong>@reportItem.Name</strong>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="well">
+
+                @foreach (var reportItem in Model.CategoryCategories)
+                {
+                    <div class="row">
+                        <div class="col-md-12 well" style='background-color: #5D5D5D;' id="@reportItem.Id">
+                            @{
+                                var webUrl = reportItem.WebImageUrl;
+                                if (string.IsNullOrEmpty(webUrl))
+                                {
+                                    webUrl = "~/Content/foodCategory.png";
+                                }
+                                <img src="@webUrl" class="img-responsive pull-left img-thumbnail" alt="@reportItem.Name" width="80" height="100">
+                            }
+                            <h3 class="list-group-item-heading">&nbsp; @reportItem.Name </h3>@reportItem.Description
+                        </div>
+
+                        @foreach (var item in Model.CategoryItems.Where(r => r.MenuItemCategoryId == reportItem.Id))
+                        {
+                            <div class="col-md-4 col-sm-6">
+                                <a href="@Url.Action("additemtobasket", "Order", new {id = item.Id})" class="list-group-item" style="cursor: pointer;">
+                                    @if (!string.IsNullOrEmpty(@item.ImageUrl))
+                                    {
+                                        <div style="background: url('@item.ImageUrl') no-repeat center center; background-size: 100% auto; height: 150px;"></div>
+                                    }
+                                    <h5 class="list-group-item-heading">@item.Name</h5>
+                                    <span class="badge alert-danger">@item.Price.ToPriceStringIe()</span>
+                                    <p class="list-group-item-text text-danger">
+                                        @Html.Raw(item.ExtraComment)
+                                    </p>
+                                    <p class="list-group-item-text">@item.Description &nbsp;</p>
+                                </a>
+                            </div>
+                        }
+
+                        <div class="col-md-12">
+                            &nbsp;
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>

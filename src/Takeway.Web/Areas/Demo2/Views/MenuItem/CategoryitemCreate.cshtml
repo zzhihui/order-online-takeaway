@@ -1,0 +1,103 @@
+﻿
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Admin.MenuItemViewModel
+@{
+    ViewBag.Title = "Create Item";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+
+    <div class="well">
+        <form class="form-horizontal" method="post">
+            <fieldset>
+                <legend>Create New Dish</legend>
+                <div class="text-danger">@Model.ErrorMessage</div>
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.ActionLink("Back", "List", "MenuItem", null, new { @class = "btn btn-primary" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Name</label>
+                        <div class="col-md-10">
+
+                            @Html.EditorFor(model => model.EditMenuItem.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Description</label>
+                        <div class="col-md-10">
+
+                            @Html.TextAreaFor(model => model.EditMenuItem.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Translated Name</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EditMenuItem.TranslatedName, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Category</label>
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(r => r.EditMenuItem.MenuItemCategoryId, new SelectList(@Model.MenuItemCategories, "Id", "Name"), new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Sort Order</label>
+                        <div class="col-md-10">
+                            <p>Higher number will display first</p>
+                            @Html.EditorFor(model => model.EditMenuItem.SortOrder, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Food Category Id</label>
+                        <div class="col-md-10">
+                            <p>1=Starter; 2=MainCource; 3=Desert; 4=Drinks; 5=SoftDrink;</p>
+                            @Html.EditorFor(model => model.EditMenuItem.FoodCategoryId, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">No Selection</label>
+                        <div class="col-md-10">
+                            <p>No Prompt for Extra selection</p>
+                            @Html.EditorFor(model => model.EditMenuItem.NoSelection, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Hot Food</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EditMenuItem.Ishot, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Not Available Online</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EditMenuItem.ExcludeOnline, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Price</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EditMenuItem.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+</div>

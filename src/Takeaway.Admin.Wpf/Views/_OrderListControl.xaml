@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="Takeaway.Admin.Wpf.Views._OrderListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Takeaway.Admin.Wpf.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="Label" TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style x:Key="CheckBox" TargetType="{x:Type CheckBox}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style x:Key="LabelLarge" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+
+        </Style>
+        <converters:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
+        <converters:OrderIdConverter x:Key="OrderIdConverter" />
+        <converters:PriceConverter x:Key="PriceConverter" />
+        <converters:PaymentRefConverter x:Key="PaymentRefConverter" />
+        <converters:DateTimeConverter x:Key="DateTimeConverter" />
+        <converters:ColorIntConverter x:Key="ColorIntConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <ListView ItemsSource="{Binding OpenOrders}" SelectionMode="Single" SelectedItem="{Binding SelectedOrder}" Background="Transparent" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <cal:ActionMessage MethodName="OpenSelectedOrder" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Orange" BorderThickness="2">
+                        <Grid Background="{Binding IsInternalOrder,Converter={StaticResource ColorIntConverter}}">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Label Content="Order Ref:" HorizontalAlignment="Right"   Style="{DynamicResource Label}"/>
+                                <Label Content="{Binding OrderRef}" HorizontalAlignment="Left"  Style="{DynamicResource Label}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Right">
+                                <Label Content="Driver:" HorizontalAlignment="Right"   Style="{DynamicResource Label}"/>
+                                <Label Content="{Binding DriverName}" HorizontalAlignment="Left"  Style="{DynamicResource Label}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" >
+                                <Label Content="Order Total: €" HorizontalAlignment="Right"  Style="{DynamicResource Label}" />
+                                <Label Content="{Binding OrderTotal,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Left"  Style="{DynamicResource Label}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" >
+                                <Label Content="{Binding ContactName}" HorizontalAlignment="Right"   Style="{DynamicResource Label}"/>
+                                <Label Content="{Binding PhoneNumber}" HorizontalAlignment="Left"   Style="{DynamicResource Label}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" >
+                                <Label Content="Delivery Charge: €" HorizontalAlignment="Right"  Style="{DynamicResource Label}" />
+                                <Label Content="{Binding DeliveryCharge,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Left"  Style="{DynamicResource Label}"/>
+                            </StackPanel>
+
+                            <Label Content="{Binding Address}" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Style="{DynamicResource Label}"/>
+                            <Label Content="{Binding DeliveryType.Name}" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"  Style="{DynamicResource Label}"/>
+                            <Label Content="{Binding PaymentType,Converter={StaticResource PaymentRefConverter}}" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"  Style="{DynamicResource Label}"/>
+                            <Label Content="{Binding Created,Converter={StaticResource DateTimeConverter}}" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2"  Style="{DynamicResource Label}"/>
+
+                            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
+                                <Button  Content="Calc"  Width="70" Height="50" Style="{DynamicResource Button}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="DoAddToCalc">
+                                                <cal:Parameter Value="{Binding Guid}" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button  Content="Edit"  Width="70" Height="50" Style="{DynamicResource Button}">
+
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="DoEditOrder">
+                                                <cal:Parameter Value="{Binding Guid}" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+    </Grid>
+</UserControl>

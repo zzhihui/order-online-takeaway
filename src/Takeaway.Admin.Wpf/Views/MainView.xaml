@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="Takeaway.Admin.Wpf.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:views="clr-namespace:Takeaway.Admin.Wpf.Views"
+           
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="LargeTileStyle" TargetType="controls:Tile">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="18" />
+        </Style>
+
+        <Style x:Key="SmallTileStyle" TargetType="controls:Tile">
+            <Setter Property="Width" Value="147" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="18" />
+        </Style>
+        <converters:BoolToVisibleConverter x:Key="Converter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
+        <views:_ErrorMessage Grid.Row="0"/>
+
+        <WrapPanel Grid.Row="1" Width="940" Height="382" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <controls:Tile Title="POS" Style="{StaticResource LargeTileStyle}" Margin="3"
+                           Visibility="{Binding Path=PosFeature, Converter={StaticResource Converter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="TilePos" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tilepos.png" />
+                </controls:Tile.Background>
+            </controls:Tile>
+            <controls:Tile Title="REPORT" Style="{StaticResource LargeTileStyle}"  Margin="3"
+                           Visibility="{Binding Path=PosFeature, Converter={StaticResource Converter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="ReportMenu" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tilereport.png" />
+                </controls:Tile.Background>
+            </controls:Tile>
+            <controls:Tile Title="Online Report" Style="{StaticResource LargeTileStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="MenuReport" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tilesetting.PNG" />
+                </controls:Tile.Background>
+            </controls:Tile>
+            <controls:Tile Title="EAT IN" Style="{StaticResource LargeTileStyle}"
+                           Visibility="{Binding Path=PosFeature, Converter={StaticResource Converter}}"
+                           >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="EatIn" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tilecustomer.png" />
+                </controls:Tile.Background>
+            </controls:Tile>
+            <controls:Tile Title="ONLINES" Style="{StaticResource LargeTileStyle}"
+                            Visibility="{Binding Path=OnlineFeature, Converter={StaticResource Converter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="OrderOnline" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tileonline.PNG" />
+                </controls:Tile.Background>
+            </controls:Tile>
+            <controls:Tile Title="HELP" Style="{StaticResource SmallTileStyle}" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="Help" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tilehelp.png" />
+                </controls:Tile.Background>
+            </controls:Tile>
+            <controls:Tile Title="ABOUT US" Style="{StaticResource SmallTileStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="AboutUs" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <controls:Tile.Background>
+                    <ImageBrush ImageSource="../Images/tileaboutus.png" />
+                </controls:Tile.Background>
+            </controls:Tile>
+           
+        </WrapPanel>
+    </Grid>
+</UserControl>

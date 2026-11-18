@@ -1,0 +1,40 @@
+﻿@model Takeway.Web.ViewModels.Order.MenuSubItemViewModel
+@using Takeway.Web.Application.Extension
+
+@{
+    ViewBag.Title = "Manage SubItem";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<h2>Selection Items</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "SubItem", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        
+    </tr>
+    @foreach (var item in Model.MenuSubItems)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("EditSubItem", "AddNewSubItem", new { id = item.Id }) 
+            </td>
+        </tr>
+    }
+</table>

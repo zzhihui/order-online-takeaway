@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="wrap_content" android:layout_height="fill_parent">
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:local="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:fadeScrollbars="false"
+                android:layout_marginRight="5dp"
+                android:minWidth="25px"
+                android:minHeight="25px">
+    <!--Header-->
+    <include layout="@layout/_headmessagecontrol"/>
+
+
+    <TextView
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="match_parent"
+        android:text="@string/app_page_categoryitemsub_optionextra_description"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:orientation="horizontal" />
+    <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SubItemLinearLayout"
+        android:orientation="vertical">
+      <TextView
+          android:layout_width="match_parent"
+          style="@style/AppFont.Medium.Bold"
+          local:MvxBind="Text Item1.Name"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item1.OptionItems;SelectedItem Item1.SelectedOptionExtraItem;Visibility Item1Visible, Converter=Visibility" />
+      <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="10dp"
+            android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item2.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item2.OptionItems;SelectedItem Item2.SelectedOptionExtraItem;Visibility Item2Visible, Converter=Visibility" />
+      <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item3.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item3.OptionItems;SelectedItem Item3.SelectedOptionExtraItem;Visibility Item3Visible , Converter=Visibility" />
+      <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item4.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item4.OptionItems;SelectedItem Item4.SelectedOptionExtraItem;;Visibility Item4Visible , Converter=Visibility" />
+      <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item5.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item5.OptionItems;SelectedItem Item5.SelectedOptionExtraItem;;Visibility Item5Visible , Converter=Visibility" />
+
+
+
+      <LinearLayout
+               android:layout_width="fill_parent"
+               android:layout_height="10dp"
+               android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item6.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item6.OptionItems;SelectedItem Item6.SelectedOptionExtraItem;;Visibility Item6Visible , Converter=Visibility" />
+
+
+      <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item7.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item7.OptionItems;SelectedItem Item7.SelectedOptionExtraItem;;Visibility Item7Visible , Converter=Visibility" />
+
+
+      <LinearLayout
+               android:layout_width="fill_parent"
+               android:layout_height="10dp"
+               android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item8.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item8.OptionItems;SelectedItem Item8.SelectedOptionExtraItem;;Visibility Item8Visible , Converter=Visibility" />
+
+
+      <LinearLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="10dp"
+                  android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item9.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item9.OptionItems;SelectedItem Item9.SelectedOptionExtraItem;;Visibility Item9Visible , Converter=Visibility" />
+
+
+      <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="10dp"
+              android:orientation="horizontal" />
+      <TextView
+          android:layout_width="match_parent"
+           local:MvxBind="Text Item10.Name"
+          style="@style/AppFont.Medium.Bold"
+          android:layout_height="wrap_content" />
+      <MvxSpinner
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             local:MvxItemTemplate="@layout/itemspinner"
+             local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+             local:MvxBind="ItemsSource Item10.OptionItems;SelectedItem Item10.SelectedOptionExtraItem;;Visibility Item10Visible , Converter=Visibility" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      <Button
+                android:text="@string/app_page_categoryitemsub_buttonadd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppFont.Large.Bold"
+                local:MvxBind="Click AddItemCommand" />
+    </LinearLayout>
+  </LinearLayout>
+</ScrollView>

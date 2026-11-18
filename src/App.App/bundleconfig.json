@@ -1,0 +1,23 @@
+[
+  {
+    "outputFileName": "www/js/lib/ng-cordova.js",
+    "inputFiles": [
+      "www/js/lib/ng-cordova.js"
+    ]
+  },
+  {
+    "outputFileName": "www/js/app.js",
+    "inputFiles": [
+      "www/js/app/app.js",
+      "www/js/app/controllers.js",
+      "www/js/app/filters.js",
+      "www/js/app/services.js"
+    ]
+  },
+  {
+    "outputFileName": "www/css/style.min.css",
+    "inputFiles": [
+      "www/css/style.css"
+    ]
+  }
+]

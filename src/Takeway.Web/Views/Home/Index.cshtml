@@ -1,0 +1,483 @@
+﻿@using Takeway.Web.Application.Extension
+@{
+    ViewBag.Title = "Welcome";
+    Layout = Html.Shared("_Layout.cshtml");
+}
+
+
+
+
+    <!-- INTRO
+    ============================================= -->
+    <section id="intro">
+        <div class="overlay">
+            <div class="container">
+
+
+                <!-- INTRO SLIDER -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+
+                        <!-- Rotator Content -->
+                        <div class="intro_slider">
+                            <ul class="slides">
+
+                                <!-- Intro Slide #1 -->
+                                <li>
+                                    <div class="intro_slide">
+                                        <h2>Take Online Orders through<br />your website</h2>
+
+                                        <!-- INTRO BUTTONS -->
+                                        <div class="intro_buttons">
+                                            <a class="btn btn-theme" href="#features">Find out more</a>
+                                        </div>
+                                    </div>
+                                </li>	<!-- End Intro Slide #1 -->
+                                <!-- Intro Slide #2 -->
+                                <li>
+                                    <div class="intro_slide">
+                                        <h2>Variety of<br />dishes online</h2>
+
+                                        <!-- INTRO BUTTONS -->
+                                        <div class="intro_buttons">
+                                            <a class="btn btn-theme" href="#features">Find out more</a>
+                                        </div>
+                                    </div>
+                                </li>	<!-- End Intro Slide #2 -->
+                                <!-- Intro Slide #3 -->
+                                <li>
+                                    <div class="intro_slide">
+                                        <h2>Are you a shop owner <br />talk to us</h2>
+
+                                        <!-- INTRO BUTTONS -->
+                                        <div class="intro_buttons">
+                                            <a class="btn btn-theme" href="#features">Find out more</a>
+                                        </div>
+                                    </div>
+                                </li>	<!-- End Intro Slide #3 -->
+
+                            </ul>
+                        </div>	 <!-- End Rotator Content -->
+
+                    </div>
+                </div>	 <!-- END INTRO SLIDER -->
+                <!-- BACKGROUND VIDEO CONTROLS -->
+                <div id="video-controls">
+                    <a href="#" id="video-volume" class="fa fa-volume-off"></a>
+                    <a href="#" id="video-play" class="fa fa-pause"></a>
+                </div>
+
+
+            </div>			<!-- End container -->
+        </div>			<!-- End overlay-->
+    </section>	<!-- END INTRO -->
+    <!-- YOUTUBE BACKGROUND VIDEO
+    ============================================= -->
+    <div id="bg-video">
+        <div class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=odPA7y5QjQA',containment:'#intro',startAt:0, mute:true, autoPlay:true, showControls:false}"></div>
+    </div>
+
+
+    <!-- FEATURES-->
+    <section id="features">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-sm-12 titlebar">
+                    <h2>Our Solution</h2>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+
+                <!-- FEATURE BOX -->
+                <div class="col-sm-6 col-md-6 animated" data-animation="fadeInLeft" data-animation-delay="300">
+                    <div class="features-box">
+
+                        <!-- Feature Icon -->
+                        <div class="icon-box img-circle">
+                            <i class="fa fa-desktop"></i>
+                        </div>
+
+                        <!-- Feature Box Text -->
+                        <div class="features-text">
+                            <h4>Responsive Web Ordering</h4>
+                            <p>
+                                Your own website connecting you and your client. Submit orders easily through smartphones
+                            </p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX -->
+                <!-- FEATURE BOX -->
+                <div class="col-sm-6 col-md-6 animated" data-animation="fadeInRight" data-animation-delay="300">
+                    <div class="features-box">
+
+                        <!-- Feature Icon -->
+                        <div class="icon-box img-circle">
+                            <i class="fa fa-mobile"></i>
+                        </div>
+
+                        <!-- Feature Box Text -->
+                        <div class="features-text">
+                            <h4>Mobile Apps</h4>
+                            <p>
+                                Android and IOS apps to improve connectivity 
+                            </p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX -->
+
+
+            </div>	<!-- End row -->
+
+
+            <div class="row">
+
+
+                <!-- FEATURE BOX -->
+                <div class="col-sm-6 col-md-6 animated" data-animation="fadeInLeft" data-animation-delay="500">
+                    <div class="features-box">
+
+                        <!-- Feature Icon -->
+                        <div class="icon-box img-circle">
+                            <i class="fa fa-location-arrow"></i>
+                        </div>
+
+                        <!-- Feature Box Text -->
+                        <div class="features-text">
+                            <h4>Starter Promotion Package</h4>
+                            <p>
+                                Promote your takeaway through social media, facebook etc
+                            </p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX -->
+                <!-- FEATURE BOX -->
+                <div class="col-sm-6 col-md-6 animated" data-animation="fadeInRight" data-animation-delay="500">
+                    <div class="features-box">
+
+                        <!-- Feature Icon -->
+                        <div class="icon-box img-circle">
+                            <i class="fa fa-credit-card"></i>
+                        </div>
+
+                        <!-- Feature Box Text -->
+                        <div class="features-text">
+                            <h4>Online Payment</h4>
+                            <p>
+                                Quick and easy online payments
+                            </p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX -->
+
+
+            </div>	<!-- End row -->
+
+
+            <div class="row">
+
+
+                <!-- FEATURE BOX -->
+                <div class="col-sm-6 col-md-6 animated" data-animation="fadeInLeft" data-animation-delay="700">
+                    <div class="features-box">
+
+                        <!-- Feature Icon -->
+                        <div class="icon-box img-circle">
+                            <i class="fa fa-search"></i>
+                        </div>
+
+                        <!-- Feature Box Text -->
+                        <div class="features-text">
+                            <h4>Search Engine Optimised</h4>
+                            <p>
+                                Optimised for search engines
+                            </p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX -->
+                <!-- FEATURE BOX -->
+                <div class="col-sm-6 col-md-6 animated" data-animation="fadeInRight" data-animation-delay="700">
+                    <div class="features-box">
+
+                        <!-- Feature Icon -->
+                        <div class="icon-box">
+                            <i class="fa fa-life-ring"></i>
+                        </div>
+
+                        <!-- Feature Box Text -->
+                        <div class="features-text">
+                            <h4>Feature customisation</h4>
+                            <p>
+                                We support any new ideas that you have. Your solution is exclusive to you. We customise to your exact needs
+                            </p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX -->
+
+
+            </div>	<!-- End row -->
+
+
+        </div><!-- End container -->
+    </section>
+    <!-- END FEATURES -->
+    <!-- ABOUT
+        ============================================= -->
+    <section id="about">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-sm-12 titlebar">
+                    <h2>About Us</h2>
+                </div>
+            </div>
+
+
+            <!-- TABS HOLDER -->
+            <div id="tabs-holder" class="row">
+
+
+                <!-- TABS -->
+                <div class="col-md-7">
+
+
+                    <!-- Nav Tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active animated" data-animation="bounceIn" data-animation-delay="300"><a href="#tab_1" role="tab" data-toggle="tab">Our Goals</a></li>
+                        <li class=" animated" data-animation="bounceIn" data-animation-delay="400"><a href="#tab_2" role="tab" data-toggle="tab">Our philosophy</a></li>
+                    </ul>
+
+
+                    <!-- Tab Panes -->
+                    <div class="tab-content">
+
+
+                        <!-- TAB #1 -->
+                        <div id="tab_1" class="tab-pane active">
+
+                            <!-- Tab #1 Description -->
+                            <p>
+                                We are aiming to help restaurants and takeaway owners to extend your business online.
+                            </p>
+
+                            <ul>
+                                <li>* Create your own brand website and mobile apps</li>
+                                <li>* Extend your customer base from online</li>
+                                <li>* Provide external channel for your customers</li>
+
+                            </ul>
+
+
+                            <!-- Tab #1 Buttons -->
+                            <a href="http://www.indasoft.ie/takeaway-online-contact" class="btn btn-theme animated" data-animation="bounceIn" data-animation-delay="300">Contact Us</a>
+
+                        </div>	<!-- END TAB #1 -->
+                        <!-- TAB #2 -->
+                        <div id="tab_2" class="tab-pane">
+
+                            <!-- Tab #2 Description -->
+                            <p>
+                                We believe that technology can innovate your business. We can increase your efficiency and provoide you with new ways to work with your customers. 
+                            </p>
+
+
+
+                            <a href="http://www.indasoft.ie/takeaway-online-contact" class="btn btn-theme animated" data-animation="bounceIn" data-animation-delay="300">Contact Us</a>
+
+                        </div>	<!-- END TAB #2 -->
+
+
+                    </div>	<!-- End Tab Panes -->
+
+
+                </div>	<!-- END TABS -->
+                <!-- TABS HOLDER IMAGE -->
+                <div class="col-md-5 text-center animated" data-animation="fadeInRight" data-animation-delay="600">
+                    <img class="img-responsive" src="http://www.indasoft.ie/wp-content/uploads/2016/03/Untitled.jpg" alt="about-image" />
+                </div>
+
+
+            </div>	<!-- END TABS HOLDER -->
+
+
+        </div>	  <!-- End container -->
+    </section>	<!-- END ABOUT -->
+    
+    <!-- PRICING
+    ============================================= -->
+    <section id="pricing">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-sm-12 titlebar">
+                    <h3>Our pricing</h3>
+                    <h2>Choose your packages</h2>
+                </div>
+            </div>
+
+
+            <!-- PRICING TABLE HOLDER -->
+            <div class="row price-row">
+
+                <!-- PRICE PLAN STANDARD -->
+                <div id="price_1" class="col-xs-6 col-sm-6 col-md-3 animated" data-animation="fadeInLeft" data-animation-delay="400">
+                    <div class="pricing-table text-center">
+
+                        <!-- Table Header  -->
+                        <h3>Starter</h3>
+
+                        <!-- Plan Price  -->
+                        <div class="price">
+                            <sup>€</sup>
+                            <span class="color">25</span>
+                            <sup class="color">/mo</sup>
+                        </div>
+
+                        <!-- Plan Features  -->
+                        <ul class="features">
+                            <li><strong>RESPONSIVE WEB ORDERING</strong></li>
+                        </ul>
+
+                        <!-- Table Button  -->
+                        <a href="http://www.indasoft.ie/takeaway-online-contact" class="btn btn-theme">Find out more</a>
+
+                    </div>
+                </div>
+                
+                <!-- PRICE PLAN STANDARD -->
+                <div id="price_2" class="col-xs-6 col-sm-6 col-md-3 animated" data-animation="fadeInLeft" data-animation-delay="400">
+                    <div class="pricing-table text-center">
+
+                        <!-- Table Header  -->
+                        <h3>Basic</h3>
+
+                        <!-- Plan Price  -->
+                        <div class="price">
+                            <sup>€</sup>
+                            <span class="color">45</span>
+                            <sup class="color">/mo</sup>
+                        </div>
+
+                        <!-- Plan Features  -->
+                        <ul class="features">
+                            <li><strong>RESPONSIVE WEB ORDERING</strong></li>
+                            <li><strong>MOBILE APPS</strong> (IOS,ANDROID)</li>
+                        </ul>
+
+                        <!-- Table Button  -->
+                        <a href="http://www.indasoft.ie/takeaway-online-contact" class="btn btn-theme">Find out more</a>
+
+                    </div>
+                </div>	<!-- END PRICE PLAN STANDARD -->
+                <!-- PRICE PLAN ADVANCED -->
+                <div id="price_3" class="col-xs-6 col-sm-6 col-md-3 animated" data-animation="fadeInRight" data-animation-delay="600">
+                    <div class="pricing-table text-center highlight">
+
+                        <!-- Table Header  -->
+                        <h3>Premium</h3>
+                        <div class="down-arrow"></div>
+
+                        <!-- Plan Price  -->
+                        <div class="price">
+                            <sup>€</sup>
+                            <span class="color">70</span>
+                            <sup class="color">/mo</sup>
+                        </div>
+
+                        <!-- Plan Features  -->
+                        <ul class="features">
+                            <li><strong>RESPONSIVE WEB ORDERING</strong></li>
+                            <li><strong>MOBILE APPS</strong> (IOS,ANDROID)</li>
+                            <li><strong>Customisable Template</strong></li>
+                            <li><strong>Online Payment</strong></li>
+                            <li><strong>Starter Promotion Package</strong></li>
+                            <li><strong>Support Package</strong></li>
+                            <li><strong>Customise Domain</strong></li>
+                            <li><strong>Customise Feature</strong></li>
+                            
+                        </ul>
+
+                        <!-- Table Button  -->
+                        <a href="http://www.indasoft.ie/takeaway-online-contact" class="btn btn-theme">Find out more</a>
+
+                    </div>
+                </div>	<!-- END PRICE PLAN ADVANCED -->
+
+
+
+            </div>	<!-- End row -->
+
+
+        </div>	<!-- End container -->
+    </section>	 <!-- END PRICING -->
+   
+    <!-- CONTACT-INFO
+    ============================================= -->
+    <section id="contact-info">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-sm-12 titlebar">
+                    <h2>Where you can find us</h2>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+
+                <!-- Call Us -->
+                <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                    <i class="fa fa-phone"></i>
+                    <h4 class="contact_title">Call Us</h4>
+                    <p class="contact_description"> 0874532106<br />0874414099</p>
+                    
+                </div>
+
+
+                <!-- Email Address -->
+                <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                    <i class="fa fa-envelope-o"></i>
+                    <h4 class="contact_title">Email Address</h4>
+                    <a href="mailto:info@indasoft.ie">Info@indaSoft.ie</a>
+                </div>
+
+
+                <!-- Working Hours -->
+                <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                    <i class="fa fa-weixin"></i>
+                    <h4 class="contact_title">Wei Chat</h4>
+                    <p class="contact_description">indasoftandy<br/>indasoftchris
+                    </p>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="col-xs-6 col-sm-6 col-md-3 contact-info text-center triggerAnimation animated" data-animate="bounceIn">
+                    <i class="fa fa-whatsapp"></i>
+                    <h4 class="contact_title">Whatsapp</h4>
+                    <p class="contact_description"> 0874532106<br />0874414099</p>
+                </div>
+
+            </div>	<!-- End row -->
+
+
+        </div>		     <!-- End container -->
+    </section>	   <!-- END CONTACT-INFO -->
+    

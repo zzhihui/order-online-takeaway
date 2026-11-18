@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Takeaway.Admin.Wpf.Views.AboutUsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Takeaway.Admin.Wpf.Views"
+             
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             Height="400" Width="400"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </UserControl.Resources>
+    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" BusyContent="Please Wait...." >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <views:_ErrorMessage  Grid.Row="0" />
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <Label Content="Call us on:   " HorizontalAlignment="Left"  FontWeight="Bold" />
+                <TextBox Text="{Binding PhoneNumber}"  IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Label Content="Email us on:" HorizontalAlignment="Left"  FontWeight="Bold" />
+                <TextBox Text="{Binding Email}"  IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4">
+                <Label Content="HWID:         " HorizontalAlignment="Left"  FontWeight="Bold" />
+                <TextBox Text="{Binding Hwid}"  IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="5">
+                <Label Content="Version:      " HorizontalAlignment="Left"  FontWeight="Bold" />
+                <TextBox Text="{Binding VersionNumber}"  IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6">
+                <Label Content="© 2015 FiF All rights reserved" HorizontalAlignment="Left"  FontWeight="Bold" />
+                <Button x:Name="button" Content="Sync Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Height="51">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="DoUpdate"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+            
+
+        </Grid>
+    </xctk:BusyIndicator>
+</UserControl>

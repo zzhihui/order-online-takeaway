@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item android:id="@+id/MyHomeMenuItem"
+     android:icon="@drawable/ic_home"
+     android:title="Home"
+     android:showAsAction="always|withText"/>
+  <item
+               android:id="@+id/SeparaterMenuItem1"
+               android:enabled="false"
+               android:title=""/>
+  
+  <item android:id="@+id/OrderMenuItem"
+        android:icon="@drawable/ic_menu_order"
+        android:title="Your Order"
+        android:showAsAction="always|withText"/>
+  
+ <item android:id="@+id/AboutMenuItem"
+          android:title="About us"
+          android:icon="@drawable/ic_about"
+          android:showAsAction="ifRoom|withText"/>
+  
+</menu>

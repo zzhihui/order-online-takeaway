@@ -1,0 +1,71 @@
+﻿<controls:MetroWindow x:Class="Takeaway.Admin.Wpf.Views.NewOrderSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             ShowMaxRestoreButton="False"
+             ShowMinButton="False"
+             ResizeMode="NoResize"
+             Background="#2D88EF"
+             Icon="../Icon.ico"
+             ShowIconOnTitleBar="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+    <controls:MetroWindow.Resources>
+
+
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Caller Id">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="200*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="300*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Phone number" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource WhiteLabel}" Grid.Column="0"/>
+                    <Button x:Name="SelectPhone1" Content="{Binding PhoneSelected1}" Grid.Row="1" Style="{DynamicResource YellowMediumButton}"  Grid.Column="0"/>
+                    <Label Content="Address:" Grid.Row="2" Style="{DynamicResource WhiteLabel}"  Grid.Column="0"/>
+                    <Label Content="{Binding AddressSelected1}" Grid.Row="3" Style="{DynamicResource WhiteLabel}"  Grid.Column="0"/>
+
+                    <Label Content="Phone number" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource WhiteLabel}" Grid.Column="1"/>
+                    <Button x:Name="SelectPhone2" Content="{Binding PhoneSelected2}" Grid.Row="1" Style="{DynamicResource YellowMediumButton}"  Grid.Column="1"/>
+                    <Label Content="Address:" Grid.Row="2" Style="{DynamicResource WhiteLabel}"  Grid.Column="1"/>
+                    <Label Content="{Binding AddressSelected2}" Grid.Row="3" Style="{DynamicResource WhiteLabel}"  Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="All Numbers">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="200*" />
+                    </Grid.RowDefinitions>
+                    <Label Content="Phone numbers" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource WhiteLabel}"  Grid.Column="0"/>
+                    <Button x:Name="Phone1" Content="{Binding PhoneIn1}" Grid.Row="1" Style="{DynamicResource YellowMediumButton}"  Grid.Column="0"/>
+                    <Button x:Name="Phone2" Content="{Binding PhoneIn2}" Grid.Row="2" Style="{DynamicResource YellowMediumButton}"  Grid.Column="0"/>
+                    <Button x:Name="Phone3" Content="{Binding PhoneIn3}" Grid.Row="3" Style="{DynamicResource YellowMediumButton}"  Grid.Column="0"/>
+                    <Button x:Name="Phone4" Content="{Binding PhoneIn4}" Grid.Row="4" Style="{DynamicResource YellowMediumButton}"  Grid.Column="0"/>
+                    <Button x:Name="Phone5" Content="{Binding PhoneIn5}" Grid.Row="5" Style="{DynamicResource YellowMediumButton}"  Grid.Column="0"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+</controls:MetroWindow>

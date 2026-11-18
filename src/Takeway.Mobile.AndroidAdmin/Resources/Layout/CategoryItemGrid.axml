@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="100dp">
+
+  <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:background="@drawable/itembackground"
+         android:layout_marginLeft="10dp"
+         android:layout_marginTop="10dp"
+         android:layout_marginBottom="10dp"
+         android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+      <TextView
+             local:MvxBind="Text Name"
+             style="@style/AppFont.Medium.Bold"
+             android:layout_width="0dp"
+             android:layout_weight="0.70"
+             android:layout_height="wrap_content" />
+
+      <TextView
+            local:MvxBind="Text Price, Converter=DecimalString"
+            style="@style/AppFont.Medium.Bold"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+
+      <LinearLayout android:orientation="vertical"
+                 android:layout_width="0dp"
+             android:layout_weight="0.40"
+                android:layout_height="wrap_content">
+        <MvxImageView
+           android:src="@drawable/food"
+           local:MvxBind="ImageUrl ImageUrl"
+          android:layout_width="100dp"
+          android:layout_height="100dp"/>
+
+      </LinearLayout>
+
+
+      <LinearLayout android:orientation="vertical"
+                android:layout_width="0dp"
+             android:layout_weight="0.60"
+                android:layout_height="wrap_content">
+        <TextView
+                      local:MvxBind="Text Description,Converter=CategoryShortDescription"
+                      style="@style/AppFont.Medium"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+
+
+</LinearLayout>

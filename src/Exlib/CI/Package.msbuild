@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Package"
+	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <Import Project="$(MSBuildExtensionsPath32)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+  <PropertyGroup>
+
+    <!-- Parameter to pass in
+		<WorkingFolder>C:\code\UAM\trunk\trunk\</WorkingFolder>
+		<BUILD_NUMBER>1.2.3.5</BUILD_NUMBER>
+    -->
+
+    <ClientName>Demo</ClientName>
+    
+  </PropertyGroup>
+
+  <Target Name="Package">
+
+    <PropertyGroup>
+      <ClientProjectPath>$(WorkingFolder)\src\Takeway.Mobile.AndroidClient\Takeway.Mobile.AndroidClient.csproj</ClientProjectPath>
+      <ClientReleaseFolder>$(WorkingFolder)\src\Takeway.Mobile.AndroidClient\bin\Release\</ClientReleaseFolder>
+      <ClientBuildPath>C:\Builds\$(ClientName)\Client\Ver$(BUILD_NUMBER)</ClientBuildPath>
+
+      <AdminProjectPath>$(WorkingFolder)\src\Takeway.Mobile.AndroidAdmin\Takeway.Mobile.AndroidAdmin.csproj</AdminProjectPath>
+      <AdminReleaseFolder>$(WorkingFolder)\src\Takeway.Mobile.AndroidAdmin\bin\Release\</AdminReleaseFolder>
+      <AdminBuildPath>C:\Builds\$(ClientName)\Admin\Ver$(BUILD_NUMBER)</AdminBuildPath>
+    </PropertyGroup>
+
+    <Message Text="Packaging to $(ClientProjectPath)" />
+    <MSBuild Projects="$(ClientProjectPath)" Targets="SignAndroidPackage" Properties="Configuration=Release;"/>
+
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(ClientReleaseFolder)" Destination="$(ClientBuildPath)" Files="*.apk" Options="/MIR">
+      <Output TaskParameter="ExitCode" PropertyName="Exit" />
+      <Output TaskParameter="ReturnCode" PropertyName="Return" />
+    </MSBuild.ExtensionPack.FileSystem.RoboCopy>
+
+
+    <Message Text="Packaging to $(AdminProjectPath)" />
+    <MSBuild Projects="$(AdminProjectPath)" Targets="SignAndroidPackage" Properties="Configuration=Release;"/>
+
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(AdminReleaseFolder)" Destination="$(AdminBuildPath)" Files="*.apk" Options="/MIR">
+      <Output TaskParameter="ExitCode" PropertyName="Exit" />
+      <Output TaskParameter="ReturnCode" PropertyName="Return" />
+    </MSBuild.ExtensionPack.FileSystem.RoboCopy>
+
+
+  </Target>
+
+  <Target Name="PackagePC">
+
+    <PropertyGroup>
+
+      <InstallUrl>http://www.indasoft.ie/Publish/Takeaway/$(ClientName)/</InstallUrl>
+      <BuildFolder>C:\Builds\$(ClientName)\PCTemp\Ver$(BUILD_NUMBER)</BuildFolder>
+
+
+      <DefaultBuildProperties>
+        Configuration=Release;
+        OutputPath=$(BuildFolder)\;
+        ApplicationVersion=$(BUILD_NUMBER);
+        ProductName=IndaSoftTakeaway;
+        appConfig=$(WorkingFolder)\src\Takeaway.Admin.Wpf\_Configuration\Live\app.config;
+        MinimumRequiredVersion=$(BUILD_NUMBER);
+        InstallUrl=$(InstallUrl);
+        UpdateEnabled=true;
+        Install=true;
+      </DefaultBuildProperties>
+    </PropertyGroup>
+
+    <Message Text="Publish-Build started for build no $(BUILD_NUMBER)" />
+    <!-- run the original build of the project -->
+    <MSBuild Projects="$(WorkingFolder)\src\Takeaway.Admin.Wpf\Takeaway.Admin.Wpf.csproj"
+    Properties="$(DefaultBuildProperties)"
+    Targets="Publish"/>
+    <!-- define the files required for click-once-->
+    <ItemGroup>
+      <SetupFiles Include="$(ProjectPublishLocation)\*.*"/>
+      <UpdateFiles Include="$(ProjectPublishLocation)\Application Files\**\*.*"/>
+    </ItemGroup>
+    <!-- and copy them -->
+    <Copy
+    SourceFiles="@(SetupFiles)"
+    DestinationFolder="$(ProjectClickOnceFolder)\"/>
+    <Copy
+    SourceFiles="@(UpdateFiles)"
+    DestinationFolder="$(ProjectClickOnceFolder)\Application Files\%(RecursiveDir)"/>
+
+
+  </Target>
+
+
+  <Target Name="PackageClient">
+
+    <PropertyGroup>
+
+      <InstallUrl>http://www.indasoft.ie/Publish/TakeawayOnlineDash/$(ClientName)/</InstallUrl>
+      <BuildFolder>C:\Builds\$(ClientName)\PCTemp\Ver$(BUILD_NUMBER)</BuildFolder>
+
+
+      <DefaultBuildProperties>
+        Configuration=Release;
+        OutputPath=$(BuildFolder)\;
+        ApplicationVersion=$(BUILD_NUMBER);
+        ProductName=IndaSoftTakeaway;
+        appConfig=$(WorkingFolder)\src\Takeaway.Notification.Wpf\_Configuration\Live\app.config;
+        MinimumRequiredVersion=$(BUILD_NUMBER);
+        InstallUrl=$(InstallUrl);
+        UpdateEnabled=true;
+        Install=true;
+      </DefaultBuildProperties>
+    </PropertyGroup>
+
+    <Message Text="Publish-Build started for build no $(BUILD_NUMBER)" />
+    <!-- run the original build of the project -->
+    <MSBuild Projects="$(WorkingFolder)\src\Takeaway.Notification.Wpf\Takeaway.Notification.Wpf.csproj"
+    Properties="$(DefaultBuildProperties)"
+    Targets="Publish"/>
+    <!-- define the files required for click-once-->
+    <ItemGroup>
+      <SetupFiles Include="$(ProjectPublishLocation)\*.*"/>
+      <UpdateFiles Include="$(ProjectPublishLocation)\Application Files\**\*.*"/>
+    </ItemGroup>
+    <!-- and copy them -->
+    <Copy
+    SourceFiles="@(SetupFiles)"
+    DestinationFolder="$(ProjectClickOnceFolder)\"/>
+    <Copy
+    SourceFiles="@(UpdateFiles)"
+    DestinationFolder="$(ProjectClickOnceFolder)\Application Files\%(RecursiveDir)"/>
+
+
+  </Target>
+  
+  
+  <Target Name="PackageWindowService">
+
+    <PropertyGroup>
+      <ClientReleaseFolder>$(WorkingFolder)\src\Takeaway.Admin.Service\bin\Release\</ClientReleaseFolder>
+      <ClientBuildPath>C:\Builds\$(ClientName)\WindowService\Ver$(BUILD_NUMBER)</ClientBuildPath>
+
+     
+    </PropertyGroup>
+
+    <Message Text="Packaging to $(ClientReleaseFolder)" />
+   
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(ClientReleaseFolder)" Destination="$(ClientBuildPath)" Files="*.*" Options="/MIR">
+      <Output TaskParameter="ExitCode" PropertyName="Exit" />
+      <Output TaskParameter="ReturnCode" PropertyName="Return" />
+    </MSBuild.ExtensionPack.FileSystem.RoboCopy>
+
+
+   
+
+  </Target>
+
+</Project>
+
+
+
+
+
+
+
+

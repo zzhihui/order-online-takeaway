@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA4F8653-62A4-4793-9E3B-6167BD6DCA48}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeway.Mobile.Core</RootNamespace>
+    <AssemblyName>Takeway.Mobile.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CoreLib|AnyCPU'">
+    <OutputPath>bin\CoreLib\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Core.Common\Utility\Extension\FluentValidationExtension.cs">
+      <Link>Utilities\Extensions\FluentValidationExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Core.Common\Utility\GuidHashUtil.cs">
+      <Link>Utilities\GuidHashUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\Exlib\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Takeaway.Service\Services\IShopService.cs">
+      <Link>Services\RestServices\IShopService.cs</Link>
+    </Compile>
+    <Compile Include="..\Takeaway.Service\Validations\WsPaymentValidator.cs">
+      <Link>Validation\WsPaymentValidator.cs</Link>
+    </Compile>
+    <Compile Include="Application\TakeawayAdminAppOffline.cs" />
+    <Compile Include="Application\TakeawayAdminApp.cs" />
+    <Compile Include="Application\TakeawayAdminPadApp.cs" />
+    <Compile Include="Application\TakeawayAdminPadAppOffline.cs" />
+    <Compile Include="Application\TakeawayClientApp.cs" />
+    <Compile Include="Application\TakeawayClientAppOffline.cs" />
+    <Compile Include="Converters\CategoryShortDescriptionConverter.cs" />
+    <Compile Include="Converters\DateStringConverter.cs" />
+    <Compile Include="Converters\DateStringDashConverter.cs" />
+    <Compile Include="Converters\DecimalStringValueConverter.cs" />
+    <Compile Include="Converters\OrderIdConverter.cs" />
+    <Compile Include="Converters\SubItemStringConverter.cs" />
+    <Compile Include="Error\ErrorApplicationObject.cs" />
+    <Compile Include="Services\RestServices\ShopRestService.cs" />
+    <Compile Include="Services\RestServices\ShopRestServiceMock.cs" />
+    <Compile Include="Services\RestServices\ShopRestServiceWrapper.cs" />
+    <Compile Include="Utilities\CacheKey.cs" />
+    <Compile Include="Utilities\CacheProvider.cs" />
+    <Compile Include="Utilities\ResourceHelper.cs" />
+    <Compile Include="Utilities\SerializeHelper.cs" />
+    <Compile Include="Utilities\SimpleCommand.cs" />
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataServices\DbConfigurationItem.cs" />
+    <Compile Include="Services\DataServices\DbOrderItem.cs" />
+    <Compile Include="Services\DataServices\OrderRepository.cs" />
+    <Compile Include="Services\DataServices\ConfigurationRepository.cs" />
+    <Compile Include="Services\RestServices\RestServiceBase.cs" />
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="ViewModels\Admin\ShopAdminHomePadViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ShopAdminPaymentViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ShopAdminBasketViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientDeliveryAreaViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopPaymentViewModel.cs" />
+    <Compile Include="ViewModels\GlobalModel.cs" />
+    <Compile Include="ViewModels\Admin\ShopAdminAboutUsViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientAboutUsViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientBasketViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientCategoryItemSubItemViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientCategoryItemViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientHelpViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientHomeViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientMainViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientSettingViewModel.cs" />
+    <Compile Include="ViewModels\Client\ShopClientSubmitOrderViewModel.cs" />
+    <Compile Include="ViewModels\Client\SubItemViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Chance.MvvmCross.Plugins.UserInteraction">
+      <HintPath>..\packages\Chance.MvvmCross.Plugins.UserInteraction.1.1.2\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Chance.MvvmCross.Plugins.UserInteraction.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.2.1\lib\portable-win+net45+wp8+win8+wpa81+MonoTouch+MonoAndroid\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.2.1\lib\portable-win+net45+wp8+win8+wpa81+MonoTouch+MonoAndroid\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.DownloadCache.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Email">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Email.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.Email.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Sqlite.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ThreadUtils">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ThreadUtils.3.2.1\lib\portable-win+net45+wp8+win8+wpa81+MonoTouch+MonoAndroid\Cirrious.MvvmCross.Plugins.ThreadUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Visibility">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\portable-win+net40+sl50+wp80+wpa81\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Takeaway.Builder.WsDataContract\Takeaway.Builder.WsDataContract.csproj">
+      <Project>{a3d782f8-d2a0-4960-a08c-3a300e709ec3}</Project>
+      <Name>Takeaway.Builder.WsDataContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Service.Contract\Takeaway.Service.Contract.csproj">
+      <Project>{3E991F3B-B614-44F4-9D53-439A06D12EC9}</Project>
+      <Name>Takeaway.Service.Contract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

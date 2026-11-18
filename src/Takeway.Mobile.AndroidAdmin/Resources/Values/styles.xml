@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="AppFont"/>
+   
+  <style name="AppFont.Small">
+    <item name="android:textSize">10sp</item>
+  </style>
+
+  <style name="AppFont.Small.Bold">
+    <item name="android:textStyle">bold</item>
+  </style>
+
+  <style name="AppFont.Medium">
+    <item name="android:textSize">15sp</item>
+  </style>
+  <style name="AppFont.Medium.Bold">
+    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="AppFont.Medium.Bold.Red">
+    <item name="android:textColor">#FF0000</item>
+  </style>
+
+  <style name="AppFont.Large">
+    <item name="android:textSize">22sp</item>
+  </style>
+  <style name="AppFont.Large.Bold">
+    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="AppFont.Large.Bold.White">
+    <item name="android:textColor">#FFFFFF</item>
+  </style>
+  <style name="AppFont.Large.Bold.Red">
+    <item name="android:textColor">#FF0000</item>
+  </style>
+
+
+</resources>

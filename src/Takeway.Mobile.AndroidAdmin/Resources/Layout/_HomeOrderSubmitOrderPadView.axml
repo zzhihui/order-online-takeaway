@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+             
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <!--header-->
+  <TextView
+      android:text="@string/app_page_submitorder_summary"
+      style="@style/AppFont.Large.Bold"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content" />
+  <!--Header line-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="1dp"
+      android:background="#000000"
+      android:orientation="horizontal" />
+
+  <!--Order total line-->
+  <LinearLayout
+      android:layout_marginTop="20dp"
+      android:layout_marginBottom="20dp"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+    <TextView
+        android:text="@string/app_page_submitorder_totalorder"
+        style="@style/AppFont.Large.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.60"
+        android:layout_height="wrap_content" />
+    <TextView
+        local:MvxBind="Text OrderTotal"
+        style="@style/AppFont.Large.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.40"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+  <!--Contact Name-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="@string/app_page_submitorder_yourcontactname"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text Name"
+        android:layout_width="fill_parent"
+        style="@style/AppFont.Medium"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+  <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="10dp"
+             android:orientation="horizontal" />
+  <!--Address-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="@string/app_page_submitorder_youraddress"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text Address"
+        style="@style/AppFont.Medium"
+        android:layout_width="fill_parent"
+        android:inputType="textPostalAddress"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+  <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="10dp"
+             android:orientation="horizontal" />
+  <!--Phone number-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="@string/app_page_submitorder_yourphonenumber"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text PhoneNumber"
+        style="@style/AppFont.Medium"
+        android:layout_width="fill_parent"
+        android:inputType="phone"
+        android:nextFocusForward="@+id/ButtonSubmit"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+  <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="10dp"
+             android:orientation="horizontal" />
+  <!--Delivery Option-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="@string/app_page_submitorder_deliveryoption"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <MvxSpinner
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          local:MvxItemTemplate="@layout/itemspinner"
+          local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+          style="@style/AppFont.Medium"
+          local:MvxBind="ItemsSource DeliveryOptions;SelectedItem DeliveryOptionsSelected" />
+
+  </LinearLayout>
+
+
+  <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="10dp"
+             android:orientation="horizontal" />
+  <!--Final Comment-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="@string/app_page_submitorder_lastcomment"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text Comment"
+        android:layout_width="fill_parent"
+        android:inputType="text"
+        style="@style/AppFont.Medium"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+
+  <!--Button Line-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+    <Button
+        android:text="@string/app_page_submitorder_goback"
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
+        style="@style/AppFont.Large.Bold"
+        local:MvxBind="Click BackCommand" />
+    <Button
+        android:id="@+id/ButtonSubmit"
+        android:text="@string/app_page_submitorder_finish"
+        android:layout_width="0dp"
+        android:layout_weight="0.6"
+        android:layout_height="wrap_content"
+        style="@style/AppFont.Large.Bold"
+        local:MvxBind="Click FinishCommand" />
+  </LinearLayout>
+
+</LinearLayout>

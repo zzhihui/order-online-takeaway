@@ -1,0 +1,42 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.OnlineDash.OnlineDashViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = @Html.Shared("_LayoutPrint.cshtml");
+}
+
+<div class="row center">
+    <h2>@Model.ShopInfo.ShopName</h2>
+</div>
+<div class="row">
+    <h4>Tel: @Model.ShopInfo.ShopNumber</h4>
+</div>
+<div class="row">
+    @Model.ShopInfo.ShopAddress1
+</div>
+<hr/>
+
+
+<div class="row">
+    <b>** Order Web Reprint**</b>
+</div>
+<div class="row">
+    <b>Ref: @Model.SelectedOrder.OrderRef</b>
+</div>
+<div class="row">
+    &nbsp;
+</div>
+
+
+@*Order Item Section*@
+<hr class="dothr"/>
+
+
+<div class="row" id="printButton">
+    <h2>
+        <a href="javascript:window.print()" class="button">
+            Print
+        </a>
+    </h2>
+</div>

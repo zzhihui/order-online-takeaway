@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
+  <!--Header-->
+  <include layout="@layout/_headmessagecontrol"/>
+
+  <!--Summary Header-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+    <TextView
+        android:text="@string/app_page_basket_ordersummary"
+        style="@style/AppFont.Large.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.70"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="@string/app_page_basket_buymore"
+        android:layout_width="0dp"
+        android:layout_weight="0.30"
+        android:layout_height="wrap_content"
+        style="@style/AppFont.Small.Bold"
+        local:MvxBind="Click AddMoreCommand" />
+  </LinearLayout>
+
+  <!--Min order-->
+  <TextView
+      style="@style/AppFont.Medium.Bold"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:background="#FFFF99"
+      local:MvxBind="Text MinOrderText;Visibility MinOrderTextViewVisible, Converter=Visibility"/>
+  
+  <!--Line break-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="1dp"
+      android:background="#000000"
+      android:orientation="horizontal" />
+  <!--Listview-->
+  <Mvx.MvxListView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:layout_weight="1"
+      android:choiceMode="singleChoice"
+      local:MvxBind="ItemsSource MyOrderItems; ItemClick BasketItemsRemoveCommand"
+      local:MvxItemTemplate="@layout/basketitemslistview" />
+  <!--Summary total-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+    <TextView
+        android:text="@string/app_page_basket_subtotal"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.80"
+        android:layout_height="wrap_content" />
+    <TextView
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        local:MvxBind="Text OrderTotal"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+  <!--Discount Applied-->
+  <TextView
+        style="@style/AppFont.Medium.Bold.Red"
+        android:layout_width="match_parent"
+        local:MvxBind="Text DiscountText"
+        android:layout_height="wrap_content" />
+  <!--Delivery Charge-->
+  <TextView
+      style="@style/AppFont.Medium"
+      android:layout_width="match_parent"
+      local:MvxBind="Text DeliverChargeText"
+      android:layout_height="wrap_content" />
+  <!--Submit Button-->
+  <Button
+      android:text="@string/app_page_basket_submitorder"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      style="@style/AppFont.Large.Bold"
+      android:layout_marginBottom="10dp"
+      local:MvxBind="Click SubmitOrderCommand;Enabled CanSubmit" />
+</LinearLayout>

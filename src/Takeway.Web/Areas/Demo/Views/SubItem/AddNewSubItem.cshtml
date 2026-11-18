@@ -1,0 +1,80 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Order.MenuSubItemViewModel
+@{
+    ViewBag.Title = "Add Selection";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div class="well">
+    <form class="form-horizontal" method="post">
+        <fieldset>
+            <legend>Update Selection Items</legend>
+            <div class="text-danger">@Model.ErrorMessage</div>
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.ActionLink("Back", "List", "SubItem", null, new { @class = "btn btn-primary" })
+                    @Html.HiddenFor(m => m.SelectedMenuSubItem.Id)
+                    @Html.HiddenFor(m => m.SelectedMenuSubItem.Selections)
+                </div>
+
+                <div class="row">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Name:</th>
+                            <th>Description:</th>
+                            <th>Cost:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach (var entry in Model.SelectedMenuSubItem.Selections)
+                        {
+                            <tr>
+                                <td>@Html.Raw(entry.Name)</td>
+                                <td>
+                                    @Html.Raw(entry.Description)
+                                </td>
+                                <td>
+                                    @Html.Raw(entry.Price.ToPriceStringIe())
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Remove", "RemoveSubItemItem", new {id = entry.Id})
+                                </td>
+                            </tr>
+
+                        }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Description</label>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(r => r.SelectedMenuItemId, new SelectList(@Model.MenuItems, "Id", "Name"), new {@class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Cost</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CostValue, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="submit" name="action:AddMoreItemToSubItem" value="Add this item" class="btn btn-primary" />
+                    </div>
+                </div>
+              
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>

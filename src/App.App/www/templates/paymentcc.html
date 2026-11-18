@@ -1,0 +1,75 @@
+﻿<ion-view view-title="Payment">
+    <ion-content class="padding">
+        <form name="takepaymentForm" novalidate="">
+
+            <!--Total-->
+            <div class="item item-divider">Take Payment</div>
+            <div class="item item-text-wrap">
+                Total Amount:
+                <h1>{{"€"+(amount | number:2)}}</h1>
+            </div>
+            <div ng-hide="noCard">
+                <div class="item item-divider item-text-wrap">
+                    Existing Card
+                </div>
+                <div class="item item-icon-left">
+                    <i class="icon ion-card"></i>
+                    ********{{cacheCards.number | limitTo: -4}}
+                </div>
+                <div class="item item-divider item-text-wrap" ng-show="showError">
+                    <h2 style="color: red">Failed to process payment, please verify your payment detail or select 'Pay Cash Later' option</h2>
+                </div>
+                <button class="button button-block button-assertive" type="button" ng-click="takestoredpayment()">
+                    Take Payment
+                </button>
+                <br/>
+                <button class="button button-block button-assertive" type="button" ng-click="useothercard()">
+                    Remove and Use Different Card
+                </button>
+                <br/>
+                
+            </div>
+
+            <div ng-show="noCard">
+                <!--Payment Information-->
+                <div class="item item-divider item-text-wrap">
+                    Payment Info
+                    <p>Please enter your payment information</p>
+                </div>
+
+                <!--card holder-->
+                <label class="item item-input">
+                    <input type="text" name="cardholder" placeholder="Card holder name" ng-model="payment.payment.cardName" ng-minlength="3" maxlength="50">
+                </label>
+                
+
+                <!--Card Number-->
+                <label class="item item-input" ng-class="{ 'has-errors' : takepaymentForm.cardnumber.$invalid, 'no-errors' : takepaymentForm.cardnumber.$valid}">
+                    <input type="text" name="cardnumber" placeholder="Card number" required ng-model="payment.payment.cardNumber" ng-minlength="3" maxlength="50">
+                </label>
+               
+
+                <!--CVC-->
+                <label class="item item-input" ng-class="{ 'has-errors' : takepaymentForm.cvc.$invalid, 'no-errors' : takepaymentForm.cvc.$valid}">
+                    <input type="text" name="cvc" placeholder="cvc 3 digit" required ng-model="payment.payment.cardCvc" ng-minlength="3" maxlength="3">
+                </label>
+                
+                <label class="item item-text-wrap">
+                    <p>Expire Date</p>
+                </label>
+                <label class="item item-text">
+                    <select ng-model="$parent.monthSelected" ng-options="month as month.name for month in paymentMonths"></select>
+                </label>
+                <label class="item item-text">
+                    <select ng-model="$parent.yearSelected" ng-options="year as year.name for year in paymentYears"></select>
+                </label>
+                <div class="item item-divider item-text-wrap" ng-show="showError">
+                    <h2 style="color: red">Failed to process payment, please verify your payment detail or select 'Pay Cash Later' option</h2>
+                </div>
+                <button class="button button-block button-assertive" type="button" ng-disabled="takepaymentForm.$invalid" ng-click="takepayment()">
+                    Take Payment
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

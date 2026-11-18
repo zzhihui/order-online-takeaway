@@ -1,0 +1,55 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Admin.MenuItemViewModel
+@{
+    ViewBag.Title = "Categories";
+
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <div class="row">
+
+        <div class="col-md-9">
+            <div class="list-group">
+                <div class="list-group-item">
+                    @Html.ActionLink("Back to Main", "Index", "Admin", null, new {@class = "btn btn-primary"})
+                </div>
+
+                @foreach (var item in Model.MenuItemCategories)
+                {
+                    <a href="@Url.Action("categoryitem", "menuitem", new {id = item.Id})" class="list-group-item">
+                        <h4 class="list-group-item-heading">@item.Name</h4>
+                        <p class="list-group-item-text">@item.Description &nbsp;</p>
+                    </a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-3" id="leftCol">
+
+            <div class="well">
+                <ul class="nav nav-stacked" id="sidebar">
+                    <li>
+                        <a href="@Url.Action("category", "menuitem", new {id = 0})">
+                            <h6>Takeaway Category</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("category", "menuitem", new {id = 3})">
+                            <h6>Takeaway Extended</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("category", "menuitem", new {id = 1})">
+                            <h6>Eat in</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("category", "menuitem", new {id = 2})">
+                            <h6>Eat in Extended</h6>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

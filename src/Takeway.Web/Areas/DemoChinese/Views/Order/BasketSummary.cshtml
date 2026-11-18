@@ -1,0 +1,9 @@
+﻿@model Takeway.Web.ViewModels.Order.BasketSummaryViewModel
+
+<a href="@Url.Action("basket", "order")">
+    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="font-size: 25px"></span>
+    @if (Model.BasketItemCount > 0)
+    {
+        <span class="badge">@Model.BasketItemCount</span>
+    }
+</a>

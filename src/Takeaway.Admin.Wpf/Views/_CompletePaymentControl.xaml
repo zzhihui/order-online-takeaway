@@ -1,0 +1,134 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             xmlns:local="clr-namespace:Takeaway.Admin.Wpf.Views"
+             xmlns:extension="clr-namespace:Takeaway.Admin.Wpf.Utility.Extension"
+             x:Class="Takeaway.Admin.Wpf.Views._CompletePaymentControl"
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="700">
+    <UserControl.Resources>
+        <converters:PriceConverter x:Key="PriceConverter" />
+        <converters:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <local:_ErrorMessage Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <StackPanel  Grid.Row="1" Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Total:" Style="{DynamicResource WhiteLabel}" Grid.Row="0" Grid.Column="0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding OrderTotal, Converter={StaticResource PriceConverter}}" IsReadOnly="True" Grid.Row="0" Grid.Column="1"/>
+                <Label Content="Cash:" Style="{DynamicResource WhiteLabel}" Grid.Row="1" Grid.Column="0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding CashPayment, Converter={StaticResource PriceConverter}}" Width="120" IsReadOnly="True" Grid.Row="1" Grid.Column="1" 
+                         Visibility="{Binding CashPaymentVisible, Converter={StaticResource BoolToVisibleConverter}}"
+                         extension:FocusExtension.IsFocused="{Binding CashPaymentVisible}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="GotFocus">
+                            <cal:ActionMessage MethodName="FieldSelection">
+                                <cal:Parameter Value="1" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Label Content="Card:" HorizontalAlignment="Left" Style="{DynamicResource WhiteLabel}" Grid.Row="2" Grid.Column="0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding CardPayment, Converter={StaticResource PriceConverter}}"  IsReadOnly="True" Grid.Row="2" Grid.Column="1" Visibility="{Binding CardPaymentVisible, Converter={StaticResource BoolToVisibleConverter}}"
+                         extension:FocusExtension.IsFocused="{Binding CardPaymentVisible}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="GotFocus">
+                            <cal:ActionMessage MethodName="FieldSelection">
+                                <cal:Parameter Value="2" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Label Content="Cheque,Voucher:" HorizontalAlignment="Left" Style="{DynamicResource WhiteLabel}" Grid.Row="3" Grid.Column="0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding VoucherPayment, Converter={StaticResource PriceConverter}}"  IsReadOnly="True" Grid.Row="3" Grid.Column="1" Visibility="{Binding VoucherPaymentVisible, Converter={StaticResource BoolToVisibleConverter}}"
+                         extension:FocusExtension.IsFocused="{Binding VoucherPaymentVisible}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="GotFocus">
+                            <cal:ActionMessage MethodName="FieldSelection">
+                                <cal:Parameter Value="3" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Label Content="Service Charge:" HorizontalAlignment="Left" Style="{DynamicResource WhiteLabel}" Grid.Row="4" Grid.Column="0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding ServiceCharge, Converter={StaticResource PriceConverter}}"  IsReadOnly="True" Grid.Row="4" Grid.Column="1" Visibility="{Binding ServiceChargeVisible, Converter={StaticResource BoolToVisibleConverter}}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="GotFocus">
+                            <cal:ActionMessage MethodName="FieldSelection">
+                                <cal:Parameter Value="4" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Label Content="Change:" HorizontalAlignment="Left" Style="{DynamicResource WhiteLabel}" Grid.Row="5" Grid.Column="0"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Change, Converter={StaticResource PriceConverter}}"  IsReadOnly="True" Grid.Row="5" Grid.Column="1"/>
+
+            </Grid>
+        </StackPanel>
+        <StackPanel  Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+            <Label Content="PaymentType:" HorizontalAlignment="Left" Style="{DynamicResource WhiteLabel}"/>
+
+            <ListView ItemsSource="{Binding PaymentTypes}" SelectionMode="Single" SelectedItem="{Binding SelectedPaymentType}" Background="Transparent" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Orange" BorderThickness="2">
+                            <Grid Background="#DA542D">
+                                <ToggleButton IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListBoxItem}},Path=IsSelected}" FontSize="12" Width="90" Height="35" IsManipulationEnabled="false" Content="{Binding Name}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel  Grid.Row="4" Grid.Column="0" Orientation="Horizontal">
+            <Label Content="Receipt:" HorizontalAlignment="Left" Style="{DynamicResource WhiteLabel}"/>
+            <ToggleButton IsChecked="{Binding PrintReceipt}" FontSize="20">
+                <Label Content="{Binding PrintReceiptText}"/>
+            </ToggleButton>
+        </StackPanel>
+
+        <TextBox TextWrapping="Wrap" Text="{Binding FinalComment}"  Height="60" Grid.Row="3" Grid.Column="0" />
+
+        <local:_NumberPad Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" />
+        <Button Content="Complete" HorizontalAlignment="Right" VerticalAlignment="Bottom"   Width="126" Height="78" Style="{DynamicResource YellowBigButton}" Grid.Row="4" Grid.Column="2">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <cal:ActionMessage MethodName="DoComplete"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+    </Grid>
+</UserControl>

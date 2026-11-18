@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Takeaway.Admin.Wpf.Views.ReportInternalView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             xmlns:views="clr-namespace:Takeaway.Admin.Wpf.Views"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="LargeTileStyle" TargetType="controls:Tile">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="18" />
+        </Style>
+
+        <Style x:Key="SmallTileStyle" TargetType="controls:Tile">
+            <Setter Property="Width" Value="147" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="18" />
+        </Style>
+        <converters:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Daily Report">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="200*" />
+                    </Grid.RowDefinitions>
+
+                    <views:_ErrorMessage  Grid.Row="0"/>
+                    <Button x:Name="DoDailyReport" Content="Report" Grid.Row="3" Width="100" HorizontalAlignment="Left"/>
+                    <DataGrid Grid.Row="4" ItemsSource="{Binding Results}"/>
+                    <Button x:Name="DoDailyReportPrint" Content="Print" Grid.Row="2" Width="100" HorizontalAlignment="Left" Margin="680,25,0,5" Grid.RowSpan="2"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Online Daily Report">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="200*" />
+                    </Grid.RowDefinitions>
+
+                    <views:_ErrorMessage  Grid.Row="0"/>
+                    <Button x:Name="DoDriverReport" Content="Report" Grid.Row="3" Width="100" HorizontalAlignment="Left"/>
+                    <DataGrid Grid.Row="4" ItemsSource="{Binding ResultsDriver}"/>
+                    <Button x:Name="DoDoDriverReportPrint" Content="Print" Grid.Row="2" Width="100" HorizontalAlignment="Left" Margin="680,25,0,5" Grid.RowSpan="2"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="History Report"  Visibility="Hidden">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="200*" />
+                    </Grid.RowDefinitions>
+
+                    <views:_ErrorMessage  Grid.Row="0"/>
+                    <DatePicker HorizontalAlignment="Left"  Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" SelectedDate="{Binding FromDateHistory}"/>
+                    <Button x:Name="DoHistoryReport" Content="Report" Grid.Row="3" Width="100" HorizontalAlignment="Left"/>
+                    <DataGrid Grid.Row="4" ItemsSource="{Binding ResultsHistory}"/>
+                    <Button x:Name="DoHistoryReportPrint" Content="Print" Grid.Row="2" Width="100" HorizontalAlignment="Left" Margin="680,25,0,5" Grid.RowSpan="2"/>
+                    
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</UserControl>

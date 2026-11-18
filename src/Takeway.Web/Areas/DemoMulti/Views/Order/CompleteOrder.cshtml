@@ -1,0 +1,71 @@
+﻿@using Core.Common.Utility
+@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.CompleteOrderViewModel
+@{
+    ViewBag.Title = WebResource.page_order_completeorder_title;
+    Layout = @Html.Shared("_Layout.cshtml");
+}
+
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <h2>@WebResource.page_order_completeorder_title</h2>
+
+            <div class="well text-info">
+
+                <div class="row">
+                    <div class="col-md-3"><h5>Order Total</h5></div>
+                    <div class="col-md-8">
+                        <div>@Model.OrderTotal.ToPriceStringIe()</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Delivery Charge</h5></div>
+                    <div class="col-md-8">
+                        <div>@Model.DeliveryCharge.ToPriceStringIe()</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4><label class="col-md-3 control-label">Sub Total</label></h4>
+                    <div class="col-md-8">
+                        <h4><label class="form-control-static">@Model.SubTotal.ToPriceStringIe()</label></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6>@WebResource.page_order_completeorder_description</h6>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <h3>@WebResource.page_order_completeorder_orderref @Model.OrderId</h3>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    @if (Model.IsDelivery.HasValue && !Model.IsDelivery.Value)
+                    {
+                        <div class="col-md-12">
+                            <h5>Estimate Ready Time: @DateTimeUtil.GetCurrentTime().AddMinutes(20).ToShortTimeString()</h5>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-12">
+                            <h5>Estimate Delivery Time: @DateTimeUtil.GetCurrentTime().AddMinutes(45).ToShortTimeString()</h5>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</header>

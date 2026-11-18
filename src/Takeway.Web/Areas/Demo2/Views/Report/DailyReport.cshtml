@@ -1,0 +1,79 @@
+﻿@using System.Data
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Reports.ReportItemViewModel
+@{
+    ViewBag.Title = "Report";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+    
+}
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+<div id="page-wrapper">
+
+    <div class="well">
+        <form class="form-horizontal" method="post">
+            <fieldset>
+                <legend>Report</legend>
+                @Html.AntiForgeryToken()
+                @*Summary Date*@
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Select Date</label>
+                            <div class="col-lg-10 has-error">
+                                @Html.HiddenFor(m => m.ReportId)
+                                @Html.EditorFor(m => m.FromDate)
+                                @Html.ValidationMessageFor(r => r.FromDate)
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <input type="submit" name="action:DailyReport" value="Generate Report" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="list-group">
+
+                    <div class="list-group-item">
+                        <input type="submit" name="action:ExportDailyReport" value="Export" class="btn btn-primary" />
+
+                    </div>
+                    <div class="list-group-item">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    @foreach (DataColumn col in Model.Results.Columns)
+                                    {
+                                    <th>@col.ColumnName.ToUpper()</th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (DataRow row in Model.Results.Rows)
+                                {
+                                <tr>
+                                    @foreach (DataColumn col in Model.Results.Columns)
+                                    {
+                                    <td>@row[col.ColumnName]</td>
+                                    }
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+</div>

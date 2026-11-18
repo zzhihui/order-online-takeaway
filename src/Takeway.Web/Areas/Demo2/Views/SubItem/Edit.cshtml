@@ -1,0 +1,47 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Order.MenuSubItemViewModel
+@{
+    ViewBag.Title = "Edit Sub Selection";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <div class="well">
+        <form class="form-horizontal" method="post">
+            <fieldset>
+                <legend>Create</legend>
+                <div class="text-danger">@Model.ErrorMessage</div>
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.ActionLink("Back", "List", "SubItem", null, new { @class = "btn btn-primary" })
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Name</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SelectedMenuSubItem.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.HiddenFor(m => m.SelectedMenuSubItem.Id)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Description</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SelectedMenuSubItem.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+</div>

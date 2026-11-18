@@ -1,0 +1,71 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Admin.MenuItemViewModel
+@{
+    ViewBag.Title = "Categories Items";
+
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<div class="row">
+
+    <div class="col-md-9">
+        <div class="list-group">
+            <div class="list-group-item">
+                @Html.ActionLink("Back to Main", "Index", "MenuItem", null, new { @class = "btn btn-primary" })
+            </div>
+            <div class="list-group-item">
+                @Html.ActionLink("Create New Dish", "CategoryitemCreate", "MenuItem", null, new { @class = "btn btn-primary" })
+            </div>
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Translated Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </tr>
+                @foreach (var item in Model.MenuItemsForCategories)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TranslatedName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "CategoryitemEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "CategoryitemDelete", new { id = item.Id }) |
+                            @Html.ActionLink("Manage Selection", "CategoryItemSelection", new { id = item.Id })
+
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-3" id="leftCol">
+
+        <div class="well">
+            <ul class="nav nav-stacked" id="sidebar">
+                @foreach (var item in Model.MenuItemCategories)
+                {
+                    <li>
+                        <a href="@Url.Action("categoryitem", "menuitem", new {id=item.Id})">
+                            <h6>@item.Name</h6>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

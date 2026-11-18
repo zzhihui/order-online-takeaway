@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D42F3734-766F-404B-8D5D-1ACD6C42E686}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Common</RootNamespace>
+    <AssemblyName>Core.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Wcf">
+      <HintPath>..\packages\Autofac.Wcf.3.0.1\lib\net40\Autofac.Integration.Wcf.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.1.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Exlib\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Core\ApplicationScope.cs" />
+    <Compile Include="Core\ApplicationScopeInstance.cs" />
+    <Compile Include="Core\AppSettingInstance.cs" />
+    <Compile Include="Core\IHandler.cs" />
+    <Compile Include="Core\UnitOfWork.cs" />
+    <Compile Include="Core\UnitOfWorkContext.cs" />
+    <Compile Include="Exception\CoreException.cs" />
+    <Compile Include="Infrastructure\Autofac\OfflineBusinessEngineAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\OfflineRepositoryAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\OfflineServiceAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\OfflineTransformerAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\OfflineViewModelAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\ServiceHandlerAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\RepositoryAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\BusinessEngineAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\EntityControllerAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\Extensions.cs" />
+    <Compile Include="Infrastructure\Autofac\IProgramModule.cs" />
+    <Compile Include="Infrastructure\Autofac\ProgramConfigurator.cs" />
+    <Compile Include="Infrastructure\Autofac\RepositoryCreatorAttribute.cs" />
+    <Compile Include="Infrastructure\Autofac\TransformerAttribute.cs" />
+    <Compile Include="Infrastructure\AutoMapper\AutoMapperExtension.cs" />
+    <Compile Include="Infrastructure\Configuration\DependencyAssemblyElement.cs" />
+    <Compile Include="Infrastructure\Configuration\DependencyAssemblyElementCollection.cs" />
+    <Compile Include="Infrastructure\Configuration\DependencyAssemblySection.cs" />
+    <Compile Include="Infrastructure\EntityFramework\AuditAction.cs" />
+    <Compile Include="Infrastructure\EntityFramework\AuditDbContext.cs" />
+    <Compile Include="Infrastructure\EntityFramework\AuditEntityFactory.cs" />
+    <Compile Include="Infrastructure\EntityFramework\AuditEntityTracker.cs" />
+    <Compile Include="Infrastructure\EntityFramework\AuditEntityTrackerProperty.cs" />
+    <Compile Include="Infrastructure\EntityFramework\AuditModules\AuditingModuleLog4Net.cs" />
+    <Compile Include="Infrastructure\EntityFramework\IEntity.cs" />
+    <Compile Include="ProgramModule.cs" />
+    <Compile Include="Resources\ContentResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContentResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ErrorDescription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorDescription.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ErrorHelper.cs" />
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <DependentUpon>StringResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Utility\BooleanStringUtil.cs" />
+    <Compile Include="Utility\DateTimeComparer.cs" />
+    <Compile Include="Utility\DateTimeUtil.cs" />
+    <Compile Include="Utility\Extension\ValidatorExtensions.cs" />
+    <Compile Include="Utility\GuidHashUtil.cs" />
+    <Compile Include="Utility\Hardware.cs" />
+    <Compile Include="Utility\ObjectUtil.cs" />
+    <Compile Include="Utility\ProductLib.cs" />
+    <Compile Include="Utility\TimeKeyHelper.cs" />
+    <Compile Include="Utility\EncryptionHelper.cs" />
+    <Compile Include="Utility\Extension\DateTimeExtension.cs" />
+    <Compile Include="Utility\Extension\DecimalExtension.cs" />
+    <Compile Include="Utility\Extension\FluentValidationExtension.cs" />
+    <Compile Include="Utility\Extension\IntegerExtension.cs" />
+    <Compile Include="Utility\Extension\StringExtension.cs" />
+    <Compile Include="Utility\IntegerStringUtil.cs" />
+    <Compile Include="Utility\MemoryCacheHelper.cs" />
+    <Compile Include="Utility\SerializeHelper.cs" />
+    <Compile Include="Utility\TokenEncryptor.cs" />
+    <Compile Include="Validation\Guard.cs" />
+    <Compile Include="Validation\ValidatorFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ContentResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContentResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ErrorDescription.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorDescription.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

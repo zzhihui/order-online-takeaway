@@ -1,0 +1,87 @@
+﻿﻿@using Core.Common.Utility.Extension
+@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.AddItemToBasketViewModel
+@{
+    ViewBag.Title = WebResource.page_order_additembasket_title;
+    Layout = Html.Shared("_Layout.cshtml");
+    
+}
+<div class="well">
+    <form class="form-horizontal" method="post">
+        <fieldset>
+            <legend>@WebResource.page_order_additembasket_title</legend>@Html.AntiForgeryToken()
+            <div class="list-group">
+                <div class="list-group-item">
+                    @Html.ActionLink("Back to menu", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-primary" })
+                </div>
+                <div class="list-group-item">
+                    @*Item Summary*@
+                    <div class="form-group">
+                        @Html.HiddenFor(r => r.SelectedItem.Id)
+                        <label class="col-lg-3 control-label">@Html.DisplayFor(r => r.SelectedItem.Name)</label>@Html.HiddenFor(r => r.SelectedItem.Name)
+                        <div class="col-lg-8">
+                            <label class="form-control-static">@Model.SelectedItem.Price.ToPriceStringIe()</label>@Html.HiddenFor(r => r.SelectedItem.Price)
+                            <span class="help-block">@Html.DisplayFor(r => r.SelectedItem.Description)</span>
+                        </div>
+                    </div>
+                </div>
+                @*Select Option Extra*@
+                <div class="list-group-item">
+                    @if (Model.SelectedItem.HasSubOrder.HasValue && Model.SelectedItem.HasSubOrder.Value)
+                    { @Html.HiddenFor(r => r.SelectedItem.HasSubOrder)
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">@WebResource.page_order_additembasket_optionextra</label>
+                        </div>
+                    } 
+                    @for (int sub = 0; sub < Model.SelectedItem.SubItemSelections.Count; sub++)
+                    {<div class="form-group">
+                         <label class="col-lg-3 control-label">@Model.SelectedItem.SubItemSelections[sub].Name</label>
+                         <div class="col-lg-8">@Html.DropDownListFor(r => r.SelectedItem.SubItemSelections[sub].SelectedId, new SelectList(@Model.SelectedItem.SubItemSelections[sub].Selections, "Id", "Name"), new {@class = "form-control"})</div>
+                     </div>
+                    }
+                    </div>
+                    <div class="list-group-item">
+                        <div class="form-group">
+                            <div class="col-lg-3">
+                                @if (!string.IsNullOrEmpty(Model.SelectedItem.ImageUrl))
+                                {
+                                    <img class="img-responsive" src="@Model.SelectedItem.ImageUrl" alt="" width="200" height="200">}
+                            </div>
+                            <div class="col-lg-3">
+                                @if (!string.IsNullOrEmpty(Model.SelectedItem.VideoLink))
+                                 {
+                                        <iframe class="embed-responsive-item" src="@Model.SelectedItem.VideoLink" width="300" height="300"></iframe>
+                                 }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        @*Item Comment*@
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">@WebResource.page_order_additembasket_addtionalcomment</label>
+                            <div class="col-lg-8">@Html.TextAreaFor(t => t.SelectedItem.Comment, new { @class = "form-control", @placeholder = WebResource.page_order_additembasket_addtionalcomment })</div>
+                        </div>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Quantity</label>
+                            <div class="col-lg-8">
+                                @Html.DropDownListFor(r => r.Quantity, new SelectList(@Model.Numbers), new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="submit" class="btn btn-primary">@WebResource.page_order_additembasket_addtobasket</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>

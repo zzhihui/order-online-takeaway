@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <TextView
+       style="@style/AppFont.Small.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.30"
+       android:layout_height="wrap_content"
+       local:MvxBind="Text OrderId, Converter=OrderId"
+       />
+  <TextView
+        android:text="€"
+        style="@style/AppFont.Small"
+        android:layout_width="0dp"
+        android:layout_weight="0.10"
+        android:layout_height="wrap_content"
+        
+      />
+  <TextView
+      style="@style/AppFont.Small"
+      android:layout_width="0dp"
+      android:layout_weight="0.30"
+      android:layout_height="wrap_content"
+      local:MvxBind="Text OrderValue,Converter=DecimalStringValue"
+      />
+
+  <TextView
+     style="@style/AppFont.Small"
+     android:layout_width="0dp"
+     android:layout_weight="0.30"
+     android:layout_height="wrap_content"
+     local:MvxBind="Text Created, Converter=DateStringDash"
+      />
+</LinearLayout>

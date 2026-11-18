@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+  <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:orientation="vertical">
+    <MvxImageView
+       android:src="@drawable/foodcategory"
+       local:MvxBind="ImageUrl WebImageUrl"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+    />
+
+  </LinearLayout>
+  <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="0dp"
+         android:layout_weight="0.80"
+         android:orientation="vertical">
+    <TextView
+            local:MvxBind="Text Name"
+            style="@style/AppFont.Medium.Bold"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+        local:MvxBind="Text Description"
+        style="@style/AppFont.Small"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+</LinearLayout>

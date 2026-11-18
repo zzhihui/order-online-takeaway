@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
+
+  <!--Header-->
+  <include layout="@layout/_headmessagecontrol"/>
+
+  <!--header-->
+  <TextView
+      android:text="Making Payment"
+      style="@style/AppFont.Large.Bold"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content" />
+
+  <!--Header line-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="1dp"
+      android:background="#000000"
+      android:orientation="horizontal" />
+
+  <!--Amount-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="20dp"
+      android:orientation="horizontal">
+
+    <TextView
+        android:text="Amount:"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.60"
+        android:layout_height="wrap_content" />
+    <TextView
+        local:MvxBind="Text Payment.Amount, Converter=DecimalString"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="0dp"
+        android:layout_weight="0.40"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+  <!--Holder Name-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="Cardholder Name:"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text Payment.CardName"
+        android:layout_width="fill_parent"
+        style="@style/AppFont.Medium"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+  <!--Card Number-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="Card Number:"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text Payment.CardNumber"
+        android:layout_width="fill_parent"
+        style="@style/AppFont.Medium"
+        android:inputType="phone"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+  <!--CVC Code-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="10dp"
+      android:orientation="vertical">
+    <TextView
+        android:text="CVC Code:"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        local:MvxBind="Text Payment.CardCvc"
+        android:layout_width="fill_parent"
+        style="@style/AppFont.Medium"
+        android:inputType="phone"
+        android:layout_height="wrap_content" />
+   <TextView
+        android:text="These are the last 3 digits of the code printed on the revert side of your card"
+        style="@style/AppFont.Medium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+
+
+  <!--Expire date-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:text="Expiry Date:"
+        style="@style/AppFont.Medium.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+           android:layout_height="wrap_content"
+           android:layout_width="fill_parent"
+           android:orientation="vertical">
+      <MvxSpinner
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       local:MvxItemTemplate="@layout/itemspinner"
+       local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+       local:MvxBind="ItemsSource PaymentMonths;SelectedItem SelectedMonth" />
+      <MvxSpinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        local:MvxItemTemplate="@layout/itemspinner"
+        local:MvxDropDownItemTemplate="@layout/itemspinnerdropdown"
+        local:MvxBind="ItemsSource PaymentYear;SelectedItem SelectedYear" />
+
+    </LinearLayout>
+  </LinearLayout>
+
+
+  <!--Payment Button-->
+  <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+    <Button
+        android:text="Pay Later"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        style="@style/AppFont.Large.Bold"
+        local:MvxBind="Click BackCommand" />
+    <Button
+        android:text="Take Payment"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        style="@style/AppFont.Large.Bold"
+        local:MvxBind="Click FinishCommand" />
+  </LinearLayout>
+  
+
+
+</LinearLayout>

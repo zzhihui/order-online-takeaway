@@ -1,0 +1,99 @@
+﻿@using System.Configuration
+@using Core.Common.Utility.Extension;
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.App_Start
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.OrderViewModel
+@{
+    ViewBag.Title = Model.ShopInfo.ShopName;
+    Layout = Html.Shared("_Layout.cshtml");
+}
+<h2>@Model.ShopInfo.ShopName</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h4>@WebResource.page_order_index_contactInfo</h4>
+        @if (Model.ShopInfo.IsOpen.HasValue && Model.ShopInfo.IsOpen.Value)
+        {
+            <img src="~/Content/icOpen.png" class="img-rounded" alt="Rounded Image" width="50" height="50">
+        }
+        else
+        {
+            <img src="~/Content/icClosed.png" class="img-rounded" alt="Rounded Image" width="50" height="50">
+        }
+        <p>
+            <h6>@WebResource.page_order_index_tel @Model.ShopInfo.ShopNumber</h6>
+        </p>
+        <p>
+            <h6>@WebResource.page_order_index_address @Model.ShopInfo.ShopAddress1 @Model.ShopInfo.ShopAddress2</h6>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h4>Delivery @WebResource.page_order_index_openhour</h4>
+        <pre style="background-color: inherit; white-space: pre-line; color: white;display: inline-block; font-size: 15px;border: none !important; ">@Html.Raw(Model.ShopInfo.ShopOpenHours.ReplaceHtmlLineBreak())</pre>
+    </div>
+    <div class="col-md-4">
+        <h4>Collection @WebResource.page_order_index_openhour</h4>
+        <pre style="background-color: inherit; white-space: pre-line; color: white;display: inline-block; font-size: 15px;border: none !important; ">@Html.Raw(Model.ShopInfo.ShopDeliveryOpenHours.ReplaceHtmlLineBreak())</pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <iframe src="@Model.ShopInfo.GoogleMap" frameborder="0" style="border: 0"></iframe>
+    </div>
+    @*TODO:Localisation*@
+    <div class="col-md-4">
+        <h4>Notification:</h4>
+        <p class="text-danger">
+            <b>You can submit your order online from here, we will deliver to your door</b>
+        </p>
+    </div>
+
+</div>
+<div class="row">
+    <p>&nbsp;</p>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        @*TODO:Localisation*@
+        <p>
+            <h6>@WebResource.page_order_index_viewmenucomment</h6>
+        </p>
+
+        <p>
+            @Html.ActionLink(@WebResource.page_order_index_viewmenu, "Category", "Order", null, new { @class = "btn btn-info btn-xlg" })
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-48">
+        <div class="list-group">
+            <h4>@WebResource.page_order_index_news</h4>
+            @foreach (var shopNewsItem in Model.ShopInfo.ShopNews)
+            {
+                <div class="list-group-item">
+                    <span class="glyphicon glyphicon-comment"></span> <span class="badge">@shopNewsItem.Created.ToDateUtcFormat()</span>
+                    @shopNewsItem.News
+                    <span>&nbsp;</span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(Model.ShopInfo.IoSlink) || !string.IsNullOrEmpty(@Model.ShopInfo.Androidlink))
+{
+    <div class="row">
+        <div class="list-group">
+            <h4>Mobile apps also available</h4>
+            @if (!string.IsNullOrEmpty(Model.ShopInfo.Androidlink))
+            {
+                <a href="@Model.ShopInfo.Androidlink" target="_blank"><img src="../../Content/googleplay.png" class="img-responsive" alt="Google Play" width="200" height="100"></a>
+            }
+            @if (!string.IsNullOrEmpty(Model.ShopInfo.IoSlink))
+            {
+                <a href="@Model.ShopInfo.IoSlink" target="_blank"><img src="../../Content/applestore.png" class="img-responsive" alt="Apple itunes" width="200" height="100"></a>
+            }
+
+        </div>
+    </div>
+
+}

@@ -1,0 +1,40 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Order.CategoryViewModel
+@{
+    ViewBag.Title = "Manage Category";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <h2>Category</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", "Category", null, new {@class = "btn btn-primary"})
+    </p>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Translate Name
+                </th>
+            </tr>
+            @foreach (var item in Model.CategoryCategories)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TranslateName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                        @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>

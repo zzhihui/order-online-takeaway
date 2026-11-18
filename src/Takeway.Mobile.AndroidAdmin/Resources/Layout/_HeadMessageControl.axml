@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:local="http://schemas.android.com/apk/res-auto"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:background="#FEFFD4"
+      >
+  <!--Error Message-->
+  <TextView
+      android:layout_height="wrap_content"
+      android:layout_width="fill_parent"
+      style="@style/AppFont.Medium.Bold.Red"
+      local:MvxBind="Text ErrorMessage" />
+
+  <!--Confirmation-->
+  <TextView
+      android:layout_height="wrap_content"
+      android:layout_width="fill_parent"
+      style="@style/AppFont.Medium.Bold"
+      local:MvxBind="Text ConfirmationMessage" />
+
+</FrameLayout>

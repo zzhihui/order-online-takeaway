@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/"><img style="float: left" src="~/Content/logo.png" class="img-responsive" alt="IndaSoft" height="80" width="200"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li><a href="#!/Aboutus">AboutUs</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- /container -->
+<div class="container">
+    <div ng-view></div>
+    <hr>
+    <footer>
+        @Html.Partial("~/Areas/Demo/Views/Shared/_Layout.cshtml")
+    </footer>
+
+</div>
+
+
+
+@section scripts {
+
+    <script src="@Url.Content("~/Areas/Demo/scripts/app.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/Demo/scripts/controllers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/Demo/scripts/dataservice.js")" type="text/javascript"></script>
+
+}

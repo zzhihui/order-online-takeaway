@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81D7BEF8-2BDE-4728-8E53-B08A5403A065}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeaway.Service</RootNamespace>
+    <AssemblyName>Takeaway.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Wcf, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.Wcf.3.0.1\lib\net40\Autofac.Integration.Wcf.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.5.3.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Exlib\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Exceptions\TransformerException.cs" />
+    <Compile Include="Extension\WsMenuItemExtension.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="ProgramModule.cs" />
+    <Compile Include="Services\IShopService.cs">
+      <DependentUpon>ShopService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Exceptions\ServiceException.cs" />
+    <Compile Include="Services\ShopService.cs" />
+    <Compile Include="Transformers\In\DeliveryCostTransformer.cs" />
+    <Compile Include="Transformers\In\DeliveryOptionTransformer.cs" />
+    <Compile Include="Transformers\In\MenuItemCategoryGroupTransformer.cs" />
+    <Compile Include="Transformers\In\MenuItemCategoryTransformer.cs" />
+    <Compile Include="Transformers\In\MenuItemTransformer.cs" />
+    <Compile Include="Transformers\In\OfflineSettingTransformer.cs" />
+    <Compile Include="Transformers\In\OptionItemTransformer.cs" />
+    <Compile Include="Transformers\In\OrderTransformer.cs" />
+    <Compile Include="Transformers\In\PaymentTransformer.cs" />
+    <Compile Include="Transformers\In\SettingTransformer.cs" />
+    <Compile Include="Transformers\In\ShopCustomerTransformer.cs" />
+    <Compile Include="Transformers\In\ShopNewsTransformer.cs" />
+    <Compile Include="Transformers\In\ShopTransformer.cs" />
+    <Compile Include="Transformers\In\ShopUserTransformer.cs" />
+    <Compile Include="Transformers\In\TableCommandTransformer.cs" />
+    <Compile Include="Transformers\In\TablesTransformer.cs" />
+    <Compile Include="Transformers\ITransformerMapper.cs" />
+    <Compile Include="Transformers\Out\WsDeliveryCostTransformer.cs" />
+    <Compile Include="Transformers\Out\WsDeliveryAreaTransformer.cs" />
+    <Compile Include="Transformers\Out\WsMenuSubItemTransformer.cs" />
+    <Compile Include="Transformers\Out\WsPaymentTypeTransformer.cs" />
+    <Compile Include="Transformers\Out\WsDriverTransformer.cs" />
+    <Compile Include="Transformers\Out\WsOfflineSettingTransformer.cs" />
+    <Compile Include="Transformers\Out\WsShopNewsTransformer.cs" />
+    <Compile Include="Transformers\Out\WsTableAliasTransformer.cs" />
+    <Compile Include="Transformers\Out\WsTableCommandTransformer.cs" />
+    <Compile Include="Transformers\Out\WsTablesTransformer.cs" />
+    <Compile Include="Transformers\Out\WsMenuItemCategoryGroupTransformer.cs" />
+    <Compile Include="Transformers\Out\WsOptionItemTransformer.cs" />
+    <Compile Include="Transformers\Out\WsDeliveryOptionTransformer.cs" />
+    <Compile Include="Transformers\Out\WsOrderTransformer.cs" />
+    <Compile Include="Transformers\Out\WsPaymentInfoTransformer.cs" />
+    <Compile Include="Transformers\Out\WsShopCustomerTransformer.cs" />
+    <Compile Include="Transformers\TransformerBase.cs" />
+    <Compile Include="Transformers\Out\WsMenuItemCategoryTransformer.cs" />
+    <Compile Include="Transformers\Out\WsSettingTransformer.cs" />
+    <Compile Include="Transformers\Out\WsMenuItemTransformer.cs" />
+    <Compile Include="Transformers\Out\WsShopTransformer.cs" />
+    <Compile Include="Transformers\Out\WsShopUserTransformer.cs" />
+    <Compile Include="Validations\WsMenuItemValidator.cs" />
+    <Compile Include="Validations\WsOptionItemValidator.cs" />
+    <Compile Include="Validations\WsOrderValidator.cs" />
+    <Compile Include="Validations\WsPaymentValidator.cs" />
+    <Compile Include="Validations\WsShopCustomerValidator.cs" />
+    <Compile Include="Validations\WsShopUserValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{d42f3734-766f-404b-8d5d-1acd6c42e686}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.BusinessEngine\Takeaway.BusinessEngine.csproj">
+      <Project>{a8423431-e9d1-443c-bc16-e667660a0595}</Project>
+      <Name>Takeaway.BusinessEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data.Entities\Takeaway.Data.Entities.csproj">
+      <Project>{535fc7eb-27c3-4834-929b-7305f51933f0}</Project>
+      <Name>Takeaway.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Service.Contract\Takeaway.Service.Contract.csproj">
+      <Project>{3e991f3b-b614-44f4-9d53-439a06d12ec9}</Project>
+      <Name>Takeaway.Service.Contract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

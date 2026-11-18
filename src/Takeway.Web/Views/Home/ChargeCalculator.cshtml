@@ -1,0 +1,77 @@
+﻿@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.ChargeCalculatorViewModel
+
+@{
+    ViewBag.Title = "Welcome";
+    Layout = Html.Shared("_Layout.cshtml");
+}
+<br/>
+<br/>
+<br/>
+<br/>
+<br />
+<section id="app">
+    <div class="container">
+        <div class="well">
+
+            <form id="submitform" class="form-horizontal" method="post">
+                <fieldset>
+                    <legend>Card Charge Calculator</legend>
+                    <p class="text-danger">@Html.ValidationSummary(true)</p>
+                    @Html.AntiForgeryToken()
+
+                    @*Contact Info*@
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <p class="list-group-item-text">Enter Information Below</p>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Total Card Sales</label>
+                                <div class="col-md-9 has-error">
+                                    @Html.TextBoxFor(t => t.TotalSale, new {@class = "form-control", @placeholder = "Total Card Sales Amount"})
+                                    @Html.ValidationMessageFor(x => x.TotalSale)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Number of Card Transactions</label>
+                                <div class="col-md-9 has-error">
+                                    @Html.TextBoxFor(t => t.NumberOfTransactions, new {@class = "form-control", @placeholder = "Number of Card Transactions"})
+                                    @Html.ValidationMessageFor(x => x.NumberOfTransactions)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Payment Charge</label>
+                                <div class="col-md-9">
+                                    @Model.CardCharge.ToPriceStringIe()
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Transfered Amount</label>
+                                <div class="col-md-9">
+                                    @Model.TransferAmount.ToPriceStringIe()
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+
+    </div>
+</section>

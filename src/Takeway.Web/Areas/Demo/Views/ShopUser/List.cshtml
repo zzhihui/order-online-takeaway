@@ -1,0 +1,46 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.Models.Admin.ShopUserViewModel
+@{
+    ViewBag.Title = "Manage Users";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+
+<h2>Users</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "ShopUser", null, new { @class = "btn btn-primary" })
+</p>
+<h6>
+    <p>Note: for user group.Admin=1; User=2; Manager=0</p>
+</h6>
+
+<table class="table">
+    <tr>
+        <th>
+            User Name
+        </th>
+        <th>
+            Pin
+        </th>
+        <th>
+            User Group
+        </th>
+    </tr>
+    @foreach (var item in Model.ShopUsers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserGroupId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

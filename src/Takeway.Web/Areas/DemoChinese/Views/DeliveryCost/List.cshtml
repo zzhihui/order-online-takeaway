@@ -1,0 +1,44 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Admin.DeliveryCostViewModel
+
+@{
+    ViewBag.Title = "Manage Delivery Cost";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <h2>Delivery Cost</h2>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    FromDistance
+                </th>
+                <th>
+                    ToDistance
+                </th>
+                <th>
+                    DeliveryCostAmount
+                </th>
+            </tr>
+            @foreach (var item in Model.DeliveryCosts)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FromDistance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToDistance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryCostAmount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new {id = item.Id})
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

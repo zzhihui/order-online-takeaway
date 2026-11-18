@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Old Town Restaurant</string>
+  <string name="app_versionname">1.0.0</string>
+  <string name="app_loadingmessage">Please wait...</string>
+  
+
+  <!--Admin Home Page-->
+  <string name="app_page_home_title">Welcome- LaoChengDu</string>
+  <string name="app_page_home_label_username">User name:</string>
+  <string name="app_page_home_label_password">Password:</string>
+  <string name="app_page_home_button_clear">Clear</string>
+  <string name="app_page_home_button_login">Login</string>
+
+  <!--Internal Order Pad Page-->
+  <string name="app_page_padorder_tryme">Try it</string>
+  <string name="app_page_padorder_addtionalrequest">Addtional request for today, E.G: No Pepper </string>
+  
+  <!--Admin Home Order page Shop-->
+  <string name="app_page_homeorder_title">Welcome</string>
+  <string name="app_page_homeorder_category">Categories</string>
+  <string name="app_page_homeorder_ordersummary">Order Summary</string>
+  <string name="app_page_homeorder_subtotal">Total</string>
+  <string name="app_page_homeorder_submitorder">Submit Order</string>
+  
+
+
+
+  <!--Admin Notification page-->
+  <string name="app_notification_header">New Order</string>
+  <string name="app_notification_title">New Order Coming in</string>
+  <string name="app_notification_detail">New offer</string>
+
+  
+  <!--Admin Main Page-->
+  <string name="app_page_main_label_OpenHour">Open Hours</string>
+  <string name="app_page_main_title">Main Page</string>
+
+
+  <!--Help Page-->
+  <string name="app_page_help_title">Help</string>
+
+
+  <!--Order page-->
+  <string name="app_page_order_title">Order</string>
+
+
+  <!--Report Page-->
+  <string name="app_page_report_title">Reports</string>
+
+
+  <!--About Page-->
+  <string name="app_page_about_title">About us</string>
+  <string name="app_page_about_copyright">Copyright © 2015 IndaSoft Ltd. All rights reserved.</string>
+  <string name="app_page_about_checkupdate">Check for Update</string>
+  <string name="app_page_about_contactindasoft">Contact IndaSoft</string>
+
+
+  <!--Setting Page-->
+  <string name="app_page_setting_title">Settings</string>
+  <string name="app_page_setting_section_notification">Notifications</string>
+
+
+  <!--Category Sub Items-->
+  <string name="app_page_categoryitemsub_title">Extras</string>
+  <string name="app_page_categoryitemsub_optionextra_description">Select your Option Extra</string>
+  <string name="app_page_categoryitemsub_buttonadd">Add to Basket</string>
+
+
+
+  <!--Submit Order Page-->
+  <string name="app_page_submitorder_title">Submit Order</string>
+  <string name="app_page_submitorder_summary">Final Step to Submit your order</string>
+  <string name="app_page_submitorder_totalorder">Total:</string>
+  <string name="app_page_submitorder_youraddress">Address:</string>
+  <string name="app_page_submitorder_yourcontactname">Contact name:</string>
+  <string name="app_page_submitorder_yourphonenumber">Phone number:</string>
+  <string name="app_page_submitorder_lastcomment">Final Comment:</string>
+  <string name="app_page_submitorder_deliveryoption">Delivery Option:</string>
+  <string name="app_page_submitorder_finish">Submit</string>
+  <string name="app_page_submitorder_goback">Go Back</string>
+
+
+  <!--Basket Page-->
+  <string name="app_page_basket_title">My Basket</string>
+  <string name="app_page_basket_ordersummary">Order Summary</string>
+  <string name="app_page_basket_minorder">Min Order Required:</string>
+  <string name="app_page_basket_buymore">Add Items</string>
+  <string name="app_page_basket_subtotal">Sub total excluding delivery charge</string>
+  <string name="app_page_basket_submitorder">Submit Order</string>
+
+</resources>

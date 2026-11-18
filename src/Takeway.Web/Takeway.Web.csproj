@@ -1,0 +1,1435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A50475AF-7EB3-41CC-BFAA-D12530A82BB2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Takeway.Web</RootNamespace>
+    <AssemblyName>Takeway.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <TransformWebConfigEnabled>True</TransformWebConfigEnabled>
+    <AutoParameterizationWebConfigConnectionStrings>False</AutoParameterizationWebConfigConnectionStrings>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi2.3.2.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.1.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.1\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.0\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.0\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Demo2\Models\" />
+    <Folder Include="Areas\DemoChinese\Models\" />
+    <Folder Include="Areas\DemoMulti\Models\" />
+    <Folder Include="Areas\Demo\Models\" />
+    <Folder Include="Areas\IndaSoftAdmin\Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Takeway.Mobile.Core\Services\RestServices\RestServiceBase.cs">
+      <Link>Application\ServiceClient\RestServiceBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Takeway.Mobile.Core\Services\RestServices\ShopRestService.cs">
+      <Link>Application\ServiceClient\ShopRestService.cs</Link>
+    </Compile>
+    <Compile Include="..\Takeway.Mobile.Core\Utilities\Constants.cs">
+      <Link>Application\Utility\Constants.cs</Link>
+    </Compile>
+    <Compile Include="Application\Extension\DomainData.cs" />
+    <Compile Include="Application\Extension\DomainRoute.cs" />
+    <Compile Include="Application\Extension\HtmlExtension.cs" />
+    <Compile Include="Application\Extension\MultipleButtonAttribute.cs" />
+    <Compile Include="Application\Extension\RedirectToActionAnchor.cs" />
+    <Compile Include="Application\Extension\SubDomainExtension.cs" />
+    <Compile Include="Application\Extension\SubdomainRoute.cs" />
+    <Compile Include="Application\Filter\AreaAuthorizationAttribute.cs" />
+    <Compile Include="Application\HttpAction\BadRequestWithMessageResult .cs" />
+    <Compile Include="Application\Utility\MVCTransferResult.cs" />
+    <Compile Include="Application\Utility\SessionKey.cs" />
+    <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Demo2\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\DeliveryCostController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\MenuItemController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\OnlineDashController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\OptionItemController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\ReportController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\ServerSettingController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\ShopNewsController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\ShopUserController.cs" />
+    <Compile Include="Areas\Demo2\Controllers\SubItemController.cs" />
+    <Compile Include="Areas\Demo2\Demo2AreaRegistration.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\AccountController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\AdminController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\DeliveryCostController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\HomeController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\MenuItemController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\OnlineDashController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\OptionItemController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\OrderController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\ReportController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\ServerSettingController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\ShopNewsController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\ShopUserController.cs" />
+    <Compile Include="Areas\DemoChinese\Controllers\SubItemController.cs" />
+    <Compile Include="Areas\DemoChinese\DemoChineseAreaRegistration.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\AccountController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\AdminController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\DeliveryCostController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\HomeController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\MenuItemController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\OnlineDashController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\OptionItemController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\OrderController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\ReportController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\ServerSettingController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\ShopNewsController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\ShopUserController.cs" />
+    <Compile Include="Areas\DemoMulti\Controllers\SubItemController.cs" />
+    <Compile Include="Areas\DemoMulti\DemoMultiAreaRegistration.cs" />
+    <Compile Include="Areas\Demo\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Demo\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Demo\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Demo\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Demo\Controllers\DeliveryCostController.cs" />
+    <Compile Include="Areas\Demo\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Demo\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Demo\Controllers\MenuItemController.cs" />
+    <Compile Include="Areas\Demo\Controllers\OnlineDashController.cs" />
+    <Compile Include="Areas\Demo\Controllers\OptionItemController.cs" />
+    <Compile Include="Areas\Demo\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Demo\Controllers\ReportController.cs" />
+    <Compile Include="Areas\Demo\Controllers\ServerSettingController.cs" />
+    <Compile Include="Areas\Demo\Controllers\ShopNewsController.cs" />
+    <Compile Include="Areas\Demo\Controllers\ShopUserController.cs" />
+    <Compile Include="Areas\Demo\Controllers\SubItemController.cs" />
+    <Compile Include="Areas\Demo\DemoAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\Controllers\PaymentController.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\Controllers\ReportController.cs" />
+    <Compile Include="Areas\IndaSoftAdmin\IndaSoftAdminAreaRegistration.cs" />
+    <Compile Include="Content\WebResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Api\ApiControllerBase.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\Templates\BaseCategoryController.cs" />
+    <Compile Include="Controllers\Templates\BaseContoller.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Api\ShopApiController.cs" />
+    <Compile Include="Controllers\Templates\BaseAccountController.cs" />
+    <Compile Include="Controllers\Templates\BaseAdminController.cs" />
+    <Compile Include="Controllers\Templates\BaseCustomerController.cs" />
+    <Compile Include="Controllers\Templates\BaseDeliveryCostController.cs" />
+    <Compile Include="Controllers\Templates\BaseErrorController.cs" />
+    <Compile Include="Controllers\Templates\BaseHomeController.cs" />
+    <Compile Include="Controllers\Templates\BaseMenuItemController.cs" />
+    <Compile Include="Controllers\Templates\BaseOnlineDashController.cs" />
+    <Compile Include="Controllers\Templates\BaseOptionItemController.cs" />
+    <Compile Include="Controllers\Templates\BaseOrderController.cs" />
+    <Compile Include="Controllers\Templates\BaseReportController.cs" />
+    <Compile Include="Controllers\Templates\BaseServerSettingController.cs" />
+    <Compile Include="Controllers\Templates\BaseShopNewsController.cs" />
+    <Compile Include="Controllers\Templates\BaseShopUserController.cs" />
+    <Compile Include="Controllers\Templates\BaseSubItemController.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Extension\ApiControllerExtension.cs" />
+    <Compile Include="Application\Filter\BasicAuthorizeAttribute.cs" />
+    <Compile Include="Application\HttpAction\NotFoundPlainTextActionResult.cs" />
+    <Compile Include="Application\Security\WebSecurity.cs" />
+    <Compile Include="Application\Utility\ShopUserValidator.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\ShopUserModel.cs" />
+    <Compile Include="ViewModels\AccountModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Application\Filter\IPHostValidationAttribute.cs" />
+    <Compile Include="Application\Filter\RequireHttpsAttribute.cs" />
+    <Compile Include="Application\Filter\TokenValidationAttribute.cs" />
+    <Compile Include="ViewModels\Admin\GeneratePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Admin\KillOrderViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ShopNewsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ShopUserViewModel.cs" />
+    <Compile Include="ViewModels\ChargeCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Customer\ActiveAccountViewModel.cs" />
+    <Compile Include="ViewModels\Customer\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Customer\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\Customer\ForgetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Customer\VerificationViewModel.cs" />
+    <Compile Include="ViewModels\OnlineDash\OnlineDashViewModel.cs" />
+    <Compile Include="ViewModels\Order\AddItemToBasketViewModel.cs" />
+    <Compile Include="ViewModels\Order\BasketSummaryViewModel.cs" />
+    <Compile Include="ViewModels\Order\BasketViewModel.cs" />
+    <Compile Include="ViewModels\Order\CategoryFullItemViewModel.cs" />
+    <Compile Include="ViewModels\Order\CategoryItemViewModel.cs" />
+    <Compile Include="ViewModels\Order\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Order\CompleteOrderViewModel.cs" />
+    <Compile Include="ViewModels\Order\DeliveryAreaViewModel.cs" />
+    <Compile Include="ViewModels\Admin\OptionItemViewModel.cs" />
+    <Compile Include="ViewModels\Admin\DeliveryCostViewModel.cs" />
+    <Compile Include="ViewModels\Order\ListPaymentViewModel.cs" />
+    <Compile Include="ViewModels\Order\OrderViewModel.cs" />
+    <Compile Include="ViewModels\Order\PaymentResultViewModel.cs" />
+    <Compile Include="ViewModels\Order\PaymentViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ServerSettingViewModel.cs" />
+    <Compile Include="ViewModels\Order\MenuSubItemViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ReportItemViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ReportListViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ViewModelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Demo2\Content\Admin\bootstrap\bootstrap-theme.css" />
+    <Content Include="Areas\Demo2\Content\Admin\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Areas\Demo2\Content\Admin\bootstrap\bootstrap.css" />
+    <Content Include="Areas\Demo2\Content\Admin\bundle.css" />
+    <Content Include="Areas\Demo2\Content\Admin\bundle.js" />
+    <Content Include="Areas\Demo2\Content\Admin\bundle.min.css" />
+    <Content Include="Areas\Demo2\Content\Admin\bundle.min.js" />
+    <Content Include="Areas\Demo2\Content\Admin\flot-data.js" />
+    <Content Include="Areas\Demo2\Content\Admin\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Demo2\Content\Admin\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Demo2\Content\Admin\metismenu\metisMenu.css" />
+    <Content Include="Areas\Demo2\Content\Admin\metismenu\metisMenu.js" />
+    <Content Include="Areas\Demo2\Content\Admin\morris-data.js" />
+    <Content Include="Areas\Demo2\Content\Admin\morrisjs\morris.css" />
+    <Content Include="Areas\Demo2\Content\Admin\morrisjs\morris.js" />
+    <Content Include="Areas\Demo2\Content\Admin\raphael\raphael.js" />
+    <Content Include="Areas\Demo2\Content\Admin\sb-admin-2.css" />
+    <Content Include="Areas\Demo2\Content\Admin\sb-admin-2.js" />
+    <Content Include="Areas\Demo2\Content\Admin\script.js" />
+    <Content Include="Areas\Demo2\Content\Admin\style.css" />
+    <Content Include="Areas\Demo2\Content\Admin\timeline.css" />
+    <Content Include="Areas\Demo2\Content\bg.jpg" />
+    <Content Include="Areas\Demo2\Content\card-logos.png" />
+    <Content Include="Areas\Demo2\Content\cd-top-arrow.svg" />
+    <Content Include="Areas\Demo2\Content\Client\css\animate.min.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\blue.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\bootstrap.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\flexslider.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\font-awesome.min.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\green.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\owl.carousel.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\prettyPhoto.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\responsive.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\style.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\tomato.css" />
+    <Content Include="Areas\Demo2\Content\Client\css\turquoise.css" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\apple-touch-icon-114x114.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\apple-touch-icon-144x144.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\apple-touch-icon-72x72.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\apple-touch-icon.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\back-to-top.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\favicon.ico" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\loader.GIF" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\map-marker.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\pointer.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\icons\testimonial-arrow-down.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\logo.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\parallax_bg\contacts.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\parallax_bg\features.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\parallax_bg\promo-line.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\parallax_bg\skills.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\parallax_bg\statistic-banner.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img1.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img2.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img3.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img4.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img5.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img6.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img7.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\gallery_2x\img8.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img1.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img2.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img3.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img4.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img5.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img6.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img7.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\portfolio\img8.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\loader.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\sprite.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Areas\Demo2\Content\Client\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\about-image.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\client-1.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\client-2.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\client-3.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\client-4.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\client-5.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\client-6.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\features-image.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\intro_bkg.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\mail_sent.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\member-1.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\member-2.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\member-3.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\overlay.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\tablet.png" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\team-1.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\team-2.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\team-3.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\team-4.jpg" />
+    <Content Include="Areas\Demo2\Content\Client\img\thumbs\timeline-bg.png" />
+    <Content Include="Areas\Demo2\Content\Client\js\bootstrap.min.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\count-to.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\custom.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery-2.1.1.min.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.appear.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.easing.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.easypiechart.min.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.flexslider.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.gmap3.min.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.mb.YTPlayer.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.mixitup.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.parallax-1.1.3.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.prettyPhoto.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.stellar.min.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\jquery.validate.min.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\modernizr.custom.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\owl.carousel.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\retina.js" />
+    <Content Include="Areas\Demo2\Content\Client\js\waypoints.min.js" />
+    <Content Include="Areas\Demo2\Content\encryption.png" />
+    <Content Include="Areas\Demo2\Content\print.css" />
+    <Content Include="Areas\Demo2\Content\script.js" />
+    <Content Include="Areas\Demo2\Content\security-card.png" />
+    <Content Include="Areas\Demo2\Content\Style.css" />
+    <Content Include="Areas\DemoChinese\Content\bg.jpg" />
+    <Content Include="Areas\DemoChinese\Content\Client\css\sitecss.css" />
+    <Content Include="Areas\DemoChinese\Content\Client\css\sitecss.min.css" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\apple-touch-icon-114x114.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\apple-touch-icon-144x144.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\apple-touch-icon-72x72.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\apple-touch-icon.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\back-to-top.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\favicon.ico" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\loader.GIF" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\map-marker.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\pointer.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\icons\testimonial-arrow-down.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\logo.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\parallax_bg\features.jpg" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\thumbs\intro_bkg.jpg" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\thumbs\mail_sent.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\img\thumbs\overlay.png" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\bootstrap.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\count-to.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\count-to.min.js">
+      <DependentUpon>count-to.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\custom.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\custom.min.js">
+      <DependentUpon>custom.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\customorder.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\customorder.min.js">
+      <DependentUpon>customorder.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery-2.1.1.min.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.appear.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.appear.min.js">
+      <DependentUpon>jquery.appear.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.easing.es5.js">
+      <DependentUpon>jquery.easing.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.easing.es5.min.js">
+      <DependentUpon>jquery.easing.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.easing.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.easing.min.js">
+      <DependentUpon>jquery.easing.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.easypiechart.min.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.flexslider.min.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.mb.YTPlayer.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.mb.YTPlayer.min.js">
+      <DependentUpon>jquery.mb.YTPlayer.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.mixitup.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.mixitup.min.js">
+      <DependentUpon>jquery.mixitup.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.parallax-1.1.3.es5.js">
+      <DependentUpon>jquery.parallax-1.1.3.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.parallax-1.1.3.es5.min.js">
+      <DependentUpon>jquery.parallax-1.1.3.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.parallax-1.1.3.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.prettyPhoto.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.prettyPhoto.min.js">
+      <DependentUpon>jquery.prettyPhoto.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.stellar.min.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\jquery.validate.min.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\modernizr.custom.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\modernizr.custom.min.js">
+      <DependentUpon>modernizr.custom.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\owl.carousel.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\owl.carousel.min.js">
+      <DependentUpon>owl.carousel.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\retina.js" />
+    <Content Include="Areas\DemoChinese\Content\Client\js\retina.min.js">
+      <DependentUpon>retina.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\DemoChinese\Content\Client\js\waypoints.min.js" />
+    <Content Include="Areas\DemoChinese\Content\print.css" />
+    <Content Include="Areas\DemoMulti\Content\css\custom.css" />
+    <Content Include="Areas\DemoMulti\Content\css\bootstrap.css" />
+    <Content Include="Areas\DemoMulti\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\DemoMulti\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\DemoMulti\Content\js\cbpAnimatedHeader.js" />
+    <Content Include="Areas\DemoMulti\Content\js\cbpAnimatedHeader.min.js" />
+    <Content Include="Areas\DemoMulti\Content\css\cd-top-arrow.svg" />
+    <Content Include="Areas\DemoMulti\Content\js\classie.js" />
+    <Content Include="Areas\DemoMulti\Content\js\contact_me.js" />
+    <Content Include="Areas\DemoMulti\Content\js\custom.js" />
+    <Content Include="Areas\DemoMulti\Content\js\jqBootstrapValidation.js" />
+    <Content Include="Areas\DemoMulti\Content\pic\header-bg.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\logo.png" />
+    <Content Include="Areas\DemoMulti\Content\pic\map-image.png" />
+    <Content Include="Areas\DemoMulti\Content\pic\menu1.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\menu2.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\shop-icon.png" />
+    <Content Include="Areas\DemoMulti\Content\pic\slider-bg-1-mob.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\slider-bg-1.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\slider-bg-2-mob.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\slider-bg-2.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\slider-bg-3-mob.jpg" />
+    <Content Include="Areas\DemoMulti\Content\pic\slider-bg-3.jpg" />
+    <Content Include="Areas\Demo\Content\bg.jpg" />
+    <Content Include="Areas\Demo\Content\card-logos.png" />
+    <Content Include="Areas\Demo\Content\cd-top-arrow.svg" />
+    <Content Include="Areas\Demo\Content\encryption.png" />
+    <Content Include="Areas\Demo\Content\print.css" />
+    <Content Include="Areas\Demo\Content\script.js" />
+    <Content Include="Areas\Demo\Content\security-card.png" />
+    <Content Include="Areas\Demo\Content\Style.css" />
+    <Content Include="Areas\Demo\scripts\app.js" />
+    <Content Include="Areas\Demo\scripts\controllers.js" />
+    <Content Include="Areas\Demo\scripts\dataservice.js" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\admin\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\admin\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\admin\bootstrap\bootstrap.css" />
+    <Content Include="Content\admin\bundle.css" />
+    <Content Include="Content\admin\bundle.js" />
+    <Content Include="Content\admin\bundle.min.css">
+      <DependentUpon>bundle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\admin\bundle.min.js">
+      <DependentUpon>bundle.js</DependentUpon>
+    </Content>
+    <Content Include="Content\admin\flot-data.js" />
+    <Content Include="Content\admin\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\admin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\admin\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\admin\metismenu\metisMenu.css" />
+    <Content Include="Content\admin\metismenu\metisMenu.js" />
+    <Content Include="Content\admin\metismenu\metisMenu.min.css" />
+    <Content Include="Content\admin\metismenu\metisMenu.min.js" />
+    <Content Include="Content\admin\morris-data.js" />
+    <Content Include="Content\admin\morrisjs\morris.css" />
+    <Content Include="Content\admin\morrisjs\morris.js" />
+    <Content Include="Content\admin\morrisjs\morris.min.js" />
+    <Content Include="Content\admin\raphael\raphael-min.js" />
+    <Content Include="Content\admin\raphael\raphael.js" />
+    <Content Include="Content\admin\sb-admin-2.css" />
+    <Content Include="Content\admin\sb-admin-2.js" />
+    <Content Include="Content\admin\script.js" />
+    <Content Include="Content\admin\style.css" />
+    <Content Include="Content\admin\timeline.css" />
+    <Content Include="Content\applestore.png" />
+    <Content Include="Content\bg.jpg" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\card-logos.png" />
+    <Content Include="Content\encryption.png" />
+    <Content Include="Content\facebook.png" />
+    <Content Include="Content\foodCategory.png" />
+    <Content Include="Content\footer.png" />
+    <Content Include="Content\gmail.png" />
+    <Content Include="Content\googleplay.png" />
+    <Content Include="Content\icClosed.png" />
+    <Content Include="Content\icOpen.png" />
+    <Content Include="Content\kingfood\css\animate.min.css" />
+    <Content Include="Content\kingfood\css\blue.css" />
+    <Content Include="Content\kingfood\css\bootstrap.css" />
+    <Content Include="Content\kingfood\css\flexslider.css" />
+    <Content Include="Content\kingfood\css\font-awesome.min.css" />
+    <Content Include="Content\kingfood\css\green.css" />
+    <Content Include="Content\kingfood\css\owl.carousel.css" />
+    <Content Include="Content\kingfood\css\prettyPhoto.css" />
+    <Content Include="Content\kingfood\css\responsive.css" />
+    <Content Include="Content\kingfood\css\style.css" />
+    <Content Include="Content\kingfood\css\tomato.css" />
+    <Content Include="Content\kingfood\css\turquoise.css" />
+    <Content Include="Content\kingfood\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\kingfood\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\kingfood\img\icons\apple-touch-icon-114x114.png" />
+    <Content Include="Content\kingfood\img\icons\apple-touch-icon-144x144.png" />
+    <Content Include="Content\kingfood\img\icons\apple-touch-icon-72x72.png" />
+    <Content Include="Content\kingfood\img\icons\apple-touch-icon.png" />
+    <Content Include="Content\kingfood\img\icons\back-to-top.png" />
+    <Content Include="Content\kingfood\img\icons\favicon.ico" />
+    <Content Include="Content\kingfood\img\icons\loader.GIF" />
+    <Content Include="Content\kingfood\img\icons\map-marker.png" />
+    <Content Include="Content\kingfood\img\icons\pointer.png" />
+    <Content Include="Content\kingfood\img\icons\testimonial-arrow-down.png" />
+    <Content Include="Content\kingfood\img\logo.png" />
+    <Content Include="Content\kingfood\img\parallax_bg\contacts.jpg" />
+    <Content Include="Content\kingfood\img\parallax_bg\features.jpg" />
+    <Content Include="Content\kingfood\img\parallax_bg\promo-line.jpg" />
+    <Content Include="Content\kingfood\img\parallax_bg\skills.jpg" />
+    <Content Include="Content\kingfood\img\parallax_bg\statistic-banner.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img1.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img2.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img3.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img4.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img5.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img6.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img7.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\gallery_2x\img8.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img1.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img2.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img3.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img4.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img5.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img6.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img7.jpg" />
+    <Content Include="Content\kingfood\img\portfolio\img8.jpg" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\kingfood\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\kingfood\img\thumbs\about-image.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\client-1.png" />
+    <Content Include="Content\kingfood\img\thumbs\client-2.png" />
+    <Content Include="Content\kingfood\img\thumbs\client-3.png" />
+    <Content Include="Content\kingfood\img\thumbs\client-4.png" />
+    <Content Include="Content\kingfood\img\thumbs\client-5.png" />
+    <Content Include="Content\kingfood\img\thumbs\client-6.png" />
+    <Content Include="Content\kingfood\img\thumbs\features-image.png" />
+    <Content Include="Content\kingfood\img\thumbs\intro_bkg.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\mail_sent.png" />
+    <Content Include="Content\kingfood\img\thumbs\member-1.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\member-2.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\member-3.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\overlay.png" />
+    <Content Include="Content\kingfood\img\thumbs\tablet.png" />
+    <Content Include="Content\kingfood\img\thumbs\team-1.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\team-2.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\team-3.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\team-4.jpg" />
+    <Content Include="Content\kingfood\img\thumbs\timeline-bg.png" />
+    <Content Include="Content\kingfood\js\bootstrap.min.js" />
+    <Content Include="Content\kingfood\js\count-to.js" />
+    <Content Include="Content\kingfood\js\custom.js" />
+    <Content Include="Content\kingfood\js\jquery-2.1.1.min.js" />
+    <Content Include="Content\kingfood\js\jquery.appear.js" />
+    <Content Include="Content\kingfood\js\jquery.easing.js" />
+    <Content Include="Content\kingfood\js\jquery.easypiechart.min.js" />
+    <Content Include="Content\kingfood\js\jquery.flexslider.js" />
+    <Content Include="Content\kingfood\js\jquery.gmap3.min.js" />
+    <Content Include="Content\kingfood\js\jquery.mb.YTPlayer.js" />
+    <Content Include="Content\kingfood\js\jquery.mixitup.js" />
+    <Content Include="Content\kingfood\js\jquery.parallax-1.1.3.js" />
+    <Content Include="Content\kingfood\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\kingfood\js\jquery.stellar.min.js" />
+    <Content Include="Content\kingfood\js\jquery.validate.min.js" />
+    <Content Include="Content\kingfood\js\modernizr.custom.js" />
+    <Content Include="Content\kingfood\js\owl.carousel.js" />
+    <Content Include="Content\kingfood\js\retina.js" />
+    <Content Include="Content\kingfood\js\waypoints.min.js" />
+    <Content Include="Content\loading.gif" />
+    <Content Include="Content\logo.png" />
+    <Content Include="Content\menuIco.gif" />
+    <Content Include="Content\pic\1332451628_tripadvisor.png" />
+    <Content Include="Content\pic\1332451672_facebook.png" />
+    <Content Include="Content\pic\1332451744_yelp.png" />
+    <Content Include="Content\pic\1332468622_gmail.png" />
+    <Content Include="Content\pic\1332529500_twitter.png" />
+    <Content Include="Content\pic\androidBackground.jpg" />
+    <Content Include="Content\pic\ch.jpg" />
+    <Content Include="Content\pic\jp-bg.jpg" />
+    <Content Include="Content\pic\jp-mob.jpg" />
+    <Content Include="Content\pic\logo.png" />
+    <Content Include="Content\pic\o-SUSHI-facebook %281%29.jpg" />
+    <Content Include="Content\pic\o-SUSHI-facebook.jpg" />
+    <Content Include="Content\pic\Salmon_sushi_cut %281%29.jpg" />
+    <Content Include="Content\pic\Salmon_sushi_cut.jpg" />
+    <Content Include="Content\pic\slider-bg-1-mob.jpg" />
+    <Content Include="Content\pic\slider-bg-1.jpg" />
+    <Content Include="Content\pic\slider-bg-2-mob.jpg" />
+    <Content Include="Content\pic\slider-bg-2.jpg" />
+    <Content Include="Content\pic\slider-bg-3-mob.jpg" />
+    <Content Include="Content\pic\slider-bg-3.jpg" />
+    <Content Include="Content\pic\sushi.jpg" />
+    <Content Include="Content\pic\Sushi11.jpg" />
+    <Content Include="Content\pic\Sushi4.jpg" />
+    <Content Include="Content\security-card.png" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\tripadvisor.png" />
+    <Content Include="Content\twitter.png" />
+    <Content Include="Content\yelp.png" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\menu.pdf" />
+    <Content Include="Areas\Demo\Views\web.config" />
+    <Content Include="Areas\Demo\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Demo\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Demo\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Demo\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Demo\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Demo\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\Admin\List.cshtml" />
+    <Content Include="Areas\Demo\Views\Admin\KillOrderX7be.cshtml" />
+    <Content Include="Areas\Demo\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\Error\Error404.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\List.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\Category.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\Categoryitem.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\CategoryitemEdit.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\CategoryitemDelete.cshtml" />
+    <Content Include="Areas\Demo\Views\OnlineDash\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\Help.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\DeliveryArea.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\Category.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\CategoryItem.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\AddItemToBasket.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\CompleteOrder.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\TakePayment.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\Basket.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\GenericPayment.cshtml" />
+    <Content Include="Areas\Demo\Views\Report\List.cshtml" />
+    <Content Include="Areas\Demo\Views\Report\DailyReport.cshtml" />
+    <Content Include="Areas\Demo\Views\Report\MultipleReport.cshtml" />
+    <Content Include="Areas\Demo\Views\Report\NoDateReport.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopUser\List.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopUser\Create.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopUser\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopUser\Delete.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\TakePaymentResult.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\GenericPaymentResult.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\BasketSummary.cshtml" />
+    <Content Include="Areas\Demo\Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\web.config" />
+    <Content Include="Areas\DemoMulti\Views\ShopUser\Create.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopUser\Delete.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopUser\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopUser\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Account\Login.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Admin\KillOrderX7be.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Admin\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Error\Error404.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Error\Index.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\Category.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\Categoryitem.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\CategoryitemDelete.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\CategoryitemEdit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\OnlineDash\Index.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\AddItemToBasket.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\Basket.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\BasketSummary.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\Category.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\CategoryItem.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\CompleteOrder.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\DeliveryArea.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\GenericPayment.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\GenericPaymentResult.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\Help.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\Index.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\TakePayment.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\TakePaymentResult.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Report\DailyReport.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Report\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Report\MultipleReport.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Report\NoDateReport.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Home\Home.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Areas\Demo\Content\menu.pdf" />
+    <Content Include="Areas\Demo\Views\OptionItem\Add.cshtml" />
+    <Content Include="Areas\Demo\Views\OptionItem\List.cshtml" />
+    <Content Include="Areas\Demo\Views\OptionItem\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\OptionItem\Delete.cshtml" />
+    <Content Include="Areas\Demo\Views\ServerSetting\List.cshtml" />
+    <Content Include="Areas\Demo\Views\ServerSetting\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\DeliveryCost\List.cshtml" />
+    <Content Include="Areas\Demo\Views\DeliveryCost\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopNews\Add.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopNews\Delete.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopNews\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\ShopNews\List.cshtml" />
+    <Content Include="Areas\Demo\Views\Order\CategoryList.cshtml" />
+    <Content Include="Areas\Demo\Views\SubItem\List.cshtml" />
+    <Content Include="Areas\Demo\Views\SubItem\Create.cshtml" />
+    <Content Include="Areas\Demo\Views\SubItem\AddNewSubItem.cshtml" />
+    <Content Include="Areas\Demo\Views\SubItem\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Demo\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Demo\Views\Category\List.cshtml" />
+    <Content Include="Areas\Demo\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\CategoryitemCreate.cshtml" />
+    <Content Include="Areas\Demo\Views\MenuItem\CategoryItemSelection.cshtml" />
+    <Content Include="Areas\Demo\Views\OnlineDash\Detail.cshtml" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\core.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\icons.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\larger.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\list.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\mixins.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\path.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\spinning.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\stacked.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\less\variables.less" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\DemoMulti\Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\DemoMulti\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\DemoMulti\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\DemoMulti\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\DemoMulti\Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\CategoryitemCreate.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\MenuItem\CategoryItemSelection.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Order\CategoryList.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ServerSetting\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ServerSetting\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopNews\Add.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopNews\Delete.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopNews\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\ShopNews\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\SubItem\AddNewSubItem.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\SubItem\Create.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\SubItem\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\SubItem\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Category\Create.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\Category\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\DeliveryCost\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\DeliveryCost\List.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\OptionItem\Add.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\OptionItem\Delete.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\OptionItem\Edit.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\OptionItem\List.cshtml" />
+    <Content Include="Areas\Demo\Views\Customer\Register.cshtml" />
+    <Content Include="Areas\DemoMulti\Views\OnlineDash\Detail.cshtml" />
+    <Content Include="Areas\Demo\Views\OnlineDash\Reprint.cshtml" />
+    <Content Include="Areas\Demo\Views\Shared\_LayoutPrint.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Error\Error404.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Report\DailyReport.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Report\MultipleReport.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Report\NoDateReport.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\web.config" />
+    <Content Include="Areas\IndaSoftAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Content\kingfood\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\kingfood\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\kingfood\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\kingfood\fonts\FontAwesome.otf" />
+    <Content Include="Content\kingfood\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\kingfood\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\kingfood\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Demo2\Views\web.config" />
+    <Content Include="Areas\Demo2\Content\menu.pdf" />
+    <Content Include="Areas\Demo2\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Demo2\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Demo2\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Demo2\Views\Admin\KillOrderX7be.cshtml" />
+    <Content Include="Areas\Demo2\Views\Admin\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Demo2\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Demo2\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\Category\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Customer\Register.cshtml" />
+    <Content Include="Areas\Demo2\Views\DeliveryCost\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\DeliveryCost\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Error\Error404.cshtml" />
+    <Content Include="Areas\Demo2\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Demo2\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\Category.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\Categoryitem.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\CategoryitemCreate.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\CategoryitemDelete.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\CategoryitemEdit.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\CategoryItemSelection.cshtml" />
+    <Content Include="Areas\Demo2\Views\MenuItem\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\OnlineDash\Detail.cshtml" />
+    <Content Include="Areas\Demo2\Views\OnlineDash\Index.cshtml" />
+    <Content Include="Areas\Demo2\Views\OnlineDash\Reprint.cshtml" />
+    <Content Include="Areas\Demo2\Views\OptionItem\Add.cshtml" />
+    <Content Include="Areas\Demo2\Views\OptionItem\Delete.cshtml" />
+    <Content Include="Areas\Demo2\Views\OptionItem\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\OptionItem\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\AddItemToBasket.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\Basket.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\BasketSummary.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\Category.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\CategoryItem.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\CategoryList.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\CompleteOrder.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\DeliveryArea.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\GenericPayment.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\GenericPaymentResult.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\Help.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\TakePayment.cshtml" />
+    <Content Include="Areas\Demo2\Views\Order\TakePaymentResult.cshtml" />
+    <Content Include="Areas\Demo2\Views\Report\DailyReport.cshtml" />
+    <Content Include="Areas\Demo2\Views\Report\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Report\MultipleReport.cshtml" />
+    <Content Include="Areas\Demo2\Views\Report\NoDateReport.cshtml" />
+    <Content Include="Areas\Demo2\Views\ServerSetting\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\ServerSetting\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Demo2\Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Areas\Demo2\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Demo2\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Demo2\Views\Shared\_LayoutPrint.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopNews\Add.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopNews\Delete.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopNews\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopNews\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopUser\Create.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopUser\Delete.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopUser\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\ShopUser\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\SubItem\AddNewSubItem.cshtml" />
+    <Content Include="Areas\Demo2\Views\SubItem\Create.cshtml" />
+    <Content Include="Areas\Demo2\Views\SubItem\Edit.cshtml" />
+    <Content Include="Areas\Demo2\Views\SubItem\List.cshtml" />
+    <Content Include="Areas\Demo2\Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Demo2\Content\Client\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Demo2\Content\Admin\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="Areas\Demo2\Content\Admin\bootstrap\bootstrap-theme.min.css.map" />
+    <Content Include="Areas\Demo2\Content\Admin\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Demo2\Content\Admin\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Demo2\Content\Admin\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Demo2\Content\Admin\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Demo2\Views\Shared\_LayoutAdminHome.cshtml" />
+    <Content Include="Areas\Demo2\Views\Home\App.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Payment\GenericPayment.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Payment\GenericPaymentResult.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Shared\_LayoutAdminHome.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Admin\GeneratePassword.cshtml" />
+    <Content Include="Areas\IndaSoftAdmin\Views\Report\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\web.config" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\FontAwesome.otf" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\DemoChinese\Content\Client\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\DemoChinese\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Account\Login.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Admin\KillOrderX7be.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Admin\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Category\Create.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Category\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Customer\Register.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\DeliveryCost\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\DeliveryCost\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Error\Error404.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Error\Index.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Home\Index.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\Category.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\Categoryitem.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\CategoryitemCreate.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\CategoryitemDelete.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\CategoryitemEdit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\CategoryItemSelection.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\MenuItem\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OnlineDash\Detail.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OnlineDash\Index.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OnlineDash\Reprint.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OptionItem\Add.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OptionItem\Delete.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OptionItem\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\OptionItem\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\AddItemToBasket.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\Basket.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\BasketSummary.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\CategoryList.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\CompleteOrder.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\DeliveryArea.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\GenericPayment.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\GenericPaymentResult.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\Help.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\Index.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\TakePayment.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Order\TakePaymentResult.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Report\DailyReport.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Report\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Report\MultipleReport.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Report\NoDateReport.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ServerSetting\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ServerSetting\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_LayoutAdminHome.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\Shared\_LayoutPrint.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopNews\Add.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopNews\Delete.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopNews\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopNews\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopUser\Create.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopUser\Delete.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopUser\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\ShopUser\List.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\SubItem\AddNewSubItem.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\SubItem\Create.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\SubItem\Edit.cshtml" />
+    <Content Include="Areas\DemoChinese\Views\SubItem\List.cshtml" />
+    <None Include="bundleconfig.json" />
+    <Content Include="Content\admin\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="Content\admin\bootstrap\bootstrap-theme.min.css.map" />
+    <Content Include="Content\admin\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\admin\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\admin\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\admin\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\IndaSoftApi.pubxml" />
+    <None Include="Properties\PublishProfiles\IndaSoftBatch.pubxml" />
+    <None Include="Properties\PublishProfiles\IndaSoftDev.pubxml" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Test\qunit\qunit.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\IndaSoftProduction.pubxml" />
+    <None Include="Properties\PublishProfiles\IndaSoftTest.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Test\qunit\qunit.js" />
+    <Content Include="Test\webapi\qunit-utils.js" />
+    <Content Include="Test\webapi\webapi.endpoint.tests.html" />
+    <Content Include="Test\webapi\webapi.endpoint.tests.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Test\webapi\webapi.report.tests.html" />
+    <Content Include="Test\webapi\webapi.report.tests.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_Helpclient.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\Blank.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Helpclient.cshtml" />
+    <Content Include="Views\Home\Privacypolicy.cshtml" />
+    <Content Include="Views\Admin\List.cshtml" />
+    <Content Include="Views\Home\ChargeCalculator.cshtml" />
+    <None Include="Web.IndaSoftApi.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IndaSoftBatch.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IndaSoftDev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.IndaSoftProduction.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.IndaSoftTest.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{d42f3734-766f-404b-8d5d-1acd6c42e686}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Test.Utilities\Core.Test.Utilities.csproj">
+      <Project>{949ef63b-1cfc-4c93-8b22-9e0149479f74}</Project>
+      <Name>Core.Test.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Builder.WsDataContract\Takeaway.Builder.WsDataContract.csproj">
+      <Project>{a3d782f8-d2a0-4960-a08c-3a300e709ec3}</Project>
+      <Name>Takeaway.Builder.WsDataContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.BusinessEngine\Takeaway.BusinessEngine.csproj">
+      <Project>{a8423431-e9d1-443c-bc16-e667660a0595}</Project>
+      <Name>Takeaway.BusinessEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data.Entities\Takeaway.Data.Entities.csproj">
+      <Project>{535fc7eb-27c3-4834-929b-7305f51933f0}</Project>
+      <Name>Takeaway.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data.Repositories\Takeaway.Data.Repositories.csproj">
+      <Project>{42bb3669-7ed6-4876-9f19-581a9d0bfbbc}</Project>
+      <Name>Takeaway.Data.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Data\Takeaway.Data.csproj">
+      <Project>{715f1cb3-0202-454b-a1b5-7a6380717da2}</Project>
+      <Name>Takeaway.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Service.Contract\Takeaway.Service.Contract.csproj">
+      <Project>{3E991F3B-B614-44F4-9D53-439A06D12EC9}</Project>
+      <Name>Takeaway.Service.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Takeaway.Service\Takeaway.Service.csproj">
+      <Project>{81d7bef8-2bde-4728-8e53-b08a5403a065}</Project>
+      <Name>Takeaway.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\WebResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49041</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49041/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

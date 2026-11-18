@@ -1,0 +1,36 @@
+﻿@using Takeway.Web.Application.Extension
+@model Takeway.Web.ViewModels.Admin.ServerSettingViewModel
+
+@{
+    ViewBag.Title = "Manage Settings";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <h2>Server Settings</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Value
+            </th>
+        </tr>
+        @foreach (var item in Model.Settings)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SettingValue)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.Id})
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>

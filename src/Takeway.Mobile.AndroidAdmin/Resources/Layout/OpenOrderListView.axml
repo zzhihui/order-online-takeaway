@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:local="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+
+  <!--Order header line-->
+  <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:orientation="horizontal">
+    
+    <TextView local:MvxBind="Text Id, Converter=OrderId"
+              android:layout_height="wrap_content"
+              style="@style/AppFont.Medium.Bold"
+              android:layout_width="wrap_content"/>
+    <TextView android:text=":"
+              android:layout_width="0dp"
+              android:layout_weight="1"
+              android:layout_height="wrap_content"
+              />
+    <TextView android:text="Total:"   android:layout_height="wrap_content"
+              style="@style/AppFont.Medium.Bold"
+              android:layout_width="wrap_content"/>
+    <TextView local:MvxBind="Text OrderTotal, Converter=DecimalString"
+              android:layout_height="wrap_content"
+              style="@style/AppFont.Medium.Bold"
+              android:layout_width="wrap_content"/>
+  </LinearLayout>
+
+  
+  <!--Contact Info Line-->
+  <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:orientation="horizontal">
+    <TextView local:MvxBind="Text ContactName"   
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"/>
+    <TextView 
+      android:text=" " 
+      android:layout_width="wrap_content"  
+      android:layout_height="wrap_content"
+              />
+    <TextView local:MvxBind="Text PhoneNumber"  
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"/>
+
+  </LinearLayout>
+
+  <TextView local:MvxBind="Text Address"  
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+  <TextView local:MvxBind="Text DeliveryType.Name"  
+            android:layout_height="wrap_content"
+            style="@style/AppFont.Medium.Bold"
+            android:layout_width="wrap_content" />
+
+  <LinearLayout
+         android:layout_height="10dp"
+         android:layout_width="fill_parent"
+         android:orientation="horizontal"/>
+  
+  
+  
+</LinearLayout>

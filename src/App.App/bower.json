@@ -1,0 +1,6 @@
+{
+  "name": "App.App",
+  "dependencies": {
+    "angular-cache": "~4.6.0"
+  }
+}

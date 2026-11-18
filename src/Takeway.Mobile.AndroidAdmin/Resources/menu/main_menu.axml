@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item android:id="@+id/MyHomeMenuItem"
+     android:icon="@drawable/ic_home"
+     android:title="Home"
+     android:showAsAction="always|withText"/>
+  <item
+               android:id="@+id/SeparaterMenuItem1"
+               android:enabled="false"
+               android:title=""/>
+  
+  <item android:id="@+id/OrderMenuItem"
+        android:icon="@drawable/ic_menu_order"
+        android:title="Orders"
+        android:showAsAction="always|withText"/>
+  <item android:id="@+id/MoreMenuItem"
+        android:icon="@drawable/ic_menu_more"
+        android:showAsAction="always">
+    <menu>
+      <item android:id="@+id/ReportMenuItem"
+              android:title="Reports"
+              android:icon="@drawable/ic_menu_report"
+              android:showAsAction="ifRoom|withText"/>
+      
+      <item android:id="@+id/SettingMenuItem"
+          android:title="Settings"
+          android:icon="@drawable/ic_settings"
+          android:showAsAction="ifRoom|withText"/>
+
+      <item android:id="@+id/SMSUsMenuItem"
+             android:title="SMS"
+             android:icon="@drawable/ic_sms"
+             android:showAsAction="ifRoom|withText"/>
+
+      <item android:id="@+id/CallUsMenuItem"
+             android:title="Call us"
+             android:icon="@drawable/ic_call"
+             android:showAsAction="ifRoom|withText"/>
+
+
+      <item android:id="@+id/HelpMenuItem"
+              android:icon="@drawable/ic_menu_help"
+              android:title="Help"
+              android:showAsAction="ifRoom|withText"/>
+
+      <item android:id="@+id/AboutMenuItem"
+          android:title="About us"
+          android:icon="@drawable/ic_about"
+          android:showAsAction="ifRoom|withText"/>
+    </menu>
+  </item>
+
+</menu>

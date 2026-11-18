@@ -1,0 +1,55 @@
+﻿<ion-view view-title="Add to Basket">
+    <ion-content class="padding">
+        <!--Item Summary Header-->
+        <ion-list>
+            <ion-item class="item item-divider">
+                {{menuItem.name}}
+            </ion-item>
+            <ion-item class="item">
+                <img class="full-image" style="height: 120px" ng-src="{{menuItem.imageUrl}}" ng-if="menuItem.imageUrl">
+            </ion-item>
+
+            <ion-item class="item item-avatar item-text-wrap">
+                <img ng-src="img/food.png" ng-if="!menuItem.imageUrl">
+                <p>{{menuItem.description}}</p>
+                <span class="item-note">
+                    <h2>{{"€"+(menuItem.price | number:2)}}</h2>
+                </span>
+            </ion-item>
+        </ion-list>
+
+        <!--Option Extras-->
+        <ion-list>
+
+            <label class="item item-text-wrap" ng-repeat="subitem in menuItem.subItemSelections">
+                <p>Select</p>
+                <select ng-model="subitem.selected" ng-init="subitem.selected= subitem.selections[0]"
+                        ng-options="subitemoption as subitemoption.name for subitemoption in subitem.selections">
+
+                </select>
+            </label>
+        </ion-list>
+
+        <!--Number-->
+        <ion-list>
+            <label class="item item-text-wrap">
+                <p>Quantity</p>
+                <select ng-model="$parent.dishCount" ng-init="$parent.dishCount= pickercount[0]"
+                        ng-options="pick as pick for pick in pickercount"></select>
+            </label>
+        </ion-list>
+
+
+        <!--Comment-->
+        <div class="list">
+            <label class="item item-input item-text-wrap">
+                <textarea placeholder="Comments" ng-model="menuItem.comment" maxlength="50"></textarea>
+            </label>
+        </div>
+
+        <button class="button button-block button-assertive" ng-click="addItemToBasket()">
+            Add to Basket
+        </button>
+
+    </ion-content>
+</ion-view>

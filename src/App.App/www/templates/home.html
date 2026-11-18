@@ -1,0 +1,75 @@
+﻿<ion-view view-title="Welcome">
+    <ion-content>
+        <div class="text-center">
+            <h2>{{shopInfo.shopName}}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-50">
+                <b>Tel: {{shopInfo.shopNumber}}</b>
+            </div>
+            <div class="col-50">
+                <b> {{shopInfo.shopAddress1}}, {{shopInfo.shopAddress2}}</b>
+            </div>
+        </div>
+        <ion-slide-box>
+            <ion-slide>
+                <div class="box">
+                    <a href="#/tab/category">
+                        <img ng-src="img/slide1.png" class="iframe-fullfill">
+                    </a>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box">
+
+                    <a href="#/tab/category">
+                        <img ng-src="img/slide2.png" class="iframe-fullfill">
+                    </a>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box">
+                    <a href="#/tab/category">
+                        <img ng-src="img/slide3.png" class="iframe-fullfill">
+                    </a>
+
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+
+
+        <div class="row">
+            <a href="#/tab/category" class="button button-royal button-large ion-star">
+                View Menu
+            </a>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img ng-src="img/ic_intro_step1.png" width="100px" height="100px">
+            </div>
+            <div class="col">
+                <img ng-src="img/ic_intro_step2.png" width="100px" height="100px">
+            </div>
+            <div class="col">
+                <img ng-src="img/ic_intro_step3.png" width="100px" height="100px">
+            </div>
+        </div>
+        <iframe ng-src="{{googleMap}}" class="iframe-fullfill"></iframe>
+        <ion-list>
+
+            <ion-item class="item item-divider">
+                News
+            </ion-item>
+            <ion-item class="item item-icon-left item-text-wrap" ng-repeat="news in shopNews" type="item-text-wrap">
+                <i class="icon ion-document-text"></i>
+                {{news.news}}
+
+                <span class="item-note">
+                    {{news.created| date:'dd-MMMM-yyyy'}}
+                </span>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

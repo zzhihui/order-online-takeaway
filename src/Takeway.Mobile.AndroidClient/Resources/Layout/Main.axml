@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <!--Header-->
+  <include layout="@layout/_headmessagecontrol"/>
+  
+  <!--Special offer-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        style="@style/AppFont.Small"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        local:MvxBind="Text SpecialOffer"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+  
+  <!--Line Break-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="1dp"
+      android:background="#000000"
+      android:orientation="horizontal" />
+  
+  <!--Categroy Listview-->
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_weight="1"
+      android:orientation="vertical">
+    <Mvx.MvxListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        local:MvxBind="ItemsSource MenuItemCategory; ItemClick MenuItemCategorySelectedCommand"
+        local:MvxItemTemplate="@layout/menuitemcategorylistview" />
+  </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,63 @@
+﻿<controls:MetroWindow x:Class="Takeaway.Admin.Wpf.Views.MergeOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             ShowMaxRestoreButton="False"
+             ShowMinButton="False"
+             ResizeMode="NoResize"
+             Background="#2D88EF"
+             Icon="../Icon.ico"
+             ShowIconOnTitleBar="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <controls:MetroWindow.Resources>
+        <converters:OrderDisplayStringConverter x:Key="OrderDisplayStringConverter" />
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label Content="Select Order:" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+
+            <ListView ItemsSource="{Binding AllOrders}" SelectionMode="Single" SelectedItem="{Binding SelectedOtherOrder}" Background="Transparent" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Orange" BorderThickness="2">
+                            <Grid Background="#DA542D">
+                                <ToggleButton IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListBoxItem}},Path=IsSelected}" FontSize="12" Width="Auto" Height="35" IsManipulationEnabled="false" Content="{Binding Converter={StaticResource OrderDisplayStringConverter}}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" Width="500" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </StackPanel>
+        <Button x:Name="DoAction" Content="Merge Order" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource Button}" Margin="0,0,10,0"  />
+        <Button x:Name="DoCancel" Content="Cancel" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="70" Height="50" Style="{DynamicResource Button}" Margin="10,0,0,0" />
+
+    </Grid>
+</controls:MetroWindow>

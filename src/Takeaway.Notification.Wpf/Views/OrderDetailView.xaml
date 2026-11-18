@@ -1,0 +1,112 @@
+﻿<controls:MetroWindow
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+            
+             xmlns:local="clr-namespace:Takeaway.Admin.Wpf.Views" x:Class="Takeaway.Admin.Wpf.Views.OrderDetailView"
+             mc:Ignorable="d" 
+             ShowMaxRestoreButton="False"
+             ShowMinButton="False"
+             ResizeMode="NoResize"
+             Icon="../Icon.ico"
+             ShowIconOnTitleBar="True"
+             Background="#668cff"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <controls:MetroWindow.Resources>
+
+        <converters:OrderIdConverter x:Key="OrderIdConverter" />
+        <converters:PriceConverter x:Key="PriceConverter" />
+        <converters:SubItemStringConverter x:Key="SubItemStringConverter" />
+        <converters:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
+        <converters:PaymentRefConverter x:Key="PaymentRefConverter" />
+        <converters:DateTimeConverter x:Key="DateTimeConverter" />
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Vertical">
+                    <Setter Property="Width" Value="30"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="120*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+            <Label Content="Order Ref:" HorizontalAlignment="Right"  Style="{DynamicResource Label}"/>
+            <Label Content="{Binding SelectedOrder.OrderRef, Converter={StaticResource OrderIdConverter}}" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" >
+            <Label Content="Order Total: €" HorizontalAlignment="Right" Style="{DynamicResource Label}" />
+            <Label Content="{Binding SelectedOrder.OrderTotal, Converter={StaticResource PriceConverter}}" HorizontalAlignment="Left"  Style="{DynamicResource Label}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="{Binding SelectedOrder.ContactName}" HorizontalAlignment="Right" Style="{DynamicResource Label}" />
+            <Label Content="{Binding SelectedOrder.PhoneNumber}" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" >
+            <Label Content="Delivery Charge: €" HorizontalAlignment="Right" Style="{DynamicResource Label}" />
+            <Label Content="{Binding SelectedOrder.DeliveryCharge, Converter={StaticResource PriceConverter}}" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+        </StackPanel>
+        <Label Content="{Binding SelectedOrder.Address}" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource Label}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" >
+            <Label Content="{Binding SelectedOrder.DeliveryType.Name}" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+            <Label Content="{Binding SelectedOrder.PaymentType,Converter={StaticResource PaymentRefConverter}}" HorizontalAlignment="Left" Style="{DynamicResource Label}"/>
+        </StackPanel>
+        <Label Content="{Binding SelectedOrder.Created,Converter={StaticResource DateTimeConverter}}" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1"  Style="{DynamicResource Label}"/>
+        <ListView  Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding SelectedOrder.OrderItems}" Background="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="#0092A6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180*"/>
+                            <ColumnDefinition Width="70"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="{Binding Name}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Style="{DynamicResource Label}"/>
+                        <Label Content="{Binding Price, Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" Style="{DynamicResource Label}"/>
+                        <Label Content="{Binding SubItemSelections, Converter={StaticResource SubItemStringConverter}}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Style="{DynamicResource Label}"/>
+                        <Label Content="{Binding Comment}" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Style="{DynamicResource Label}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+
+            <Button x:Name="DoClose" Content="Close Window" Margin="10,0,10,0" Style="{DynamicResource Button}"/>
+            <Button x:Name="DoPrintOrder" Content="Print Order"    Margin="10,0,10,0" Style="{DynamicResource Button}"/>
+            
+       
+        </StackPanel>
+        <local:_ErrorMessage  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</controls:MetroWindow>

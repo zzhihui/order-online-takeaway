@@ -1,0 +1,40 @@
+﻿@model Takeway.Web.ViewModels.Admin.ShopNewsViewModel
+@using Takeway.Web.Application.Extension
+
+
+@{
+    ViewBag.Title = "Manage Shop News";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+}
+<div id="page-wrapper">
+    <h2>Shop News</h2>
+    <p>
+        @Html.ActionLink("Create New", "Add", "ShopNews", null, new { @class = "btn btn-primary" })
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                News
+            </th>
+            <th>
+                Created
+            </th>
+        </tr>
+        @foreach (var item in Model.ShopNewses)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.News)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+        }
+    </table>
+</div>

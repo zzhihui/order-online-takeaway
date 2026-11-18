@@ -1,0 +1,21 @@
+<ion-view view-title="Complete Order">
+    <ion-content class="padding">
+        <div class="item">
+            <a href="#/tab" class="button button-dark ion-backspace">
+                Back to main
+            </a>
+        </div>
+
+        <!--Orde summary-->
+        <div class="item item-divider">Payment is Complete</div>
+
+        <div class="item item-text-wrap">
+            <h2>Amount: {{"€"+(amount | number:2)}}</h2>
+        </div>
+        <div class="item item-text-wrap">
+            <h2>Payment Ref: {{paymentRef}}</h2>
+        </div>
+        
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,77 @@
+﻿@using Core.Common.Utility
+@using Core.Common.Utility.Extension
+@using Takeway.Web.Application.Extension
+@using Takeway.Web.Content
+@model Takeway.Web.ViewModels.Order.CompleteOrderViewModel
+
+@{
+    ViewBag.Title = WebResource.page_order_completeorder_title;
+    Layout = Html.Shared("_Layout.cshtml");
+}
+
+<div>
+    <h2>@WebResource.page_order_completeorder_title</h2>
+
+    <div class="list-group">
+
+        <div class="list-group-item">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Order Total</label>
+                <div class="col-lg-10">
+                    <label class="col-lg-2 control-label">@Model.OrderTotal.ToPriceStringIe()</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Delivery Charge</label>
+                <div class="col-lg-10">
+                    <label class="col-lg-2 control-label">@Model.DeliveryCharge.ToPriceStringIe()</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <div class="form-group">
+                <label class="col-lg-2 control-label"><h6>Sub Total</h6></label>
+                <div class="col-lg-10">
+                    <label class="col-lg-2 control-label"><h6>@Model.SubTotal.ToPriceStringIe()</h6></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <div class="form-group">
+                <h6>@WebResource.page_order_completeorder_description</h6>
+            </div>
+        </div>
+        <div class="list-group-item">
+            <div class="form-group">
+                <h6>@WebResource.page_order_completeorder_orderref @Model.OrderId</h6>
+            </div>
+        </div>
+        @if (Model.IsDelivery.HasValue && !Model.IsDelivery.Value)
+        {
+            <div class="list-group-item">
+                <div class="form-group">
+                    <h6>Estimate Ready Time: @DateTimeUtil.GetCurrentTime().AddMinutes(20).ToShortTimeString()</h6>
+                </div>
+            </div>
+
+        }
+        else
+        {
+            <div class="list-group-item">
+                <div class="form-group">
+                    <h6>Estimate Delivery Time: @DateTimeUtil.GetCurrentTime().AddMinutes(45).ToShortTimeString()</h6>
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+
+
+</div>

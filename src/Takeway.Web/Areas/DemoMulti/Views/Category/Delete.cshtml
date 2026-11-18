@@ -1,0 +1,13 @@
+﻿@model Takeway.Web.ViewModels.Order.CategoryViewModel
+@using Takeway.Web.Application.Extension
+@{
+    ViewBag.Title = "Delete";
+    Layout = Html.Shared("_LayoutAdmin.cshtml");
+
+    <h2>Delete</h2>
+    <p>
+        @Html.ActionLink("Back", "List")
+    </p>
+    <div class="row">
+        @ViewBag.ErrorMessage
+    </div>

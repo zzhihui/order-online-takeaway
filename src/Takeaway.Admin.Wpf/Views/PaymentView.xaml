@@ -1,0 +1,95 @@
+﻿<controls:MetroWindow x:Class="Takeaway.Admin.Wpf.Views.PaymentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:views="clr-namespace:Takeaway.Admin.Wpf.Views"
+             xmlns:converters="clr-namespace:Takeaway.Admin.Wpf.Utility.Converters"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d"
+             ShowMaxRestoreButton="False"
+             ShowMinButton="False"
+             ResizeMode="NoResize"
+             Background="#2D88EF"
+             Icon="../Icon.ico"
+             ShowIconOnTitleBar="True"
+             Height="400" Width="400"
+             d:DesignHeight="300" d:DesignWidth="400">
+    <controls:MetroWindow.Resources>
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#FFD200" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <converters:PriceConverter x:Key="PriceConverter" />
+    </controls:MetroWindow.Resources>
+    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" BusyContent="Please Wait...." >
+    <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <views:_ErrorMessage  Grid.Row="0"  Grid.ColumnSpan="2"/>
+            <!--Images-->
+            <Label Content="Amount:" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Style="{DynamicResource Label}"/>
+            <TextBox HorizontalAlignment="Left" Text="{Binding Payment.Amount, Converter={StaticResource PriceConverter}}" VerticalAlignment="Top" Width="150"  Grid.Row="1" Grid.Column="1"/>
+
+            <Label Content="Cardholder Name:" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Style="{DynamicResource Label}"/>
+            <TextBox HorizontalAlignment="Left" Text="{Binding Payment.CardName}" VerticalAlignment="Top" Width="150"  Grid.Row="2" Grid.Column="1"/>
+
+            <Label Content="Card Number:" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0" Style="{DynamicResource Label}"/>
+            <TextBox HorizontalAlignment="Left" Text="{Binding Payment.CardNumber}" VerticalAlignment="Top" Width="150"  Grid.Row="3" Grid.Column="1"/>
+
+            <Label Content="CVC Code:" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0" Style="{DynamicResource Label}"/>
+            <StackPanel Orientation="Vertical"  Grid.Row="4" Grid.Column="1">
+
+                <TextBox HorizontalAlignment="Left" Text="{Binding Payment.CardCvc}" VerticalAlignment="Top" Width="150"  />
+                <TextBlock Text="These are the last 3 digits of the code printed on the revert side of your card" TextWrapping="Wrap" />
+                
+            </StackPanel>
+            <Label Content="Expiry Date:" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Style="{DynamicResource Label}"/>
+            <StackPanel Orientation="Horizontal"  Grid.Row="5" Grid.Column="1">
+
+                <ComboBox   DisplayMemberPath="Name"
+							ItemsSource="{Binding PaymentYear}"
+							SelectedItem="{Binding SelectedYear}"/>
+                <ComboBox Margin="10,0,0,0" 
+                          DisplayMemberPath="Name"
+							ItemsSource="{Binding PaymentMonths}"
+							SelectedItem="{Binding SelectedMonth}"
+                          />
+
+            </StackPanel>
+
+
+
+
+            <Button x:Name="DoCancelPayment" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="7"  Grid.Column="0" Width="70" Height="50" Style="{DynamicResource Button}"/>
+            <Button x:Name="DoPayment" Content="Take Payment" HorizontalAlignment="Left" Grid.Row="7"  Grid.Column="1" Style="{DynamicResource Button}" Width="100" Height="50"/>
+
+
+
+
+
+        </Grid>
+    </xctk:BusyIndicator>
+</controls:MetroWindow>

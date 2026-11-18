@@ -1,0 +1,200 @@
+[
+  {
+    "outputFileName": "Content/admin/bundle.css",
+    "inputFiles": [
+      "Content/admin/font-awesome/css/font-awesome.css",
+      "Content/admin/metismenu/metisMenu.css",
+      "Content/admin/morrisjs/morris.css",
+      "Content/admin/sb-admin-2.css",
+      "Content/admin/timeline.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/admin/bundle.js",
+    "inputFiles": [
+      "Content/admin/sb-admin-2.js",
+      "Content/admin/morris-data.js",
+      "Content/admin/raphael/raphael.js",
+      "Content/admin/metismenu/metisMenu.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/IndaSoftAdmin/Content/admin/bundle.css",
+    "inputFiles": [
+      "Areas/IndaSoftAdmin/Content/admin/font-awesome/css/font-awesome.css",
+      "Areas/IndaSoftAdmin/Content/admin/metismenu/metisMenu.css",
+      "Areas/IndaSoftAdmin/Content/admin/morrisjs/morris.css",
+      "Areas/IndaSoftAdmin/Content/admin/sb-admin-2.css",
+      "Areas/IndaSoftAdmin/Content/admin/style.css",
+      "Areas/IndaSoftAdmin/Content/admin/timeline.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/IndaSoftAdmin/Content/admin/bundle.js",
+    "inputFiles": [
+      "Areas/IndaSoftAdmin/Content/admin/metismenu/metisMenu.js",
+      "Areas/IndaSoftAdmin/Content/admin/morrisjs/morris.js",
+      "Areas/IndaSoftAdmin/Content/admin/raphael/raphael.js",
+      "Areas/IndaSoftAdmin/Content/admin/flot-data.js",
+      "Areas/IndaSoftAdmin/Content/admin/morris-data.js",
+      "Areas/IndaSoftAdmin/Content/admin/sb-admin-2.js",
+      "Areas/IndaSoftAdmin/Content/admin/script.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/kingfood/bundle.js",
+    "inputFiles": [
+      "Content/kingfood/js/bootstrap.min.js",
+      "Content/kingfood/js/count-to.js",
+      "Content/kingfood/js/custom.js",
+      "Content/kingfood/js/jquery-2.1.1.min.js",
+      "Content/kingfood/js/jquery.appear.js",
+      "Content/kingfood/js/jquery.easing.js",
+      "Content/kingfood/js/jquery.easypiechart.min.js",
+      "Content/kingfood/js/jquery.flexslider.js",
+      "Content/kingfood/js/jquery.gmap3.min.js",
+      "Content/kingfood/js/jquery.mb.YTPlayer.js",
+      "Content/kingfood/js/jquery.mixitup.js",
+      "Content/kingfood/js/jquery.parallax-1.1.3.js",
+      "Content/kingfood/js/jquery.prettyPhoto.js",
+      "Content/kingfood/js/jquery.stellar.min.js",
+      "Content/kingfood/js/jquery.validate.min.js",
+      "Content/kingfood/js/modernizr.custom.js",
+      "Content/kingfood/js/owl.carousel.js",
+      "Content/kingfood/js/retina.js",
+      "Content/kingfood/js/waypoints.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/css/bootstrap.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/css/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/css/flexslider.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/css/flexslider.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/css/owl.carousel.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/css/owl.carousel.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/css/prettyPhoto.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/css/prettyPhoto.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/css/responsive.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/css/responsive.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/css/style.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Style.min.css",
+    "inputFiles": [
+      "Areas/J2D1/Content/Style.css"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/script.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/script.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/bootstrap.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/count-to.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/count-to.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/custom.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/custom.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/customorder.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/customorder.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.appear.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.appear.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.easing.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.easing.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.flexslider.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.flexslider.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.gmap3.min.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.gmap3.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.mb.YTPlayer.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.mb.YTPlayer.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.mixitup.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.mixitup.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/jquery.prettyPhoto.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/jquery.prettyPhoto.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/modernizr.custom.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/modernizr.custom.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/owl.carousel.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/owl.carousel.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/J2D1/Content/Client/js/retina.min.js",
+    "inputFiles": [
+      "Areas/J2D1/Content/Client/js/retina.js"
+    ]
+  }
+]
